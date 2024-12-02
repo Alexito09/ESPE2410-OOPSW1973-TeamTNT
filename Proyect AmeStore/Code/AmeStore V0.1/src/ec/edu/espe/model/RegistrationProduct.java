@@ -108,18 +108,29 @@ public static void registrationProduct() {
         String color = scanner.nextLine();
         
         System.out.print("The price is: ");
-        double price = scanner.nextInt();
+        double price = scanner.nextDouble();
         scanner.nextLine();
-
+        
+        int quantity = 0;
         System.out.print("How many units do you want:");
-        int quantity = scanner.nextInt();
+        if (scanner.hasNextInt()){
+            quantity = scanner.nextInt();
+        }else{
+            System.out.println("Registro Completo");
+            scanner.next();
+            
+        }
         
-        
+                
         RegistrationProduct RegistrationProductJava = new RegistrationProduct(name, category, size, quantity, color, price);
 
         
         RegistrationProductJava.saveToJsonFile(".json");
 
-        scanner.close();
+        
+    }
+
+    public static void main(String[] args){
+        registrationProduct();
     }
 }
