@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author USUARIO
+ * @author Mateo Topon
  */
 public class AmeStoreApp {
     
@@ -21,15 +21,12 @@ public class AmeStoreApp {
             System.out.println("======== AME STOREAPP ========");
             System.out.println("======== MAIN MENU ========");
             System.out.println("1. Option 1: registration product");
-            System.out.println("2. Option 2: buils");
-            System.out.println("3. Option 3: Salir");
+            System.out.println("2. Option 2: sale");
+            System.out.println("3. Option 3: Exit");
             System.out.println("================================");
-            System.out.print("Selection one option : ");
+            System.out.print("Selection an option : ");
             
-            // Leer la opción del usuario
             option = scanner.nextInt();
-
-            // Procesar la opción seleccionada
             
             switch (option) {
                 case 1:
@@ -37,15 +34,15 @@ public class AmeStoreApp {
                     continue;
                     
                 case 2:
-                    System.out.println("La fecha y hora actual es: " + java.time.LocalDateTime.now());
+                    ;
                     break;
                 case 3:
-                    System.out.println("¡Gracias por usar el programa! Hasta luego.");
+                    System.out.println("¡Thanks for using the program! See you later.");
                     break;
                 default:
-                    System.out.println("Opción no válida. Por favor, selecciona una opción del 1 al 3.");
+                    System.out.println("Invalid option. Please select an option from 1 to 3.");
             }
-            System.out.println(); // Espacio entre iteraciones
+            System.out.println(); 
         } while (option != 3);
 
         scanner.close();
