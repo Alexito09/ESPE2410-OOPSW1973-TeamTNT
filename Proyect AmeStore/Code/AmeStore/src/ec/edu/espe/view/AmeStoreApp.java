@@ -34,7 +34,7 @@ public class AmeStoreApp {
             switch (option) {
                 case 1:
                     registrationProduct();
-                    continue;
+                    break;
                     
                 case 2:
                     System.out.println("La fecha y hora actual es: " + java.time.LocalDateTime.now());
