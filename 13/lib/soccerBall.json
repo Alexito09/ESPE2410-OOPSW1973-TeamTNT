@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "001",
+    "_brand": "Nike",
+    "_size": "6",
+    "_material": null
+  },
+  {
+    "_id": "001",
+    "_brand": "Nike",
+    "_size": "6",
+    "_material": null
+  },
+  {
+    "_id": "01",
+    "_brand": "puma",
+    "_size": "6",
+    "_material": 5
+  },
+  {
+    "_id": "01",
+    "_brand": "puma",
+    "_size": "cuero",
+    "_material": 6
+  },
+  {
+    "_id": "002",
+    "_brand": "Nike",
+    "_size": "cuero",
+    "_material": 5
+  }
+]
