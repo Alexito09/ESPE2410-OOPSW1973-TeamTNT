@@ -1,8 +1,8 @@
 package ec.edu.espe.view;
 
 import ec.edu.espe.model.RegistrationProduct;
-import static ec.edu.espe.model.RegistrationProduct.registrationProduct;
 import java.util.Scanner;
+import utils.ProductManager;
 
 /**
  *
@@ -14,6 +14,7 @@ public class AmeStoreApp {
     
    
         Scanner scanner = new Scanner(System.in);
+        ProductManager manager = new ProductManager();
         int option;
 
         do {
@@ -30,7 +31,8 @@ public class AmeStoreApp {
             
             switch (option) {
                 case 1:
-                    registrationProduct();
+                    RegistrationProduct newProduct = RegistrationProduct.collectProductDetails();
+                    manager.saveToJsonFile(newProduct, "Clothes.json");
                     continue;
                     
                 case 2:
