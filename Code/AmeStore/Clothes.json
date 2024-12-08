@@ -14,5 +14,14 @@
     "quantity": 6,
     "color": "red",
     "price": 45.0
+  },
+  {
+    "id": "145",
+    "category": "man",
+    "name": "shirt",
+    "size": "s",
+    "quantity": 2,
+    "color": "rojo",
+    "price": 20.0
   }
 ]
