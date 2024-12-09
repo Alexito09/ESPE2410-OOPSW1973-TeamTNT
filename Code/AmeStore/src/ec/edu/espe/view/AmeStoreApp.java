@@ -3,6 +3,7 @@ package ec.edu.espe.view;
 import ec.edu.espe.model.Category;
 import ec.edu.espe.model.ClothingItem;
 import ec.edu.espe.model.RegistrationProduct;
+import java.util.List;
 import java.util.Scanner;
 import utils.ProductManager;
 
@@ -38,12 +39,12 @@ public class AmeStoreApp {
             System.out.println("======== AME STOREAPP ========");
             System.out.println("======== MAIN MENU ========");
             System.out.println("1. Option 1: Register product");
-            System.out.println("2. Option 2: Sale");
-            System.out.println("3. Option 3: Exit");
-            System.out.println("================================");
+           System.out.println("2. Option 2: Process sale");
+            System.out.println("3. Option 3: Show transaction history");
+            System.out.println("4. Option 4: Exit");
             System.out.print("Select an option: ");
-            
             option = scanner.nextInt();
+            scanner.nextLine(); // no estaba
             
             switch (option) {
                 case 1:
@@ -57,12 +58,17 @@ public class AmeStoreApp {
                     break;
                     
                 case 2:
-                    // Opciones para la venta (por implementar)
-                    System.out.println("Sale functionality will be implemented here.");
+                       manager.processSale(scanner);
+
+       
                     break;
                     
                 case 3:
-                    System.out.println("Thanks for using the program! See you later.");
+                  manager.showTransactionHistory();
+                    break;
+                    
+                    case 4:
+                        System.out.println("Exit");
                     break;
                     
                 default:

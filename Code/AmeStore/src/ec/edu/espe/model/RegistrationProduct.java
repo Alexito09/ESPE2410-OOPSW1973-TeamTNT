@@ -58,12 +58,20 @@ public class RegistrationProduct {
                ", price=" + price +
                '}';
     }
+    public boolean reduceStock(int quantity) {
+        if (this.quantity >= quantity) {
+            this.quantity -= quantity;
+            return true; // Reducción exitosa
+        }
+        return false; // Stock insuficiente
+    } //agregeeeeeee estos
 
     // Método para mostrar las prendas y precios sin pedir el precio
     public static  RegistrationProduct collectProductDetails(Category manCategory, Category womanCategory) {
         Scanner scanner = new Scanner(System.in);
 
         // Obtener ID del producto
+        System.out.println("=== Register Product ===");
         System.out.print("Enter product ID: ");
         String id = scanner.nextLine();
 

@@ -23,5 +23,23 @@
     "quantity": 2,
     "color": "rojo",
     "price": 20.0
+  },
+  {
+    "id": "1452",
+    "category": "man",
+    "name": "shoes",
+    "size": "s",
+    "quantity": 5,
+    "color": "rojo",
+    "price": 50.0
+  },
+  {
+    "id": "1456",
+    "category": "man",
+    "name": "pants",
+    "size": "S",
+    "quantity": 25,
+    "color": "rojo",
+    "price": 30.0
   }
 ]
