@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Andres Sandoval
+ * @author Mateo Topon
  */
 
 public class ProductManager {
@@ -25,31 +25,27 @@ public class ProductManager {
  private List<RegistrationProduct> productList;
     private List<Transaction> transactionHistory;
 
-    // Constructor que inicializa las listas
+    
     public ProductManager() {
-        this.productList = new ArrayList<>();
+        this.productList = readFromJsonFile("clothes.json");
         this.transactionHistory = new ArrayList<>();
     }
 
 
-    // Método para procesar una venta
     public void processSale(Scanner scanner) {
         if (productList.isEmpty()) {
             System.out.println("No products available. Please register products first.");
             return;
         }
 
-        // Mostrar los productos disponibles
         System.out.println("=== Available Products ===");
         for (RegistrationProduct product : productList) {
             System.out.println(product);
         }
 
-        // Solicitar ID del producto a vender
         System.out.print("Enter product ID to sell: ");
         String productId = scanner.nextLine();
 
-        // Buscar el producto por ID
         RegistrationProduct product = findProductById(productId);
 
         if (product != null) {
@@ -60,7 +56,6 @@ public class ProductManager {
 
             if (product.reduceStock(quantityToSell)) {
                 double totalPrice = quantityToSell * product.getPrice();
-                // Registrar la transacción
                 transactionHistory.add(new Transaction(productId, product.getName(), quantityToSell, totalPrice));
                 System.out.println("Sale successful! Remaining stock: " + product.getQuantity());
             } else {
@@ -71,7 +66,6 @@ public class ProductManager {
         }
     }
 
-    // Mostrar el historial de transacciones
     public void showTransactionHistory() {
         if (transactionHistory.isEmpty()) {
             System.out.println("No transactions recorded yet.");
@@ -84,7 +78,6 @@ public class ProductManager {
         }
     }
 
-    // Método para encontrar un producto por su ID
     private RegistrationProduct findProductById(String id) {
         for (RegistrationProduct product : productList) {
             if (product.getId().equalsIgnoreCase(id)) {

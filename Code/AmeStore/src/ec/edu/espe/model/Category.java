@@ -19,29 +19,25 @@ public class Category {
         this.clothingItems = new ArrayList<>();
     }
 
-    // Add a clothing item to the category
     public void addClothingItem(ClothingItem item) {
         clothingItems.add(item);
     }
 
-    // Get the category name
     public String getName() {
         return name;
     }
 
-    // Get all clothing items in this category
     public ArrayList<ClothingItem> getClothingItems() {
         return clothingItems;
     }
 
-    // Find a clothing item by name
     public ClothingItem getClothingItemByName(String itemName) {
         for (ClothingItem item : clothingItems) {
             if (item.getName().equalsIgnoreCase(itemName)) {
                 return item;
             }
         }
-        return null;  // If item is not found
+        return null;  
     }
 }
 

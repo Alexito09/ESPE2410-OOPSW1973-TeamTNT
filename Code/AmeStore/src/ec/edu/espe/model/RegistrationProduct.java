@@ -19,8 +19,7 @@ public class RegistrationProduct {
     private String color;
     private double price;
 
-    // Constructor
-    public RegistrationProduct(String id, String category, String name, String size, int quantity, String color, double price) {
+     public RegistrationProduct(String id, String category, String name, String size, int quantity, String color, double price) {
         this.id = id;
         this.category = category;
         this.name = name;
@@ -30,8 +29,7 @@ public class RegistrationProduct {
         this.price = price;
     }
 
-    // Getters and Setters
-    public String getId() { return id; }
+     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
@@ -61,26 +59,22 @@ public class RegistrationProduct {
     public boolean reduceStock(int quantity) {
         if (this.quantity >= quantity) {
             this.quantity -= quantity;
-            return true; // Reducción exitosa
+            return true;  
         }
-        return false; // Stock insuficiente
-    } //agregeeeeeee estos
+        return false;  
+    }  
 
-    // Método para mostrar las prendas y precios sin pedir el precio
-    public static  RegistrationProduct collectProductDetails(Category manCategory, Category womanCategory) {
+     public static  RegistrationProduct collectProductDetails(Category manCategory, Category womanCategory) {
         Scanner scanner = new Scanner(System.in);
 
-        // Obtener ID del producto
-        System.out.println("=== Register Product ===");
+         System.out.println("=== Register Product ===");
         System.out.print("Enter product ID: ");
         String id = scanner.nextLine();
 
-        // Obtener categoría
-        System.out.print("Enter category (man or woman): ");
+         System.out.print("Enter category (man or woman): ");
         String category = scanner.nextLine();
 
-        // Mostrar prendas según la categoría
-        if (category.equalsIgnoreCase("man")) {
+         if (category.equalsIgnoreCase("man")) {
             System.out.println("Available clothing items for men:");
             for (ClothingItem item : manCategory.getClothingItems()) {
                 System.out.println(item.getName() + " - $" + item.getPrice());
@@ -95,41 +89,33 @@ public class RegistrationProduct {
             return null;
         }
 
-        // Solicitar nombre del producto (y tomar el precio de la prenda seleccionada)
-        System.out.print("Enter product name: ");
+         System.out.print("Enter product name: ");
         String name = scanner.nextLine();
 
-        // Buscar la prenda seleccionada y obtener su precio
-        ClothingItem selectedItem = null;
+         ClothingItem selectedItem = null;
         if (category.equalsIgnoreCase("man")) {
             selectedItem = manCategory.getClothingItemByName(name);
         } else if (category.equalsIgnoreCase("woman")) {
             selectedItem = womanCategory.getClothingItemByName(name);
         }
 
-        // Si la prenda no se encuentra, mostrar mensaje de error
-        if (selectedItem == null) {
+         if (selectedItem == null) {
             System.out.println("Item not found.");
             return null;
         }
 
-        // El precio se toma automáticamente de la prenda seleccionada
-        double price = selectedItem.getPrice();
+         double price = selectedItem.getPrice();
         System.out.println("The price of the " + name + " is: $" + price);
 
-        // Solicitar tamaño
-        System.out.print("Enter size (S, M, L, XL): ");
+         System.out.print("Enter size (S, M, L, XL): ");
         String size = scanner.nextLine();
 
-        // Solicitar color
-        System.out.print("Enter color: ");
+         System.out.print("Enter color: ");
         String color = scanner.nextLine();
 
-        // Solicitar cantidad
-        System.out.print("Enter quantity: ");
+         System.out.print("Enter quantity: ");
         int quantity = scanner.nextInt();
 
-        // Crear y retornar el objeto RegistrationProduct con el precio tomado automáticamente
-        return new RegistrationProduct(id, category, name, size, quantity, color, price);
+         return new RegistrationProduct(id, category, name, size, quantity, color, price);
     }
 }
