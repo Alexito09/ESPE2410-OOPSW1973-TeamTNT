@@ -97,5 +97,14 @@
     "quantity": 3,
     "color": "red",
     "price": 35.0
+  },
+  {
+    "id": "1246",
+    "category": "man",
+    "name": "boxer shorts",
+    "size": "XL",
+    "quantity": 15,
+    "color": "blue",
+    "price": 25.0
   }
 ]
