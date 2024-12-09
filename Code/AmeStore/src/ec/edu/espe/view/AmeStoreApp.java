@@ -51,8 +51,9 @@ public class AmeStoreApp {
             System.out.println("======== MAIN MENU ========");
             System.out.println("1. Option 1: Register product");
            System.out.println("2. Option 2: Process Sale");
-            System.out.println("3. Option 3: Show Transaction History");
-            System.out.println("4. Option 4: Exit");
+            System.out.println("3. Option 3: Delete Product");
+            System.out.println("4. Option 4: Show Transaction History");
+            System.out.println("5. Option 5: Exit");
             System.out.print("Select an option: ");
             option = scanner.nextInt();
             scanner.nextLine(); 
@@ -73,18 +74,23 @@ public class AmeStoreApp {
                     break;
                     
                 case 3:
-                        manager.showTransactionHistory();
+                        manager.deleteProductById(scanner);
+                   
                     break;
                     
                     case 4:
-                        System.out.println("Exit");
+                         manager.showTransactionHistory();
+                    break;
+                    
+                    case 5:
+                        System.out.println("Exiting the program. Thank you for using AME StoreApp!");
                     break;
                     
                 default:
-                    System.out.println("Invalid option. Please select an option from 1 to 3.");
+                    System.out.println("Invalid option. Please select an option from 1 to 5.");
             }
             System.out.println(); 
-        } while (option != 4);
+        } while (option != 5);
 
         scanner.close();
     }

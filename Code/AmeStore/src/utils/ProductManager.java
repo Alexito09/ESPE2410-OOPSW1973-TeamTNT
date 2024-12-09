@@ -33,21 +33,22 @@ public class ProductManager {
 
 
     public void processSale(Scanner scanner) {
+        System.out.println("===========================     Available Products     ==========================");
         if (productList.isEmpty()) {
             System.out.println("No products available. Please register products first.");
             return;
         }
 
-        System.out.println("===========================     Available Products     ==========================");
+        
         for (RegistrationProduct product : productList) {
             System.out.println(product);
         }
         RegistrationProduct product = null;
         while (product == null) {
-        System.out.print("Enter product ID to sell (or type 'Exit' to cancel): ");
+        System.out.print("Enter product ID to sell: ");
         String productId = scanner.nextLine();
 
-        if (productId.equalsIgnoreCase(" Exit ")) {
+        if (productId.equalsIgnoreCase("Exit")) {
             System.out.println("Sale process canceled. Returning to main menu.");
             return;
         }
@@ -129,4 +130,45 @@ public class ProductManager {
         }
         return products;
     }
+    public void deleteProductById(Scanner scanner) {
+    if (productList.isEmpty()) {
+        System.out.println("No products available. Please register products first.");
+        return;
+    }
+
+    System.out.println("=== Available Products ===");
+    for (RegistrationProduct product : productList) {
+        System.out.println(product);
+    }
+
+    System.out.print("Enter the product ID to delete: ");
+    String productId = scanner.nextLine();
+
+    RegistrationProduct product = findProductById(productId);
+
+    if (product != null) {
+        System.out.println("Product found: " + product);
+        System.out.print("Are you sure you want to delete this product? (yes/no): ");
+        String confirmation = scanner.nextLine();
+
+        if (confirmation.equalsIgnoreCase("yes")) {
+            productList.remove(product);
+            updateJsonFile("clothes.json");
+            System.out.println("Product deleted successfully.");
+        } else {
+            System.out.println("Product deletion canceled.");
+        }
+    } else {
+        System.out.println("Product not found.");
+    }
+}
+
+private void updateJsonFile(String fileName) {
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    try (FileWriter fileWriter = new FileWriter(fileName)) {
+        gson.toJson(productList, fileWriter);
+    } catch (IOException e) {
+        System.out.println("Error updating the JSON file: " + e.getMessage());
+    }
+}
 }

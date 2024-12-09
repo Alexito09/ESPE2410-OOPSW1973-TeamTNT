@@ -1,21 +1,5 @@
 [
   {
-    "id": "Pants",
-    "category": "Man",
-    "size": "M",
-    "quantity": 5,
-    "color": "Blue",
-    "price": 17.0
-  },
-  {
-    "id": "Camisa",
-    "category": "woman",
-    "size": "L",
-    "quantity": 6,
-    "color": "red",
-    "price": 45.0
-  },
-  {
     "id": "145",
     "category": "man",
     "name": "shirt",
@@ -110,7 +94,7 @@
     "category": "man",
     "name": "sweater",
     "size": "S",
-    "quantity": 5,
+    "quantity": 3,
     "color": "red",
     "price": 35.0
   }
