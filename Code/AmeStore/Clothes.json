@@ -41,5 +41,41 @@
     "quantity": 25,
     "color": "rojo",
     "price": 30.0
+  },
+  {
+    "id": "A1222",
+    "category": "man",
+    "name": "shirt",
+    "size": "S",
+    "quantity": 2,
+    "color": "white",
+    "price": 20.0
+  },
+  {
+    "id": "P0017",
+    "category": "man",
+    "name": "shirt",
+    "size": "S",
+    "quantity": 2,
+    "color": "2",
+    "price": 20.0
+  },
+  {
+    "id": "A221",
+    "category": "man",
+    "name": "shirt",
+    "size": "S",
+    "quantity": 2,
+    "color": "white",
+    "price": 20.0
+  },
+  {
+    "id": "P002",
+    "category": "woman",
+    "name": "blouse",
+    "size": "M",
+    "quantity": 2,
+    "color": "white",
+    "price": 15.0
   }
 ]

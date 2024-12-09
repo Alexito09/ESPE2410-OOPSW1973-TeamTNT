@@ -68,54 +68,104 @@ public class RegistrationProduct {
         Scanner scanner = new Scanner(System.in);
 
          System.out.println("=== Register Product ===");
-        System.out.print("Enter product ID: ");
-        String id = scanner.nextLine();
+        String id;
+    while (true) {
+    System.out.print("Enter product ID: ");
+    id = scanner.nextLine();
+    if (id.matches("[a-zA-Z0-9]+")) {
+        break;
+    } else {
+        System.out.println("Invalid ID. Please enter only letters and numbers.");
+    }
+}
+        String category;
+            while (true) {
+                    System.out.print("Enter category (man or woman): ");
+                    category = scanner.nextLine().trim().toLowerCase();
+                    if (category.equals("man") || category.equals("woman")) {
+        break;
+    } else {
+        System.out.println("Invalid category. Please enter 'man' or 'woman'.");
+    }
+}
 
-         System.out.print("Enter category (man or woman): ");
-        String category = scanner.nextLine();
 
          if (category.equalsIgnoreCase("man")) {
-            System.out.println("Available clothing items for men:");
-            for (ClothingItem item : manCategory.getClothingItems()) {
-                System.out.println(item.getName() + " - $" + item.getPrice());
-            }
-        } else if (category.equalsIgnoreCase("woman")) {
-            System.out.println("Available clothing items for women:");
-            for (ClothingItem item : womanCategory.getClothingItems()) {
-                System.out.println(item.getName() + " - $" + item.getPrice());
-            }
-        } else {
-            System.out.println("Invalid category.");
-            return null;
-        }
+    System.out.println("Available clothing items for men:");
+    for (ClothingItem item : manCategory.getClothingItems()) {
+        System.out.println(item.getName() + " - $" + item.getPrice());
+    }
+} else if (category.equalsIgnoreCase("woman")) {
+    System.out.println("Available clothing items for women:");
+    for (ClothingItem item : womanCategory.getClothingItems()) {
+        System.out.println(item.getName() + " - $" + item.getPrice());
+    }
+}
 
-         System.out.print("Enter product name: ");
-        String name = scanner.nextLine();
 
-         ClothingItem selectedItem = null;
-        if (category.equalsIgnoreCase("man")) {
-            selectedItem = manCategory.getClothingItemByName(name);
-        } else if (category.equalsIgnoreCase("woman")) {
-            selectedItem = womanCategory.getClothingItemByName(name);
-        }
+        ClothingItem selectedItem = null;
+        String name;
+        while (true) {
+    System.out.print("Enter product name: ");
+    name = scanner.nextLine().trim();
+    if (category.equalsIgnoreCase("man")) {
+        selectedItem = manCategory.getClothingItemByName(name);
+    } else if (category.equalsIgnoreCase("woman")) {
+        selectedItem = womanCategory.getClothingItemByName(name);
+    }
+    if (selectedItem != null) {
+        break;
+    } else {
+        System.out.println("Item not found in the selected category. Please try again.");
+    }
+}
 
-         if (selectedItem == null) {
-            System.out.println("Item not found.");
-            return null;
-        }
 
-         double price = selectedItem.getPrice();
+
+        double price = selectedItem.getPrice();
         System.out.println("The price of the " + name + " is: $" + price);
 
-         System.out.print("Enter size (S, M, L, XL): ");
-        String size = scanner.nextLine();
+         String size;
+           while (true) {
+            System.out.print("Enter size (S, M, L, XL): ");
+             size = scanner.nextLine().trim().toUpperCase();
+            if (size.equals("S") || size.equals("M") || size.equals("L") || size.equals("XL")) {
+        break;
+       } else {
+        System.out.println("Invalid size. Please enter 'S', 'M', 'L', or 'XL'.");
+        }
+    }
 
-         System.out.print("Enter color: ");
-        String color = scanner.nextLine();
+        String color;
+        while (true) {
+        System.out.print("Enter color: ");
+         color = scanner.nextLine().trim();
+         if (color.matches("[a-zA-Z]+")) {
+        break;
+    } else {
+        System.out.println("Invalid color...");
+    }
+}
 
+
+         int quantity;
+        while (true) {
          System.out.print("Enter quantity: ");
-        int quantity = scanner.nextInt();
+         if (scanner.hasNextInt()) {
+        quantity = scanner.nextInt();
+        if (quantity > 0) {
+            break;
+        } else {
+            System.out.println("Quantity must be a positive number. Please try again.");
+        }
+    } else {
+        System.out.println("Invalid input. Please enter a valid number for quantity.");
+        scanner.next(); 
+    }
+}
+
 
          return new RegistrationProduct(id, category, name, size, quantity, color, price);
+
     }
 }
