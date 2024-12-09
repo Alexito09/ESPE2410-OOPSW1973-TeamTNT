@@ -17,15 +17,29 @@ public class AmeStoreApp {
         Category manCategory = new Category("man");
         Category womanCategory = new Category("woman");
 
-        manCategory.addClothingItem(new ClothingItem("shirt", 20.00));
-        manCategory.addClothingItem(new ClothingItem("pants", 30.00));
-        manCategory.addClothingItem(new ClothingItem("shoes", 50.00));
-        manCategory.addClothingItem(new ClothingItem("jacket", 40.00));
+    manCategory.addClothingItem(new ClothingItem("shirt", 20.00));
+    manCategory.addClothingItem(new ClothingItem("pants", 30.00));
+    manCategory.addClothingItem(new ClothingItem("suit", 50.00));
+    manCategory.addClothingItem(new ClothingItem("jacket", 40.00));
+    manCategory.addClothingItem(new ClothingItem("hat", 15.00));
+    manCategory.addClothingItem(new ClothingItem("belt", 12.00));
+    manCategory.addClothingItem(new ClothingItem("tie", 18.00));
+    manCategory.addClothingItem(new ClothingItem("shorts", 25.00));
+    manCategory.addClothingItem(new ClothingItem("socks", 5.00));
+    manCategory.addClothingItem(new ClothingItem("sweater", 35.00));
 
-        womanCategory.addClothingItem(new ClothingItem("dress", 25.00));
-        womanCategory.addClothingItem(new ClothingItem("blouse", 15.00));
-        womanCategory.addClothingItem(new ClothingItem("skirt", 20.00));
-        womanCategory.addClothingItem(new ClothingItem("shoes", 40.00));
+
+    womanCategory.addClothingItem(new ClothingItem("dress", 25.00));
+    womanCategory.addClothingItem(new ClothingItem("blouse", 15.00));
+    womanCategory.addClothingItem(new ClothingItem("skirt", 20.00));
+    womanCategory.addClothingItem(new ClothingItem("baggy jeans", 40.00));
+    womanCategory.addClothingItem(new ClothingItem("hat", 18.00));
+    womanCategory.addClothingItem(new ClothingItem("sweater", 12.00));
+    womanCategory.addClothingItem(new ClothingItem("jacket", 45.00));
+    womanCategory.addClothingItem(new ClothingItem("leggings", 22.00));
+    womanCategory.addClothingItem(new ClothingItem("T-shirt", 6.00));
+    womanCategory.addClothingItem(new ClothingItem("cardigan", 30.00));
+
 
         Scanner scanner = new Scanner(System.in);
         ProductManager manager = new ProductManager();
@@ -36,8 +50,8 @@ public class AmeStoreApp {
             System.out.println("======== AME STOREAPP ========");
             System.out.println("======== MAIN MENU ========");
             System.out.println("1. Option 1: Register product");
-           System.out.println("2. Option 2: Process sale");
-            System.out.println("3. Option 3: Show transaction history");
+           System.out.println("2. Option 2: Process Sale");
+            System.out.println("3. Option 3: Show Transaction History");
             System.out.println("4. Option 4: Exit");
             System.out.print("Select an option: ");
             option = scanner.nextInt();

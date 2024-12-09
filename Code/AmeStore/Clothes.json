@@ -77,5 +77,23 @@
     "quantity": 2,
     "color": "white",
     "price": 15.0
+  },
+  {
+    "id": "A2564",
+    "category": "man",
+    "name": "jacket",
+    "size": "L",
+    "quantity": 10,
+    "color": "verde",
+    "price": 40.0
+  },
+  {
+    "id": "J1523",
+    "category": "man",
+    "name": "pants",
+    "size": "XL",
+    "quantity": 5,
+    "color": "black",
+    "price": 30.0
   }
 ]

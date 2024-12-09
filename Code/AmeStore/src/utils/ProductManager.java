@@ -38,7 +38,7 @@ public class ProductManager {
             return;
         }
 
-        System.out.println("=== Available Products ===");
+        System.out.println("====================== Available Products =====================");
         for (RegistrationProduct product : productList) {
             System.out.println(product);
         }
@@ -72,11 +72,13 @@ public class ProductManager {
             return;
         }
 
-        System.out.println("=== Transaction History ===");
-        for (Transaction transaction : transactionHistory) {
-            System.out.println(transaction);
-        }
+        System.out.println("================= Transaction History =================");
+          int counter = 1;
+           for (Transaction transaction : transactionHistory) {
+        System.out.println(counter + ". " + transaction);
+        counter++;
     }
+}
 
     private RegistrationProduct findProductById(String id) {
         for (RegistrationProduct product : productList) {
@@ -99,7 +101,9 @@ public class ProductManager {
         } catch (IOException e) {
             System.out.println("Error saving product: " + e.getMessage());
         }
-    }
+        this.productList = readFromJsonFile(fileName);//esto agg
+}
+    
 
     public  List<RegistrationProduct> readFromJsonFile(String fileName) {
         List<RegistrationProduct> products = new ArrayList<>();

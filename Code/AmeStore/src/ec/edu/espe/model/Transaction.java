@@ -21,8 +21,14 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction{" + "productId=" + productId + ", productName=" + productName + ", quantitySold=" + quantitySold + ", totalPrice=" + totalPrice + '}';
-    }
+            return String.format(
+        "Product ID: %-10s | Product Name: %-15s | Quantity Sold: %-5d | Total Price: $%.2f",
+        productId.substring(0, 1).toUpperCase() + productId.substring(1),
+        productName != null ? productName.substring(0, 1).toUpperCase() + productName.substring(1) : "N/A",
+        quantitySold,
+        totalPrice
+    );
+}
 
      
     public String getProductId() {

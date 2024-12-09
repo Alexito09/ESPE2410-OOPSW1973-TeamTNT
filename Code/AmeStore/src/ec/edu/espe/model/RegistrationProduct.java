@@ -46,15 +46,16 @@ public class RegistrationProduct {
 
     @Override
     public String toString() {
-        return "RegistrationProduct{" +
-               "id='" + id + '\'' +
-               ", category='" + category + '\'' +
-               ", name='" + name + '\'' +
-               ", size='" + size + '\'' +
-               ", quantity=" + quantity +
-               ", color='" + color + '\'' +
-               ", price=" + price +
-               '}';
+        return String.format(
+        "ID: %-10s | Name: %-10s | Category: %-10s | Size: %-5s | Quantity: %-5d | Color: %-10s | Price: $%.2f",
+        id.substring(0, 1).toUpperCase() + id.substring(1),
+        name != null ? name.substring(0, 1).toUpperCase() + name.substring(1) : "N/A",
+        category != null ? category.substring(0, 1).toUpperCase() + category.substring(1) : "N/A",
+        size.toUpperCase(),
+        quantity,
+        color != null ? color.substring(0, 1).toUpperCase() + color.substring(1) : "N/A",
+        price
+    );
     }
     public boolean reduceStock(int quantity) {
         if (this.quantity >= quantity) {
