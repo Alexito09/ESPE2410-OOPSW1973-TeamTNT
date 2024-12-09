@@ -95,5 +95,23 @@
     "quantity": 5,
     "color": "black",
     "price": 30.0
+  },
+  {
+    "id": "1452",
+    "category": "man",
+    "name": "scarf",
+    "size": "S",
+    "quantity": 6,
+    "color": "black",
+    "price": 5.0
+  },
+  {
+    "id": "14263",
+    "category": "man",
+    "name": "sweater",
+    "size": "S",
+    "quantity": 5,
+    "color": "red",
+    "price": 35.0
   }
 ]

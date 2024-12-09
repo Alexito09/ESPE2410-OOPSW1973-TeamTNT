@@ -23,22 +23,22 @@ public class AmeStoreApp {
     manCategory.addClothingItem(new ClothingItem("jacket", 40.00));
     manCategory.addClothingItem(new ClothingItem("hat", 15.00));
     manCategory.addClothingItem(new ClothingItem("belt", 12.00));
-    manCategory.addClothingItem(new ClothingItem("tie", 18.00));
-    manCategory.addClothingItem(new ClothingItem("shorts", 25.00));
-    manCategory.addClothingItem(new ClothingItem("socks", 5.00));
+    manCategory.addClothingItem(new ClothingItem("gloves", 18.00));
+    manCategory.addClothingItem(new ClothingItem("Boxer shorts", 25.00));
+    manCategory.addClothingItem(new ClothingItem("scarf", 5.00));
     manCategory.addClothingItem(new ClothingItem("sweater", 35.00));
 
 
     womanCategory.addClothingItem(new ClothingItem("dress", 25.00));
     womanCategory.addClothingItem(new ClothingItem("blouse", 15.00));
-    womanCategory.addClothingItem(new ClothingItem("skirt", 20.00));
-    womanCategory.addClothingItem(new ClothingItem("baggy jeans", 40.00));
-    womanCategory.addClothingItem(new ClothingItem("hat", 18.00));
+    womanCategory.addClothingItem(new ClothingItem("skirt", 18.00));
+    womanCategory.addClothingItem(new ClothingItem("baggy jeans", 20.00));
+    womanCategory.addClothingItem(new ClothingItem("pyjamas", 18.00));
     womanCategory.addClothingItem(new ClothingItem("sweater", 12.00));
     womanCategory.addClothingItem(new ClothingItem("jacket", 45.00));
     womanCategory.addClothingItem(new ClothingItem("leggings", 22.00));
-    womanCategory.addClothingItem(new ClothingItem("T-shirt", 6.00));
-    womanCategory.addClothingItem(new ClothingItem("cardigan", 30.00));
+    womanCategory.addClothingItem(new ClothingItem("T-shirt", 12.00));
+    womanCategory.addClothingItem(new ClothingItem("panties", 10.00));
 
 
         Scanner scanner = new Scanner(System.in);
@@ -73,7 +73,7 @@ public class AmeStoreApp {
                     break;
                     
                 case 3:
-                  manager.showTransactionHistory();
+                        manager.showTransactionHistory();
                     break;
                     
                     case 4:

@@ -69,12 +69,12 @@ public class RegistrationProduct {
         Scanner scanner = new Scanner(System.in);
 
          System.out.println("=== Register Product ===");
-        String id;
-    while (true) {
-    System.out.print("Enter product ID: ");
-    id = scanner.nextLine();
-    if (id.matches("[a-zA-Z0-9]+")) {
-        break;
+            String id;
+            while (true) {
+          System.out.print("Enter product ID: ");
+            id = scanner.nextLine();
+            if (id.matches("[a-zA-Z0-9]+")) {
+             break;
     } else {
         System.out.println("Invalid ID. Please enter only letters and numbers.");
     }

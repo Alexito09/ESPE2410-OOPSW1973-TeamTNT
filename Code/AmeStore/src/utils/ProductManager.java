@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Mateo Topon
+ * @author G6
  */
 
 public class ProductManager {
@@ -38,32 +38,42 @@ public class ProductManager {
             return;
         }
 
-        System.out.println("====================== Available Products =====================");
+        System.out.println("===========================     Available Products     ==========================");
         for (RegistrationProduct product : productList) {
             System.out.println(product);
         }
-
-        System.out.print("Enter product ID to sell: ");
+        RegistrationProduct product = null;
+        while (product == null) {
+        System.out.print("Enter product ID to sell (or type 'Exit' to cancel): ");
         String productId = scanner.nextLine();
 
-        RegistrationProduct product = findProductById(productId);
+        if (productId.equalsIgnoreCase(" Exit ")) {
+            System.out.println("Sale process canceled. Returning to main menu.");
+            return;
+        }
 
-        if (product != null) {
+        product = findProductById(productId);
+
+        if (product == null) {
+            System.out.println("Product not found. Please try again.");
+        }
+    } 
+     
             System.out.println("Selected product: " + product);
             System.out.print("Enter quantity to sell: ");
             int quantityToSell = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
+            scanner.nextLine(); 
 
             if (product.reduceStock(quantityToSell)) {
                 double totalPrice = quantityToSell * product.getPrice();
-                transactionHistory.add(new Transaction(productId, product.getName(), quantityToSell, totalPrice));
-                System.out.println("Sale successful! Remaining stock: " + product.getQuantity());
+                transactionHistory.add(new Transaction(product.getId(), product.getName(), quantityToSell, totalPrice));
+                System.out.println("Sale successful, Remaining stock: " + product.getQuantity());
             } else {
                 System.out.println("Error: Not enough stock available.");
             }
-        } else {
-            System.out.println("Product not found.");
-        }
+
+    
+        
     }
 
     public void showTransactionHistory() {
@@ -72,7 +82,7 @@ public class ProductManager {
             return;
         }
 
-        System.out.println("================= Transaction History =================");
+        System.out.println("==========================       Transaction History     ==========================");
           int counter = 1;
            for (Transaction transaction : transactionHistory) {
         System.out.println(counter + ". " + transaction);
@@ -101,7 +111,7 @@ public class ProductManager {
         } catch (IOException e) {
             System.out.println("Error saving product: " + e.getMessage());
         }
-        this.productList = readFromJsonFile(fileName);//esto agg
+        this.productList = readFromJsonFile(fileName);
 }
     
 
