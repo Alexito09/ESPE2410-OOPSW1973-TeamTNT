@@ -1,14 +1,5 @@
 [
   {
-    "id": "145",
-    "category": "man",
-    "name": "shirt",
-    "size": "s",
-    "quantity": 2,
-    "color": "rojo",
-    "price": 20.0
-  },
-  {
     "id": "1452",
     "category": "man",
     "name": "shoes",

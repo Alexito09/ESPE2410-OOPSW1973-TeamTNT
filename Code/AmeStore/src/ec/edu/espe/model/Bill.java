@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  *
- * @author USUARIO
+ * @author Team TNT
  */
 public class Bill {
     String numFaacture;
