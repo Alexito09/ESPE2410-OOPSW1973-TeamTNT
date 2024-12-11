@@ -136,7 +136,7 @@ public class ProductManager {
         return;
     }
 
-    System.out.println("=== Available Products ===");
+    System.out.println("==== Available Products ===");
     for (RegistrationProduct product : productList) {
         System.out.println(product);
     }
