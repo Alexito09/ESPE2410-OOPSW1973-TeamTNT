@@ -9,7 +9,7 @@ import utils.ProductManager;
 
 /**
  *
- * @author Mateo Topon
+ * @author Team TNT
  */
 public class AmeStoreApp {
    public static void main(String[] args) {
@@ -46,7 +46,7 @@ public class AmeStoreApp {
         int option;
 
         do {
-            // Mostrar opciones del menú
+            
             System.out.println("======== AME STOREAPP ========");
             System.out.println("======== MAIN MENU ========");
             System.out.println("1. Option 1: Register product");
@@ -78,11 +78,11 @@ public class AmeStoreApp {
                    
                     break;
                     
-                    case 4:
+                case 4:
                          manager.showTransactionHistory();
                     break;
                     
-                    case 5:
+                case 5:
                         System.out.println("Exiting the program. Thank you for using AME StoreApp!");
                     break;
                     

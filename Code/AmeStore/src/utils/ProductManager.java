@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author G6
+ * @author Team TNT
  */
 
 public class ProductManager {

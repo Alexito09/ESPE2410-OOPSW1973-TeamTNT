@@ -2,7 +2,7 @@ package ec.edu.espe.model;
 
 /**
  *
- * @author USUARIO
+ * @author Team TNT
  */
 public class Clothes {
     private String idProduct;

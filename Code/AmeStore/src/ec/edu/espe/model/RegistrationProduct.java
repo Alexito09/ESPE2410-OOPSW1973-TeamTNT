@@ -103,7 +103,6 @@ public class RegistrationProduct {
     }
 }
 
-
         ClothingItem selectedItem = null;
         String name;
         while (true) {
@@ -120,8 +119,6 @@ public class RegistrationProduct {
         System.out.println("Item not found in the selected category. Please try again.");
     }
 }
-
-
 
         double price = selectedItem.getPrice();
         System.out.println("The price of the " + name + " is: $" + price);
