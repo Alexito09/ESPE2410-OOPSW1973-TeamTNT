@@ -21,7 +21,11 @@ import java.util.Scanner;
  */
 
 public class ProductManager {
-
+private String customerName;    // Declare these fields  
+    private String customerId;  
+    private String customerEmail;  
+    private String customerPhone;  
+    private String customerAddress;
  private List<RegistrationProduct> productList;
     private List<Transaction> transactionHistory;
 
@@ -33,49 +37,77 @@ public class ProductManager {
 
 
     public void processSale(Scanner scanner) {
+
+    List<Transaction> customerTransactions = new ArrayList<>();
+    boolean addMoreProducts = true;
+    boolean firstTime = true;
+    while (addMoreProducts) {
+         if (firstTime) {
         System.out.println("===========================     Available Products     ==========================");
         if (productList.isEmpty()) {
             System.out.println("No products available. Please register products first.");
             return;
         }
 
-        
         for (RegistrationProduct product : productList) {
             System.out.println(product);
         }
+        firstTime = false;
+        }
+
         RegistrationProduct product = null;
         while (product == null) {
-        System.out.print("Enter product ID to sell: ");
-        String productId = scanner.nextLine();
+            System.out.print("Enter product ID to sell: ");
+            String productId = scanner.nextLine();
 
-        if (productId.equalsIgnoreCase("Exit")) {
-            System.out.println("Sale process canceled. Returning to main menu.");
-            return;
-        }
-
-        product = findProductById(productId);
-
-        if (product == null) {
-            System.out.println("Product not found. Please try again.");
-        }
-    } 
-     
-            System.out.println("Selected product: " + product);
-            System.out.print("Enter quantity to sell: ");
-            int quantityToSell = scanner.nextInt();
-            scanner.nextLine(); 
-
-            if (product.reduceStock(quantityToSell)) {
-                double totalPrice = quantityToSell * product.getPrice();
-                transactionHistory.add(new Transaction(product.getId(), product.getName(), quantityToSell, totalPrice));
-                System.out.println("Sale successful, Remaining stock: " + product.getQuantity());
-            } else {
-                System.out.println("Error: Not enough stock available.");
+            if (productId.equalsIgnoreCase("Exit")) {
+                System.out.println("Sale process canceled. Returning to main menu.");
+                return;
             }
 
-    
-        
+            product = findProductById(productId);
+
+            if (product == null) {
+                System.out.println("Product not found. Please try again.");
+            }
+        }
+
+        System.out.println("Selected product: " + product);
+        System.out.print("Enter quantity to sell: ");
+        int quantityToSell = scanner.nextInt();
+        scanner.nextLine(); 
+
+        if (product.reduceStock(quantityToSell)) {
+            double totalPrice = quantityToSell * product.getPrice();
+
+            Transaction transaction = new Transaction(
+                    product.getId(),
+                    product.getName(),
+                    quantityToSell,
+                    totalPrice,
+                    customerName,
+                    customerId,
+                    customerEmail,
+                    customerPhone,
+                    customerAddress
+            );
+            customerTransactions.add(transaction);
+
+            System.out.println("Sale successful, Remaining stock: " + product.getQuantity());
+        } else {
+            System.out.println("Error: Not enough stock available.");
+        }
+
+        System.out.print("Do you want to add another product to this transaction? (yes/no): ");
+        String response = scanner.nextLine();
+        addMoreProducts = response.equalsIgnoreCase("yes");
     }
+
+
+    transactionHistory.addAll(customerTransactions);
+    System.out.println("Transaction completed successfully!");
+}
+
 
     public void showTransactionHistory() {
         if (transactionHistory.isEmpty()) {
@@ -98,7 +130,10 @@ public class ProductManager {
             }
         }
         return null;
-    }
+    } 
+    public List<Transaction> getTransactionHistory() {
+    return transactionHistory;
+}
 
 
     public void saveToJsonFile(RegistrationProduct newProduct, String fileName) {

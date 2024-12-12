@@ -2,6 +2,7 @@ package ec.edu.espe.view;
 
 import ec.edu.espe.model.Category;
 import ec.edu.espe.model.ClothingItem;
+import ec.edu.espe.model.Invoice;
 import ec.edu.espe.model.RegistrationProduct;
 import java.util.List;
 import java.util.Scanner;
@@ -53,7 +54,8 @@ public class AmeStoreApp {
            System.out.println("2. Option 2: Process Sale");
             System.out.println("3. Option 3: Delete Product");
             System.out.println("4. Option 4: Show Transaction History");
-            System.out.println("5. Option 5: Exit");
+            System.out.println("5. Option 5: Generate Invoice");
+            System.out.println("6. Option 6: Exit");
             System.out.print("Select an option: ");
             option = scanner.nextInt();
             scanner.nextLine(); 
@@ -82,7 +84,17 @@ public class AmeStoreApp {
                          manager.showTransactionHistory();
                     break;
                     
-                case 5:
+                 case 5:
+                if (manager.getTransactionHistory().isEmpty()) {
+                        System.out.println("No transactions available to generate an invoice.");
+                    } else {
+                        Invoice invoice = Invoice.createInvoice(scanner, manager.getTransactionHistory());
+                        if (invoice != null) {
+                            invoice.displayInvoice();
+                        }
+                    }
+                    break; 
+                case 6:
                         System.out.println("Exiting the program. Thank you for using AME StoreApp!");
                     break;
                     
@@ -90,7 +102,7 @@ public class AmeStoreApp {
                     System.out.println("Invalid option. Please select an option from 1 to 5.");
             }
             System.out.println(); 
-        } while (option != 5);
+        } while (option != 6);
 
         scanner.close();
     }
