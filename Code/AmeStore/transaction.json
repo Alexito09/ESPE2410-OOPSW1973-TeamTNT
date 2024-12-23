@@ -8,7 +8,37 @@
   {
     "productId": "1456",
     "productName": "pants",
-    "quantitySold": 6,
+    "quantitySold": 6.0,
     "totalPrice": 180.0
+  },
+  {
+    "productId": "54",
+    "productName": "scarf",
+    "quantitySold": 30.0,
+    "totalPrice": 150.0
+  },
+  {
+    "productId": "54",
+    "productName": "scarf",
+    "quantitySold": 10.0,
+    "totalPrice": 50.0
+  },
+  {
+    "productId": "54",
+    "productName": "scarf",
+    "quantitySold": 30.0,
+    "totalPrice": 150.0
+  },
+  {
+    "productId": "22",
+    "productName": "scarf",
+    "quantitySold": 4.0,
+    "totalPrice": 20.0
+  },
+  {
+    "productId": "54",
+    "productName": "scarf",
+    "quantitySold": 15,
+    "totalPrice": 75.0
   }
 ]

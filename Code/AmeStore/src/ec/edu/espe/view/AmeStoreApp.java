@@ -1,5 +1,7 @@
 package ec.edu.espe.view;
 
+import ec.edu.espe.exceptions.InsufficientStockException;
+import ec.edu.espe.exceptions.InvalidCategoryException;
 import ec.edu.espe.model.Category;
 import ec.edu.espe.model.ClothingItem;
 import ec.edu.espe.model.Invoice;
@@ -13,7 +15,7 @@ import utils.ProductManager;
  * @author Team TNT
  */
 public class AmeStoreApp {
-   public static void main(String[] args) {
+   public static void main(String[] args) throws InsufficientStockException {
     
         Category manCategory = new Category("man");
         Category womanCategory = new Category("woman");
@@ -62,11 +64,27 @@ public class AmeStoreApp {
             
             switch (option) {
                 case 1:
-                    RegistrationProduct newProduct = RegistrationProduct.collectProductDetails(manCategory, womanCategory);
-                    
-                    if (newProduct != null) {
-                        manager.saveToJsonFile(newProduct, "Clothes.json");
-                    }
+                    //1era capture of exception
+                   try {
+            RegistrationProduct newProduct = RegistrationProduct.collectProductDetails(manCategory, womanCategory);
+            if (newProduct != null) {
+                manager.saveToJsonFile(newProduct, "Clothes.json");
+                System.out.println("Product registered successfully: " + newProduct);
+            }
+        } catch (InsufficientStockException e) {
+            System.err.println("Error: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Unexpected error: " + e.getMessage());
+        }
+                   // one capture of exception
+                    try {
+             RegistrationProduct newProduct = RegistrationProduct.collectProductDetails(manCategory, womanCategory);
+             System.out.println("Product registered successfully: " + newProduct);
+         } catch (InvalidCategoryException e) {
+             System.err.println("Error: " + e.getMessage());  // Muestra el mensaje de error de la excepción
+         } catch (Exception e) {
+             System.err.println("Unexpected error: " + e.getMessage());
+         }
                     break;
                     
                 case 2:

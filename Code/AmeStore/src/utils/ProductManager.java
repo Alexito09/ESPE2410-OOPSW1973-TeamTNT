@@ -4,6 +4,8 @@ import ec.edu.espe.model.RegistrationProduct;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import ec.edu.espe.exceptions.InsufficientStockException;
+import ec.edu.espe.exceptions.InvalidProductIDException;
 import ec.edu.espe.model.Transaction;
 
 import java.io.File;
@@ -38,39 +40,43 @@ private String customerName;    // Declare these fields
     }
 
 
-    public void processSale(Scanner scanner) {
-
+public void processSale(Scanner scanner) {
     List<Transaction> customerTransactions = new ArrayList<>();
     boolean addMoreProducts = true;
     boolean firstTime = true;
-    while (addMoreProducts) {
-         if (firstTime) {
-        System.out.println("===========================     Available Products     ==========================");
-        if (productList.isEmpty()) {
-            System.out.println("No products available. Please register products first.");
-            return;
-        }
 
-        for (RegistrationProduct product : productList) {
-            System.out.println(product);
-        }
-        firstTime = false;
+    while (addMoreProducts) {
+        if (firstTime) {
+            System.out.println("===========================     Available Products     ==========================");
+            if (productList.isEmpty()) {
+                System.out.println("No products available. Please register products first.");
+                return;
+            }
+
+            for (RegistrationProduct product : productList) {
+                System.out.println(product);
+            }
+            firstTime = false;
         }
 
         RegistrationProduct product = null;
         while (product == null) {
             System.out.print("Enter product ID to sell: ");
             String productId = scanner.nextLine();
-
+          
             if (productId.equalsIgnoreCase("Exit")) {
                 System.out.println("Sale process canceled. Returning to main menu.");
                 return;
             }
-
+            try{
             product = findProductById(productId);
-
-            if (product == null) {
-                System.out.println("Product not found. Please try again.");
+            
+              if (product == null) {
+               throw new InvalidProductIDException("Id not found");
+            }
+               
+            }catch(InvalidProductIDException e){
+                System.err.println("Error"+ e.getMessage());
             }
         }
 
@@ -79,26 +85,29 @@ private String customerName;    // Declare these fields
         int quantityToSell = scanner.nextInt();
         scanner.nextLine(); 
 
-        if (product.reduceStock(quantityToSell)) {
-            double totalPrice = quantityToSell * product.getPrice();
+        try {
+            // Intentamos reducir el stock
+            if (product.reduceStock(quantityToSell)) {
+                double totalPrice = quantityToSell * product.getPrice();
 
-            Transaction transaction = new Transaction(
-                    product.getId(),
-                    product.getName(),
-                    quantityToSell,
-                    totalPrice,
-                    customerName,
-                    customerId,
-                    customerEmail,
-                    customerPhone,
-                    customerAddress
-            );
-            saveToJsonObjectFile(transaction, "transaction.json");
-            customerTransactions.add(transaction);
+                Transaction transaction = new Transaction(
+                        product.getId(),
+                        product.getName(),
+                        quantityToSell,
+                        totalPrice,
+                        customerName,
+                        customerId,
+                        customerEmail,
+                        customerPhone,
+                        customerAddress
+                );
+                saveToJsonObjectFile(transaction, "transaction.json");
+                customerTransactions.add(transaction);
 
-            System.out.println("Sale successful, Remaining stock: " + product.getQuantity());
-        } else {
-            System.out.println("Error: Not enough stock available.");
+                System.out.println("Sale successful, Remaining stock: " + product.getQuantity());
+            }
+        } catch (InsufficientStockException e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
         System.out.print("Do you want to add another product to this transaction? (yes/no): ");
@@ -106,10 +115,10 @@ private String customerName;    // Declare these fields
         addMoreProducts = response.equalsIgnoreCase("yes");
     }
 
-
     transactionHistory.addAll(customerTransactions);
     System.out.println("Transaction completed successfully!");
 }
+
 
 
     public void showTransactionHistory() {

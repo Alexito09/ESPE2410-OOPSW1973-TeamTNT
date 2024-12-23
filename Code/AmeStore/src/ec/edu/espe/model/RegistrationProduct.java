@@ -9,6 +9,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import utils.ProductManager;
+import ec.edu.espe.exceptions.InsufficientStockException;
+import ec.edu.espe.exceptions.InvalidCategoryException;
+import ec.edu.espe.exceptions.ProductNotFoundException;
 
 public class RegistrationProduct {
    private String id;
@@ -57,100 +60,118 @@ public class RegistrationProduct {
         price
     );
     }
-    public boolean reduceStock(int quantity) {
+    public boolean reduceStock(int quantity) throws InsufficientStockException {
         if (this.quantity >= quantity) {
             this.quantity -= quantity;
             return true;  
+        } else {
+            throw new InsufficientStockException("Insufficient stock available for the requested quantity.");
         }
-        return false;  
-    }  
-
-     public static  RegistrationProduct collectProductDetails(Category manCategory, Category womanCategory) {
-        Scanner scanner = new Scanner(System.in);
-
-         System.out.println("=== Register Product ===");
-            String id;
-            while (true) {
-          System.out.print("Enter product ID: ");
-            id = scanner.nextLine();
-            if (id.matches("[a-zA-Z0-9]+")) {
-             break;
-    } else {
-        System.out.println("Invalid ID. Please enter only letters and numbers.");
     }
-}
-        String category;
-            while (true) {
-                    System.out.print("Enter category (man or woman): ");
-                    category = scanner.nextLine().trim().toLowerCase();
-                    if (category.equals("man") || category.equals("woman")) {
-        break;
-    } else {
-        System.out.println("Invalid category. Please enter 'man' or 'woman'.");
-    }
-}
 
+public static RegistrationProduct collectProductDetails(Category manCategory, Category womanCategory)
+        throws InsufficientStockException, InvalidCategoryException, ProductNotFoundException{
+    Scanner scanner = new Scanner(System.in);
 
-         if (category.equalsIgnoreCase("man")) {
-    System.out.println("Available clothing items for men:");
-    for (ClothingItem item : manCategory.getClothingItems()) {
-        System.out.println(item.getName() + " - $" + item.getPrice());
-    }
-} else if (category.equalsIgnoreCase("woman")) {
-    System.out.println("Available clothing items for women:");
-    for (ClothingItem item : womanCategory.getClothingItems()) {
-        System.out.println(item.getName() + " - $" + item.getPrice());
-    }
-}
+    System.out.println("=== Register Product ===");
 
-        ClothingItem selectedItem = null;
-        String name;
-        while (true) {
-    System.out.print("Enter product name: ");
-    name = scanner.nextLine().trim();
+    // Validar ID
+    String id;
+    while (true) {
+        System.out.print("Enter product ID: ");
+        id = scanner.nextLine();
+        if (id.matches("[a-zA-Z0-9]+")) {
+            break;
+        } else {
+            System.out.println("Invalid ID. Please enter only letters and numbers.");
+        }
+    }
+
+    // Validar categoría
+    String category;
+    while (true) {
+        System.out.print("Enter category (man or woman): ");
+        category = scanner.nextLine().trim().toLowerCase();
+        if (category.equals("man") || category.equals("woman")) {
+            break;
+        } else {
+           throw new InvalidCategoryException("Invalid category. Please enter 'man' or 'woman'.");
+        }
+    }
+
+    // Mostrar productos disponibles
     if (category.equalsIgnoreCase("man")) {
-        selectedItem = manCategory.getClothingItemByName(name);
+        System.out.println("Available clothing items for men:");
+        for (ClothingItem item : manCategory.getClothingItems()) {
+            System.out.println(item.getName() + " - $" + item.getPrice());
+        }
     } else if (category.equalsIgnoreCase("woman")) {
-        selectedItem = womanCategory.getClothingItemByName(name);
-    }
-    if (selectedItem != null) {
-        break;
-    } else {
-        System.out.println("Item not found in the selected category. Please try again.");
-    }
-}
-
-        double price = selectedItem.getPrice();
-        System.out.println("The price of the " + name + " is: $" + price);
-
-         String size;
-           while (true) {
-            System.out.print("Enter size (S, M, L, XL): ");
-             size = scanner.nextLine().trim().toUpperCase();
-            if (size.equals("S") || size.equals("M") || size.equals("L") || size.equals("XL")) {
-        break;
-       } else {
-        System.out.println("Invalid size. Please enter 'S', 'M', 'L', or 'XL'.");
+        System.out.println("Available clothing items for women:");
+        for (ClothingItem item : womanCategory.getClothingItems()) {
+            System.out.println(item.getName() + " - $" + item.getPrice());
         }
     }
 
-        String color;
-        while (true) {
-        System.out.print("Enter color: ");
-         color = scanner.nextLine().trim();
-         if (color.matches("[a-zA-Z]+")) {
-        break;
-    } else {
-        System.out.println("Invalid color...");
+    // Validar producto seleccionado
+    ClothingItem selectedItem = null;
+    String name;
+    while (true) {
+        System.out.print("Enter product name: ");
+        name = scanner.nextLine().trim();
+        try{
+        if (category.equalsIgnoreCase("man")) {
+            selectedItem = manCategory.getClothingItemByName(name);
+        } else if (category.equalsIgnoreCase("woman")) {
+            selectedItem = womanCategory.getClothingItemByName(name);
+        }
+        //validación Fue encontrado el producto
+        if (selectedItem != null) {
+            break;
+        } else {    
+            //Lazo Excepción
+           throw new ProductNotFoundException("Item not found int the selected category. Pelase try again.");
+        }
+        } catch (ProductNotFoundException e) {
+            //manejo de excepcion
+        System.err.println("Error: " + e.getMessage());
+        // Si se lanza la excepción, el ciclo sigue para que el usuario intente nuevamente
     }
-}
+    }
 
+    double price = selectedItem.getPrice();
+    System.out.println("The price of the " + name + " is: $" + price);
 
-         int quantity;
-        while (true) {
-         System.out.print("Enter quantity: ");
-         if (scanner.hasNextInt()) {
+    // Validar tamaño
+    String size;
+    while (true) {
+        System.out.print("Enter size (S, M, L, XL): ");
+        size = scanner.nextLine().trim().toUpperCase();
+        if (size.equals("S") || size.equals("M") || size.equals("L") || size.equals("XL")) {
+            break;
+        } else {
+            System.out.println("Invalid size. Please enter 'S', 'M', 'L', or 'XL'.");
+        }
+    }
+
+    // Validar color
+    String color;
+    while (true) {
+        System.out.print("Enter color: ");
+        color = scanner.nextLine().trim();
+        if (color.matches("[a-zA-Z]+")) {
+            break;
+        } else {
+            System.out.println("Invalid color...");
+        }
+    }
+
+    // Validar cantidad y lanzar excepción si es necesario
+    int quantity;
+ while (true) {
+    System.out.print("Enter quantity: ");
+    if (scanner.hasNextInt()) {
         quantity = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el búfer del Scanner
         if (quantity > 0) {
             break;
         } else {
@@ -158,11 +179,11 @@ public class RegistrationProduct {
         }
     } else {
         System.out.println("Invalid input. Please enter a valid number for quantity.");
-        scanner.next(); 
+        scanner.nextLine(); // Limpiar el búfer en caso de entrada inválida
     }
 }
 
-
+    
          return new RegistrationProduct(id, category, name, size, quantity, color, price);
 
     }

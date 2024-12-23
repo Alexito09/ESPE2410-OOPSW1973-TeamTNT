@@ -124,5 +124,23 @@
     "quantity": 3,
     "color": "brown",
     "price": 20.0
+  },
+  {
+    "id": "54",
+    "category": "man",
+    "name": "scarf",
+    "size": "S",
+    "quantity": 20,
+    "color": "white",
+    "price": 5.0
+  },
+  {
+    "id": "22",
+    "category": "man",
+    "name": "scarf",
+    "size": "S",
+    "quantity": 5,
+    "color": "white",
+    "price": 5.0
   }
 ]
