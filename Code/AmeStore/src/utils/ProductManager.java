@@ -26,11 +26,13 @@ private String customerName;    // Declare these fields
     private String customerEmail;  
     private String customerPhone;  
     private String customerAddress;
- private List<RegistrationProduct> productList;
+    private List<RegistrationProduct> productList;
     private List<Transaction> transactionHistory;
+    private List<Object> objectList;
 
     
     public ProductManager() {
+        this.objectList = new ArrayList<>();
         this.productList = readFromJsonFile("clothes.json");
         this.transactionHistory = new ArrayList<>();
     }
@@ -91,6 +93,7 @@ private String customerName;    // Declare these fields
                     customerPhone,
                     customerAddress
             );
+            saveToJsonObjectFile(transaction, "transaction.json");
             customerTransactions.add(transaction);
 
             System.out.println("Sale successful, Remaining stock: " + product.getQuantity());
@@ -206,4 +209,46 @@ private void updateJsonFile(String fileName) {
         System.out.println("Error updating the JSON file: " + e.getMessage());
     }
 }
+   public void saveToJsonObjectFile(Object newObject, String fileName) {
+          List<Object> objects = readFromJson(fileName);
+  
+          // Agregar el nuevo objeto a la lista
+          objects.add(newObject);
+  
+          // Configurar Gson para formato legible
+          Gson gson = new GsonBuilder().setPrettyPrinting().create();
+          try (FileWriter fileWriter = new FileWriter(fileName)) {
+              // Escribir la lista actualizada al archivo JSON
+              gson.toJson(objects, fileWriter);
+              System.out.println("Registro guardado en " + fileName);
+          } catch (IOException e) {
+              System.out.println("Error al guardar el objeto: " + e.getMessage());
+          }
+  
+          // Actualizar la lista de objetos en memoria
+          this.objectList = objects;
+      }
+
+    // Método para leer objetos desde un archivo JSON
+    public List<Object> readFromJson(String fileName) {
+        Gson gson = new Gson();
+        List<Object> objects = new ArrayList<>();
+
+        try (FileReader fileReader = new FileReader(fileName)) {
+            // Determinar el tipo de lista de objetos
+            Type objectListType = new TypeToken<List<Object>>() {}.getType();
+            
+            // Leer y deserializar el archivo JSON
+            objects = gson.fromJson(fileReader, objectListType);
+        } catch (IOException e) {
+            System.out.println("No se pudo leer el archivo JSON: " + e.getMessage());
+        }
+
+        return objects != null ? objects : new ArrayList<>();
+      }
+
+    // Obtener la lista de objetos en memoria
+    public List<Object> getObjectList() {
+        return this.objectList;
+    }
 }

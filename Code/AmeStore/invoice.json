@@ -1,0 +1,18 @@
+    [
+  {
+    "customerName": "oscar",
+    "date": "2004-05-02",
+    "phoneNumber": "0998838764",
+    "address": "av.San Roque",
+    "email": "oscar@gmail.com",
+    "transactions": [
+      {
+        "productId": "1456",
+        "productName": "pants",
+        "quantitySold": 6,
+        "totalPrice": 180.0
+      }
+    ],
+    "total": 180.0
+  }
+]

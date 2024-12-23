@@ -1,0 +1,14 @@
+[
+  {
+    "productId": "1456",
+    "productName": "pants",
+    "quantitySold": 5.0,
+    "totalPrice": 150.0
+  },
+  {
+    "productId": "1456",
+    "productName": "pants",
+    "quantitySold": 6,
+    "totalPrice": 180.0
+  }
+]

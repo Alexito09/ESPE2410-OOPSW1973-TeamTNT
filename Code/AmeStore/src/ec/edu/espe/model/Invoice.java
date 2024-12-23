@@ -1,12 +1,14 @@
 package ec.edu.espe.model;
 import java.util.ArrayList;
 import java.util.List; 
+import java.lang.reflect.Type;
 import java.util.Scanner;
+import utils.ProductManager;
 /**
  *
  * @author TEAM TNT
  */
-public class Invoice {
+public class Invoice{
      private String customerName;
     private String date;
     private String phoneNumber;
@@ -14,7 +16,7 @@ public class Invoice {
     private String email;
     private List<Transaction> transactions;
     private double total;
-
+    
     public Invoice(String customerName, String date, String phoneNumber, String address, String email, List<Transaction> transactions) {
         this.customerName = customerName;
         this.date = date;
@@ -23,6 +25,7 @@ public class Invoice {
         this.email = email;
         this.transactions = transactions;
         this.total = calculateTotal();
+        
     }
 
 
@@ -53,7 +56,7 @@ public class Invoice {
         }
 
         String customerName;
-while (true) {
+    while (true) {
     System.out.print("Customer Name: ");
     customerName = scanner.nextLine();
     if (customerName.matches("^[a-zA-Z ]+$")) {
@@ -103,8 +106,11 @@ while (true) {
     }
 }
 
-System.out.println("Customer details validated successfully!");
+    System.out.println("Customer details validated successfully!");
+    Invoice invoice = new Invoice(customerName, date, phoneNumber, address, email, transactionHistory);
+    ProductManager productManager = new ProductManager();
+    productManager.saveToJsonObjectFile(invoice, "invoice.json");
 
-        return new Invoice(customerName, date, phoneNumber, address, email, transactionHistory);
-    }
+    return invoice;
+}
 }
