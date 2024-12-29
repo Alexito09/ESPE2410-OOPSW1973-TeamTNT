@@ -142,5 +142,32 @@
     "quantity": 5,
     "color": "white",
     "price": 5.0
+  },
+  {
+    "id": "14152",
+    "category": "man",
+    "name": "scarf",
+    "size": "S",
+    "quantity": 2,
+    "color": "black",
+    "price": 5.0
+  },
+  {
+    "id": "14521",
+    "category": "man",
+    "name": "Sweater",
+    "size": "XL",
+    "quantity": 10,
+    "color": "BLACK",
+    "price": 35.0
+  },
+  {
+    "id": "145214",
+    "category": "man",
+    "name": "scarf",
+    "size": "S",
+    "quantity": 15,
+    "color": "gris",
+    "price": 5.0
   }
 ]

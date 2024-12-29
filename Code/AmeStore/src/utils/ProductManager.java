@@ -73,7 +73,7 @@ public void processSale(Scanner scanner) {
             
               if (product == null) {
                throw new InvalidProductIDException("Id not found");
-            }
+              }
                
             }catch(InvalidProductIDException e){
                 System.err.println("Error"+ e.getMessage());
