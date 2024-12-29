@@ -87,59 +87,56 @@ public static RegistrationProduct collectProductDetails(Category manCategory, Ca
         }
     }
 
-    // Validar categoría
-    String category;
-    while (true) {
-        System.out.print("Enter category (man or woman): ");
-        category = scanner.nextLine().trim().toLowerCase();
-        if (category.equals("man") || category.equals("woman")) {
-            break;
-        } else {
-           throw new InvalidCategoryException("Invalid category. Please enter 'man' or 'woman'.");
-        }
+// Validar categoría
+String category;
+while (true) {
+    System.out.print("Enter category (man or woman): ");
+    category = scanner.nextLine().trim().toLowerCase();
+    if (category.equals("man") || category.equals("woman")) {
+        break;  // Si la categoría es válida, salir del bucle
+    } else {
+     System.err.println("Error: Invalid category. Please enter 'man' or 'woman'.");
+}
+}
+// Mostrar productos disponibles
+if (category.equalsIgnoreCase("man")) {
+    System.out.println("Available clothing items for men:");
+    for (ClothingItem item : manCategory.getClothingItems()) {
+        System.out.println(item.getName() + " - $" + item.getPrice());
     }
+} else if (category.equalsIgnoreCase("woman")) {
+    System.out.println("Available clothing items for women:");
+    for (ClothingItem item : womanCategory.getClothingItems()) {
+        System.out.println(item.getName() + " - $" + item.getPrice());
+    }
+}
 
-    // Mostrar productos disponibles
+// Validar producto seleccionado
+ClothingItem selectedItem = null;
+String name;
+while (true) {
+    System.out.print("Enter product name: ");
+    name = scanner.nextLine().trim();
+    
+    // Buscar el producto en la categoría seleccionada
     if (category.equalsIgnoreCase("man")) {
-        System.out.println("Available clothing items for men:");
-        for (ClothingItem item : manCategory.getClothingItems()) {
-            System.out.println(item.getName() + " - $" + item.getPrice());
-        }
+        selectedItem = manCategory.getClothingItemByName(name);
     } else if (category.equalsIgnoreCase("woman")) {
-        System.out.println("Available clothing items for women:");
-        for (ClothingItem item : womanCategory.getClothingItems()) {
-            System.out.println(item.getName() + " - $" + item.getPrice());
-        }
+        selectedItem = womanCategory.getClothingItemByName(name);
     }
+    
+    // Validar si se encontró el producto
+    if (selectedItem != null) {
+        break;  // Si se encontró el producto, salir del bucle
+    } else {
+        // Si el producto no es encontrado, mostramos un error y pedimos al usuario intentar de nuevo
+        System.err.println("Error: Item not found in the selected category. Please try again.");
+    }
+}
 
-    // Validar producto seleccionado
-    ClothingItem selectedItem = null;
-    String name;
-    while (true) {
-        System.out.print("Enter product name: ");
-        name = scanner.nextLine().trim();
-        try{
-        if (category.equalsIgnoreCase("man")) {
-            selectedItem = manCategory.getClothingItemByName(name);
-        } else if (category.equalsIgnoreCase("woman")) {
-            selectedItem = womanCategory.getClothingItemByName(name);
-        }
-        //validación Fue encontrado el producto
-        if (selectedItem != null) {
-            break;
-        } else {    
-            //Lazo Excepción
-           throw new ProductNotFoundException("Item not found int the selected category. Pelase try again.");
-        }
-        } catch (ProductNotFoundException e) {
-            //manejo de excepcion
-        System.err.println("Error: " + e.getMessage());
-        // Si se lanza la excepción, el ciclo sigue para que el usuario intente nuevamente
-    }
-    }
-
-    double price = selectedItem.getPrice();
-    System.out.println("The price of the " + name + " is: $" + price);
+// Obtener y mostrar el precio del producto seleccionado
+double price = selectedItem.getPrice();
+System.out.println("The price of the " + name + " is: $" + price);
 
     // Validar tamaño
     String size;

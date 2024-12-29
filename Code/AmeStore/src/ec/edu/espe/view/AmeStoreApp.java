@@ -64,29 +64,27 @@ public class AmeStoreApp {
             
             switch (option) {
                 case 1:
-                    //1era capture of exception
-                   try {
+    boolean registrationCompleted = false;
+    while (!registrationCompleted) {
+        try {
+
             RegistrationProduct newProduct = RegistrationProduct.collectProductDetails(manCategory, womanCategory);
             if (newProduct != null) {
                 manager.saveToJsonFile(newProduct, "Clothes.json");
                 System.out.println("Product registered successfully: " + newProduct);
+                registrationCompleted = true; // Salir del bucle al completar el registro
             }
+        } catch (InvalidCategoryException e) {
+            System.err.println("Error: " + e.getMessage()); // Muestra el mensaje de la excepción
         } catch (InsufficientStockException e) {
             System.err.println("Error: " + e.getMessage());
+            registrationCompleted = true; // Salir del bucle si ocurre un error que no puede corregirse
         } catch (Exception e) {
             System.err.println("Unexpected error: " + e.getMessage());
+            registrationCompleted = true; // Salir del bucle para errores inesperados
         }
-                   // one capture of exception
-                    try {
-             RegistrationProduct newProduct = RegistrationProduct.collectProductDetails(manCategory, womanCategory);
-             System.out.println("Product registered successfully: " + newProduct);
-         } catch (InvalidCategoryException e) {
-             System.err.println("Error: " + e.getMessage());  // Muestra el mensaje de error de la excepción
-         } catch (Exception e) {
-             System.err.println("Unexpected error: " + e.getMessage());
-         }
-                    break;
-                    
+    }
+    break;
                 case 2:
                        manager.processSale(scanner);
 

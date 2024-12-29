@@ -1,5 +1,6 @@
 package ec.edu.espe.model;
 
+import ec.edu.espe.exceptions.InvalidCategoryException;
 import java.util.ArrayList;
 
 /**
@@ -35,5 +36,6 @@ public class Category {
         }
         return null;  
     }
+  
 }
 
