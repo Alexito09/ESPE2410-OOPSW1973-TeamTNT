@@ -184,4 +184,14 @@ System.out.println("The price of the " + name + " is: $" + price);
          return new RegistrationProduct(id, category, name, size, quantity, color, price);
 
     }
+
+
+
+
+
+
+
+
+
+
 }
