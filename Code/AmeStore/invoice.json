@@ -1,4 +1,4 @@
-    [
+[
   {
     "customerName": "oscar",
     "date": "2004-05-02",
@@ -9,10 +9,42 @@
       {
         "productId": "1456",
         "productName": "pants",
-        "quantitySold": 6,
+        "quantitySold": 6.0,
         "totalPrice": 180.0
       }
     ],
     "total": 180.0
+  },
+  {
+    "customerName": "Alexander",
+    "date": "2003-09-13",
+    "phoneNumber": "0963205039",
+    "address": "daullcu@gmail.com",
+    "email": "daullcu@gmail.com",
+    "transactions": [
+      {
+        "productId": "001ss",
+        "productName": "hat",
+        "quantitySold": 1.0,
+        "totalPrice": 15.0
+      }
+    ],
+    "total": 15.0
+  },
+  {
+    "customerName": "Alex",
+    "date": "2003-19-09",
+    "phoneNumber": "0963250256",
+    "address": "Argelia",
+    "email": "daullcu@espe.edu.ec",
+    "transactions": [
+      {
+        "productId": "0015s",
+        "productName": "hat",
+        "quantitySold": 2,
+        "totalPrice": 30.0
+      }
+    ],
+    "total": 30.0
   }
 ]

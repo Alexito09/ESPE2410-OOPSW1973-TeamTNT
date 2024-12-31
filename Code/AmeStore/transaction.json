@@ -44,7 +44,19 @@
   {
     "productId": "22",
     "productName": "scarf",
-    "quantitySold": 5,
+    "quantitySold": 5.0,
     "totalPrice": 25.0
+  },
+  {
+    "productId": "001ss",
+    "productName": "hat",
+    "quantitySold": 1.0,
+    "totalPrice": 15.0
+  },
+  {
+    "productId": "0015s",
+    "productName": "hat",
+    "quantitySold": 2,
+    "totalPrice": 30.0
   }
 ]

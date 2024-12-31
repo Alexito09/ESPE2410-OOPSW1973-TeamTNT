@@ -216,24 +216,6 @@
     "price": 5.0
   },
   {
-    "id": "12",
-    "category": "man",
-    "name": "gloves",
-    "size": "S",
-    "quantity": 12,
-    "color": "gris",
-    "price": 18.0
-  },
-  {
-    "id": "1425",
-    "category": "man",
-    "name": "hat",
-    "size": "S",
-    "quantity": 10,
-    "color": "gir",
-    "price": 15.0
-  },
-  {
     "id": "1452",
     "category": "man",
     "name": "scarf",
@@ -241,5 +223,23 @@
     "quantity": 10,
     "color": "gris",
     "price": 5.0
+  },
+  {
+    "id": "001ss",
+    "category": "man",
+    "name": "hat",
+    "size": "S",
+    "quantity": 1,
+    "color": "white",
+    "price": 15.0
+  },
+  {
+    "id": "0015s",
+    "category": "man",
+    "name": "hat",
+    "size": "S",
+    "quantity": 3,
+    "color": "white",
+    "price": 15.0
   }
 ]
