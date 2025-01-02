@@ -52,13 +52,13 @@ public class AmeStoreApp {
             
             System.out.println("======== AME STOREAPP ========");
             System.out.println("======== MAIN MENU ========");
-            System.out.println("1. Option 1: Register product");
-           System.out.println("2. Option 2: Process Sale");
-            System.out.println("3. Option 3: Delete Product");
-            System.out.println("4. Option 4: Show Transaction History");
-            System.out.println("5. Option 5: Generate Invoice");
-            System.out.println("6. Option 6: Exit");
-            System.out.print("Select an option: ");
+            System.out.println("Option 1: Register product");
+           System.out.println("Option 2: Process Sale");
+            System.out.println("Option 3: Delete Product");
+            System.out.println("Option 4: Show Transaction History");
+            System.out.println("Option 5: Generate Invoice");
+            System.out.println("Option 6: Exit");
+            System.out.print("Please select an option: ");
             option = scanner.nextInt();
             scanner.nextLine(); 
             

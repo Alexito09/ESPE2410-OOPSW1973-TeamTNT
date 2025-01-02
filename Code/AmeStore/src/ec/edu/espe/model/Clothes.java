@@ -19,7 +19,6 @@ public class Clothes extends ClothingItem {
         this.amount = amount;
     }
 
-    // Getters and setters
     public String getIdProduct() {
         return idProduct;
     }
@@ -68,7 +67,7 @@ public class Clothes extends ClothingItem {
                 ", size='" + size + '\'' +
                 ", color='" + color + '\'' +
                 ", amount=" + amount +
-                ", name='" + getName() + '\'' + // Llama a los métodos de la clase padre
+                ", name='" + getName() + '\'' + 
                 ", price=" + getPrice() +
                 '}';
     }

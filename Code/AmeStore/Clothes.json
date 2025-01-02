@@ -241,5 +241,32 @@
     "quantity": 3,
     "color": "white",
     "price": 15.0
+  },
+  {
+    "id": "R001",
+    "category": "man",
+    "name": "Suit",
+    "size": "M",
+    "quantity": 3,
+    "color": "Blue",
+    "price": 50.0
+  },
+  {
+    "id": "R001",
+    "category": "man",
+    "name": "Suit",
+    "size": "S",
+    "quantity": 10,
+    "color": "Red",
+    "price": 50.0
+  },
+  {
+    "id": "A003",
+    "category": "man",
+    "name": "hat",
+    "size": "S",
+    "quantity": 1,
+    "color": "red",
+    "price": 15.0
   }
 ]

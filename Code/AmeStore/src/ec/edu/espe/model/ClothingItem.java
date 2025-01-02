@@ -12,7 +12,6 @@ public class ClothingItem {
         this.price = price;
     }
 
-    // Getters and setters
     public String getName() {
         return name;
     }

@@ -87,7 +87,6 @@ public static RegistrationProduct collectProductDetails(Category manCategory, Ca
         }
     }
 
-// Validar categoría
 String category;
 while (true) {
     System.out.print("Enter category (man or woman): ");
@@ -98,7 +97,7 @@ while (true) {
      System.err.println("Error: Invalid category. Please enter 'man' or 'woman'.");
 }
 }
-// Mostrar productos disponibles
+
 if (category.equalsIgnoreCase("man")) {
     System.out.println("Available clothing items for men:");
     for (ClothingItem item : manCategory.getClothingItems()) {
@@ -111,34 +110,31 @@ if (category.equalsIgnoreCase("man")) {
     }
 }
 
-// Validar producto seleccionado
+
 ClothingItem selectedItem = null;
 String name;
 while (true) {
     System.out.print("Enter product name: ");
     name = scanner.nextLine().trim();
     
-    // Buscar el producto en la categoría seleccionada
+    
     if (category.equalsIgnoreCase("man")) {
         selectedItem = manCategory.getClothingItemByName(name);
     } else if (category.equalsIgnoreCase("woman")) {
         selectedItem = womanCategory.getClothingItemByName(name);
     }
     
-    // Validar si se encontró el producto
+    
     if (selectedItem != null) {
-        break;  // Si se encontró el producto, salir del bucle
+        break;  
     } else {
-        // Si el producto no es encontrado, mostramos un error y pedimos al usuario intentar de nuevo
         System.err.println("Error: Item not found in the selected category. Please try again.");
     }
 }
 
-// Obtener y mostrar el precio del producto seleccionado
 double price = selectedItem.getPrice();
 System.out.println("The price of the " + name + " is: $" + price);
 
-    // Validar tamaño
     String size;
     while (true) {
         System.out.print("Enter size (S, M, L, XL): ");
@@ -150,7 +146,6 @@ System.out.println("The price of the " + name + " is: $" + price);
         }
     }
 
-    // Validar color
     String color;
     while (true) {
         System.out.print("Enter color: ");
@@ -162,13 +157,12 @@ System.out.println("The price of the " + name + " is: $" + price);
         }
     }
 
-    // Validar cantidad y lanzar excepción si es necesario
     int quantity;
  while (true) {
     System.out.print("Enter quantity: ");
     if (scanner.hasNextInt()) {
         quantity = scanner.nextInt();
-        scanner.nextLine(); // Limpiar el búfer del Scanner
+        scanner.nextLine();
         if (quantity > 0) {
             break;
         } else {
@@ -176,11 +170,9 @@ System.out.println("The price of the " + name + " is: $" + price);
         }
     } else {
         System.out.println("Invalid input. Please enter a valid number for quantity.");
-        scanner.nextLine(); // Limpiar el búfer en caso de entrada inválida
+        scanner.nextLine();
     }
 }
-
-    
          return new RegistrationProduct(id, category, name, size, quantity, color, price);
 
     }
