@@ -49,11 +49,11 @@ public class AmeStoreApp {
         int option;
 
         do {
-            
+            System.out.println("Welcome Back");
             System.out.println("======== AME STOREAPP ========");
             System.out.println("======== MAIN MENU ========");
             System.out.println("Option 1: Register product");
-           System.out.println("Option 2: Process Sale");
+            System.out.println("Option 2: Process Sale");
             System.out.println("Option 3: Delete Product");
             System.out.println("Option 4: Show Transaction History");
             System.out.println("Option 5: Generate Invoice");
@@ -75,13 +75,13 @@ public class AmeStoreApp {
                 registrationCompleted = true; // Salir del bucle al completar el registro
             }
         } catch (InvalidCategoryException e) {
-            System.err.println("Error: " + e.getMessage()); // Muestra el mensaje de la excepción
+            System.err.println("Error: " + e.getMessage()); 
         } catch (InsufficientStockException e) {
             System.err.println("Error: " + e.getMessage());
-            registrationCompleted = true; // Salir del bucle si ocurre un error que no puede corregirse
+            registrationCompleted = true; 
         } catch (Exception e) {
             System.err.println("Unexpected error: " + e.getMessage());
-            registrationCompleted = true; // Salir del bucle para errores inesperados
+            registrationCompleted = true; 
         }
     }
     break;

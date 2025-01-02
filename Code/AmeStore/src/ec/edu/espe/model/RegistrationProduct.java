@@ -75,7 +75,6 @@ public static RegistrationProduct collectProductDetails(Category manCategory, Ca
 
     System.out.println("=== Register Product ===");
 
-    // Validar ID
     String id;
     while (true) {
         System.out.print("Enter product ID: ");
@@ -92,7 +91,7 @@ while (true) {
     System.out.print("Enter category (man or woman): ");
     category = scanner.nextLine().trim().toLowerCase();
     if (category.equals("man") || category.equals("woman")) {
-        break;  // Si la categoría es válida, salir del bucle
+        break;  
     } else {
      System.err.println("Error: Invalid category. Please enter 'man' or 'woman'.");
 }
