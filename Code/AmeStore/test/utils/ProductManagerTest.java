@@ -1,4 +1,3 @@
-
 package utils;
 
 import ec.edu.espe.model.RegistrationProduct;
@@ -20,7 +19,7 @@ public class ProductManagerTest {
     @Test
     public void testProcessSale() {
         System.out.println("processSale");
-        Scanner scanner = null;
+        Scanner scanner = new Scanner(System.in);
         ProductManager instance = new ProductManager();
         instance.processSale(scanner);
         fail("The test case is a prototype.");
@@ -68,7 +67,7 @@ public class ProductManagerTest {
     @Test
     public void testDeleteProductById() {
         System.out.println("deleteProductById");
-        Scanner scanner = null;
+        Scanner scanner = new Scanner(System.in);
         ProductManager instance = new ProductManager();
         instance.deleteProductById(scanner);
         fail("The test case is a prototype.");
