@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/User/OneDrive/Desktop/Segundo%20Semestre/POO/ESPE2410-OOPSW1973-TeamTNT/Code/AmeStore/test/ec/edu/espe/exceptions/InsufficientStockExceptionTest.java</file>
+            <file>file:/C:/Users/User/OneDrive/Desktop/Segundo%20Semestre/POO/ESPE2410-OOPSW1973-TeamTNT/Code/AmeStore/test/ec/edu/espe/exceptions/InvalidProductIDExceptionTest.java</file>
+            <file>file:/C:/Users/User/OneDrive/Desktop/Segundo%20Semestre/POO/ESPE2410-OOPSW1973-TeamTNT/Code/AmeStore/test/ec/edu/espe/exceptions/ProductNotFoundExceptionTest.java</file>
+            <file>file:/C:/Users/User/OneDrive/Desktop/Segundo%20Semestre/POO/ESPE2410-OOPSW1973-TeamTNT/Code/AmeStore/test/ec/edu/espe/exceptions/InvalidCategoryExceptionTest.java</file>
+        </group>
     </open-files>
 </project-private>
