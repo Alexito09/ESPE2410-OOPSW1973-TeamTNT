@@ -41,10 +41,26 @@
       {
         "productId": "0015s",
         "productName": "hat",
-        "quantitySold": 2,
+        "quantitySold": 2.0,
         "totalPrice": 30.0
       }
     ],
     "total": 30.0
+  },
+  {
+    "customerName": "Pepe",
+    "date": "2003-12-20",
+    "phoneNumber": "0987654321",
+    "address": "sepa",
+    "email": "nuse@gmail.com",
+    "transactions": [
+      {
+        "productId": "22",
+        "productName": "scarf",
+        "quantitySold": 5,
+        "totalPrice": 25.0
+      }
+    ],
+    "total": 25.0
   }
 ]

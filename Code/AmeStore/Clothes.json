@@ -139,7 +139,7 @@
     "category": "man",
     "name": "scarf",
     "size": "S",
-    "quantity": 5,
+    "quantity": 0,
     "color": "white",
     "price": 5.0
   },
@@ -261,12 +261,12 @@
     "price": 50.0
   },
   {
-    "id": "A003",
+    "id": "1000",
     "category": "man",
-    "name": "hat",
+    "name": "Hat",
     "size": "S",
-    "quantity": 1,
-    "color": "red",
+    "quantity": 10,
+    "color": "Blue",
     "price": 15.0
   }
 ]
