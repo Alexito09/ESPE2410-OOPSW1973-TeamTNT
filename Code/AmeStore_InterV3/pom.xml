@@ -15,7 +15,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>23</maven.compiler.release>
-        <exec.mainClass>ec.edu.espe.proyecto_sistema_de_ventas.Proyecto_SIstema_de_Ventas</exec.mainClass>
+        <exec.mainClass>ec.edu.espe.view</exec.mainClass>
     </properties>
     <name>AmeStore_Inter</name>
 </project>
