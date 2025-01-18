@@ -66,7 +66,7 @@ public class AmeStoreMain extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
         jButton2.setText("Clientes");
 
@@ -146,6 +146,7 @@ public class AmeStoreMain extends javax.swing.JFrame {
 
         jLabel8.setText("Nombre");
 
+        jButton7.setBackground(new java.awt.Color(255, 153, 153));
         jButton7.setText("Generar");
 
         jLabel9.setText("Total a pagar");
@@ -333,27 +334,27 @@ public class AmeStoreMain extends javax.swing.JFrame {
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 600, 410));
 
-        jPanel9.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel9.setBackground(new java.awt.Color(255, 204, 204));
         jPanel9.setForeground(new java.awt.Color(204, 75, 193));
 
-        jLabel1.setFont(new java.awt.Font("Wide Latin", 0, 24)); // NOI18N
-        jLabel1.setText("AME STORE");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Transacciones");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(445, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel1)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 620, 110));

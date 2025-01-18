@@ -26,7 +26,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>23</maven.compiler.release> <!-- Ajusta según tu versión de Java -->
-        <exec.mainClass>ec.edu.espe.amestore.view.AmeStoreBegin</exec.mainClass>
+        <exec.mainClass>ec.edu.espe.amestore.view.FmrBegin</exec.mainClass>
     </properties>
 
     <name>AmeStore_Inter</name>

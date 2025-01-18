@@ -4,6 +4,13 @@
  */
 package ec.edu.espe.amestore.view;
 
+import java.awt.Dimension;
+import java.awt.GraphicsConfiguration;
+import java.awt.HeadlessException;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 
 
 
@@ -12,14 +19,19 @@ package ec.edu.espe.amestore.view;
  *
  * @author USER
  */
-public class AmeStoreBegin extends javax.swing.JFrame {
+public class FmrBegin extends javax.swing.JFrame {
 
    
-    public AmeStoreBegin() {
+    public FmrBegin() {
         initComponents();
-     
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        this.setTitle("Login - SISTEMA DE VENTAS DE ROPA");
+        this.setSize(new Dimension(700, 500));
 
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,7 +48,7 @@ public class AmeStoreBegin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnBegin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,9 +100,9 @@ public class AmeStoreBegin extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo_AmeS.jpg"))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("Empezar");
+        btnBegin.setBackground(new java.awt.Color(255, 204, 204));
+        btnBegin.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnBegin.setText("Empezar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -103,7 +115,7 @@ public class AmeStoreBegin extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(67, 67, 67))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnBegin)
                         .addGap(90, 90, 90))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -112,7 +124,7 @@ public class AmeStoreBegin extends javax.swing.JFrame {
                 .addGap(126, 126, 126)
                 .addComponent(jLabel2)
                 .addGap(88, 88, 88)
-                .addComponent(jButton1)
+                .addComponent(btnBegin)
                 .addContainerGap(119, Short.MAX_VALUE))
         );
 
@@ -138,26 +150,27 @@ public class AmeStoreBegin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AmeStoreBegin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FmrBegin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AmeStoreBegin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FmrBegin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AmeStoreBegin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FmrBegin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AmeStoreBegin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FmrBegin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AmeStoreBegin().setVisible(true);
+                new FmrBegin().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnBegin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -165,4 +178,6 @@ public class AmeStoreBegin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+
 }
