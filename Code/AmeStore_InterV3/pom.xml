@@ -5,6 +5,7 @@
     <artifactId>AmeStore_Inter</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+
     <dependencies>
         <dependency>
             <groupId>org.netbeans.external</groupId>
@@ -12,10 +13,21 @@
             <version>RELEASE230</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <resources>
+            <!-- Incluir los recursos de src/main/resources -->
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>23</maven.compiler.release>
-        <exec.mainClass>ec.edu.espe.view</exec.mainClass>
+        <maven.compiler.release>23</maven.compiler.release> <!-- Ajusta según tu versión de Java -->
+        <exec.mainClass>ec.edu.espe.amestore.view.AmeStoreBegin</exec.mainClass>
     </properties>
+
     <name>AmeStore_Inter</name>
 </project>
