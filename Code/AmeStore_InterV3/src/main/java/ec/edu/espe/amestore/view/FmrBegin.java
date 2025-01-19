@@ -103,6 +103,11 @@ public class FmrBegin extends javax.swing.JFrame {
         btnBegin.setBackground(new java.awt.Color(255, 204, 204));
         btnBegin.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnBegin.setText("Empezar");
+        btnBegin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBeginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -132,6 +137,16 @@ public class FmrBegin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBeginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeginActionPerformed
+      FrmMenu frmMenu= new FrmMenu();
+      frmMenu.show(true);
+      dispose();
+      FmrBegin fmrBegin = new FmrBegin();
+      fmrBegin.hide();
+      
+        
+    }//GEN-LAST:event_btnBeginActionPerformed
 
     /**
      * @param args the command line arguments
