@@ -1,41 +1,49 @@
 package ec.edu.espe.amestore.model;
 
-/*import ec.edu.espe.exceptions.InvalidCategoryException;*/
-import java.util.ArrayList;
-
 /**
  *
- * @author Team TNT
+ * @author Andres Sandoval
  */
 public class Category {
-    private String name;
-    private ArrayList<ClothingItem> clothingItems;
 
-    public Category(String name) {
-        this.name = name;
-        this.clothingItems = new ArrayList<>();
+    private int idCategory;
+    private String description;
+    private int status;
+
+    public Category() {
+        this.idCategory = 0;
+        this.description = "";
+        this.status = 0;
     }
 
-    public void addClothingItem(ClothingItem item) {
-        clothingItems.add(item);
+    public Category(int idCategory, String description, int status) {
+        this.idCategory = idCategory;
+        this.description = description;
+        this.status = status;
     }
 
-    public String getName() {
-        return name;
+    public int getIdCategory() {
+        return idCategory;
     }
 
-    public ArrayList<ClothingItem> getClothingItems() {
-        return clothingItems;
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
     }
 
-    public ClothingItem getClothingItemByName(String itemName) {
-        for (ClothingItem item : clothingItems) {
-            if (item.getName().equalsIgnoreCase(itemName)) {
-                return item;
-            }
-        }
-        return null;  
+    public String getDescription() {
+        return description;
     }
-  
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
 }
-

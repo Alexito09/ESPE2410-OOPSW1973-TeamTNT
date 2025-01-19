@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ec.edu.espe.amestore.view;
 
 import java.awt.Color;
@@ -9,12 +5,15 @@ import java.awt.Dimension;
 import static java.awt.GridBagConstraints.BOTH;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 
 /**
  *
  * @author USER
  */
 public class FrmMenu extends javax.swing.JFrame {
+    
+    public static JDesktopPane jDesktopPane_menu;
 
 
     public FrmMenu() {
@@ -23,12 +22,15 @@ public class FrmMenu extends javax.swing.JFrame {
         this.setTitle("Sistema de Ventas");
         setExtendedState(JFrame.MAXIMIZED_BOTH); 
         getContentPane().setBackground(new Color(255, 182, 193));
-         this.setLayout(null);
-   
         
-    
-
-    
+        this.setLayout(null);
+        jDesktopPane_menu = new JDesktopPane();
+        
+        int wide = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+        int high = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+        this.jDesktopPane_menu.setBounds(0,0, wide, (high - 110));
+        this.add(jDesktopPane_menu);
+         
     }
 
     /**
@@ -51,9 +53,9 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        mnuCategory = new javax.swing.JMenu();
+        JmnNewCategory = new javax.swing.JMenuItem();
+        JmnCategorySettings = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -134,29 +136,34 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/categorias.png"))); // NOI18N
-        jMenu4.setText("Categoria");
-        jMenu4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenu4.setPreferredSize(new java.awt.Dimension(200, 30));
+        mnuCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/categorias.png"))); // NOI18N
+        mnuCategory.setText("Categoria");
+        mnuCategory.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        mnuCategory.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        jMenuItem8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nuevo.png"))); // NOI18N
-        jMenuItem8.setText("Nueva Categoria");
-        jMenuItem8.setPreferredSize(new java.awt.Dimension(200, 30));
-        jMenu4.add(jMenuItem8);
-
-        jMenuItem9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/categorias.png"))); // NOI18N
-        jMenuItem9.setText("Gestionar Categoria");
-        jMenuItem9.setPreferredSize(new java.awt.Dimension(200, 30));
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        JmnNewCategory.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        JmnNewCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nuevo.png"))); // NOI18N
+        JmnNewCategory.setText("Nueva Categoria");
+        JmnNewCategory.setPreferredSize(new java.awt.Dimension(200, 30));
+        JmnNewCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                JmnNewCategoryActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem9);
+        mnuCategory.add(JmnNewCategory);
 
-        jMenuBar1.add(jMenu4);
+        JmnCategorySettings.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        JmnCategorySettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/categorias.png"))); // NOI18N
+        JmnCategorySettings.setText("Gestionar Categoria");
+        JmnCategorySettings.setPreferredSize(new java.awt.Dimension(200, 30));
+        JmnCategorySettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JmnCategorySettingsActionPerformed(evt);
+            }
+        });
+        mnuCategory.add(JmnCategorySettings);
+
+        jMenuBar1.add(mnuCategory);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/anadir.png"))); // NOI18N
         jMenu5.setText("Facturar");
@@ -248,9 +255,9 @@ public class FrmMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    private void JmnCategorySettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JmnCategorySettingsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_JmnCategorySettingsActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
         // TODO add your handling code here:
@@ -259,6 +266,13 @@ public class FrmMenu extends javax.swing.JFrame {
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void JmnNewCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JmnNewCategoryActionPerformed
+        JifrmCategory jifrmCategory;
+        jifrmCategory = new JifrmCategory();
+        jDesktopPane_menu.add(jifrmCategory);
+        jifrmCategory.setVisible(true);
+    }//GEN-LAST:event_JmnNewCategoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,10 +310,11 @@ public class FrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem JmnCategorySettings;
+    private javax.swing.JMenuItem JmnNewCategory;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
@@ -320,7 +335,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenu mnuCategory;
     // End of variables declaration//GEN-END:variables
 }
