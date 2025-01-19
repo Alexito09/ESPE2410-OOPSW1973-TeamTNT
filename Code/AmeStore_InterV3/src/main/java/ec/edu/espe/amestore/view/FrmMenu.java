@@ -7,6 +7,8 @@ package ec.edu.espe.amestore.view;
 import java.awt.Color;
 import java.awt.Dimension;
 import static java.awt.GridBagConstraints.BOTH;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
 
 /**
  *
@@ -17,12 +19,13 @@ public class FrmMenu extends javax.swing.JFrame {
 
     public FrmMenu() {
         initComponents();
-        this.setSize(new Dimension(1300,800));
+        this.setSize(new Dimension(1200,700));
         this.setTitle("Sistema de Ventas");
+        setExtendedState(JFrame.MAXIMIZED_BOTH); 
         getContentPane().setBackground(new Color(255, 182, 193));
-
-        // Hacer visible el JFrame
-        setVisible(true);
+         this.setLayout(null);
+   
+        
     
 
     
@@ -89,12 +92,13 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/producto.png"))); // NOI18N
         jMenu2.setText("Producto");
         jMenu2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenu2.setMinimumSize(new java.awt.Dimension(200, 30));
         jMenu2.setPreferredSize(new java.awt.Dimension(150, 30));
 
         jMenuItem3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nuevo-producto.png"))); // NOI18N
         jMenuItem3.setText("Nuevo Producto");
-        jMenuItem3.setPreferredSize(new java.awt.Dimension(150, 30));
+        jMenuItem3.setPreferredSize(new java.awt.Dimension(200, 30));
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
