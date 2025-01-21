@@ -42,4 +42,28 @@ public class CategoryController {
         }
       return exist;
     }
+    
+    
+    
+    
+    
+    
+    //Video 7 por corregir. 
+       public boolean update(Category object, int idCategory){
+      boolean answer = false;
+      MongoDatabase db = MongoDBConection.conectar();
+        MongoCollection<Document> collection = db.getCollection("Category");
+        try{
+            Document doc = new Document("Category to AmeStore", object.getDescription()).append("Status", object.getStatus());
+            collection.insertOne(doc);
+            
+            answer= true;
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println("Erro al actualizar categoria");
+        }
+      return answer;
+    }
+
 }
+

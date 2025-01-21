@@ -35,8 +35,8 @@ public class JifrmCategory extends javax.swing.JInternalFrame {
         btnSave = new javax.swing.JButton();
         JlWallpaper = new javax.swing.JLabel();
 
+        setClosable(true);
         setIconifiable(true);
-        setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nueva Categoria");

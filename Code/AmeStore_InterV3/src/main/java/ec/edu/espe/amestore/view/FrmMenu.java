@@ -262,6 +262,9 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void JmnCategorySettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JmnCategorySettingsActionPerformed
         // TODO add your handling code here:
+       /*InterManageCategory interManageCategory =  new InterManageCategory();
+        jDesktopPane_menu.add(interManageCategory);
+        interManageCategory.setVisible(true);*/
     }//GEN-LAST:event_JmnCategorySettingsActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
@@ -280,10 +283,9 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_JmnNewCategoryActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        JifrmCategory jifrmCategory;
-        jifrmCategory = new JifrmCategory();
-        jDesktopPane_menu.add(jifrmCategory);
-        jifrmCategory.setVisible(true);
+        InterProduct interProduct =  new InterProduct();
+        jDesktopPane_menu.add(interProduct);
+        interProduct.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
