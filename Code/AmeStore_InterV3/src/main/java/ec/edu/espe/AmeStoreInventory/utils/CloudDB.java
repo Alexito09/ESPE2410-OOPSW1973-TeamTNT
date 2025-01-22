@@ -25,7 +25,7 @@ import org.bson.conversions.Bson;
 
 /**
  *
- * @author USER
+ * @author Lisbeth Tipan
  */
 public class CloudDB {
     
