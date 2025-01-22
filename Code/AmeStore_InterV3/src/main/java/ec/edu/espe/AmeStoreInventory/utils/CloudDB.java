@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espe.AmeStoreInventory.utils;
 
 import com.mongodb.ConnectionString;
@@ -219,5 +215,24 @@ private MongoClient mongoClient;
         return false;
     }
 }
+
+ 
+public void updateCustomerData(Customer customer) {
+    MongoCollection<Document> collection = getCollection("customer");
+    
+    Document query = new Document("id", customer.getId());
+    Document updatedData = new Document("$set", new Document()
+            .append("name", customer.getName())
+            .append("address", customer.getAddress())
+            .append("email", customer.getEmail())
+            .append("phone", customer.getPhone()));
+
+    try {
+        collection.updateOne(query, updatedData);
+        System.out.println("Se actualizo del Cliente!");
+    } catch (MongoException e) {
+        System.err.println("Error al editar el cliente: " + e.getMessage());
+    }
 }
 
+}

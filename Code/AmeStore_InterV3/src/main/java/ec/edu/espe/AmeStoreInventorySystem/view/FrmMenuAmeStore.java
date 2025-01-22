@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ec.edu.espe.AmeStoreInventorySystem.view;
 
 import java.awt.Color;
@@ -752,21 +748,15 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         ViewCustomerBtn.setLayout(ViewCustomerBtnLayout);
         ViewCustomerBtnLayout.setHorizontalGroup(
             ViewCustomerBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-            .addGroup(ViewCustomerBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ViewCustomerBtnLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(ViewCustomerBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ViewCustomerBtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ViewCustomerBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         ViewCustomerBtnLayout.setVerticalGroup(
             ViewCustomerBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-            .addGroup(ViewCustomerBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ViewCustomerBtnLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(ViewCustomerBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ViewCustomerBtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ViewCustomerBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         bgPanel.add(ViewCustomerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 130, 40));
@@ -1150,9 +1140,9 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
     }//GEN-LAST:event_EditCustomerBtnTxtMouseExited
 
     private void ViewCustomerBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewCustomerBtnTxtMouseClicked
-        FrmViewCustomer frmViewCustomer = new FrmViewCustomer();
+        /*FrmViewCustomer frmViewCustomer = new FrmViewCustomer();
         frmViewCustomer.setVisible(true);
-        this.setVisible(false);
+        this.setVisible(false);*/
     }//GEN-LAST:event_ViewCustomerBtnTxtMouseClicked
 
     private void ViewCustomerBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewCustomerBtnTxtMouseEntered
@@ -1174,9 +1164,9 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
     }//GEN-LAST:event_ViewCustomerBtnTxtMouseExited
 
     private void ViewInventoryBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewInventoryBtnTxtMouseClicked
-        FrmViewInventory frmViewInventory = new FrmViewInventory();
+        /*FrmViewInventory frmViewInventory = new FrmViewInventory();
         this.setVisible(false);
-        frmViewInventory.setVisible(true);
+        frmViewInventory.setVisible(true);*/
     }//GEN-LAST:event_ViewInventoryBtnTxtMouseClicked
 
     private void ViewInventoryBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewInventoryBtnTxtMouseEntered

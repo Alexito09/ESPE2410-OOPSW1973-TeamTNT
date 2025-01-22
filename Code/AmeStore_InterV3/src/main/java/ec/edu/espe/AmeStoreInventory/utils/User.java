@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espe.AmeStoreInventory.utils;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
- * @author USER
+ * @author Team TNT
  */
 public class User {
     private String username;
