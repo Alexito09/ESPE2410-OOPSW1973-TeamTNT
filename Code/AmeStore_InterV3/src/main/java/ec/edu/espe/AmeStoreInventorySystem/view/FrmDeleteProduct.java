@@ -116,7 +116,7 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
 
         bckgDelete.add(returnBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 140, 40));
 
-        ID.setBackground(new java.awt.Color(110, 80, 159));
+        ID.setBackground(new java.awt.Color(153, 102, 255));
         ID.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -221,18 +221,18 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
         header4Layout.setHorizontalGroup(
             header4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(header4Layout.createSequentialGroup()
-                .addContainerGap(225, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(195, 195, 195)
+                .addContainerGap(218, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(159, 159, 159)
                 .addComponent(exitBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         header4Layout.setVerticalGroup(
             header4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(exitBtn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(header4Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, header4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         bckgDelete.add(header4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));

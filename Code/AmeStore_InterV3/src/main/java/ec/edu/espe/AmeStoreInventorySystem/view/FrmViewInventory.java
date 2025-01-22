@@ -92,7 +92,7 @@ public class FrmViewInventory extends javax.swing.JFrame {
 
         jPanel3.add(returnBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, 150, 40));
 
-        jTable1.setBackground(new java.awt.Color(110, 80, 159));
+        jTable1.setBackground(new java.awt.Color(204, 153, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -254,9 +254,9 @@ public class FrmViewInventory extends javax.swing.JFrame {
     }//GEN-LAST:event_returnBtnTextMouseExited
 
     private void returnBtnTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnBtnTextMouseClicked
-        FrmMenuAmeStore frmUniversoDelFomix = new FrmMenuAmeStore();
+        FrmMenuAmeStore frmMenuAmeStore = new FrmMenuAmeStore();
         this.setVisible(false);
-        frmUniversoDelFomix.setVisible(true);
+        frmMenuAmeStore.setVisible(true);
     }//GEN-LAST:event_returnBtnTextMouseClicked
 
     private void searchBtnTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBtnTextMouseEntered

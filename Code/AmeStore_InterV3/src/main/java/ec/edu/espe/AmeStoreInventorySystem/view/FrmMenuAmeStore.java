@@ -916,9 +916,9 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void StartBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartBtnTxtMouseClicked
-       FrmMenuAmeStore frmUniversoDelFomix = new FrmMenuAmeStore();
+       FrmMenuAmeStore frmenuAmeStore = new FrmMenuAmeStore();
        this.setVisible(false);
-       frmUniversoDelFomix.setVisible(true);    
+       frmenuAmeStore.setVisible(true);    
     }//GEN-LAST:event_StartBtnTxtMouseClicked
 
     private void StartBtnTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartBtnTxtMouseEntered
@@ -1035,9 +1035,9 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
     }//GEN-LAST:event_LogOutBtnTxtMouseExited
 
     private void StartBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartBtnMouseClicked
-        FrmAmeStoreSplash frmUniversoDelFomixSplash = new FrmAmeStoreSplash();
+        FrmAmeStoreSplash frmAmeStoreSplash = new FrmAmeStoreSplash();
         this.setVisible(false);
-        frmUniversoDelFomixSplash.setVisible(true);
+        frmAmeStoreSplash.setVisible(true);
     }//GEN-LAST:event_StartBtnMouseClicked
 
     private void HelpBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HelpBtnTxtMouseClicked

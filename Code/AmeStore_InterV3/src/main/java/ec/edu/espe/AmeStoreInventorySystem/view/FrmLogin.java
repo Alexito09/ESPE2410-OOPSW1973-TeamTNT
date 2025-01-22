@@ -273,10 +273,10 @@ public class FrmLogin extends javax.swing.JFrame {
         String user = "amestore";
         String password = "amestore";
         String pass = new String(passTxt.getPassword());
-        FrmMenuAmeStore frmUniversoDelFomix = new FrmMenuAmeStore();
+        FrmMenuAmeStore frmenuAmeStore = new FrmMenuAmeStore();
         if(userTxt.getText().equals(user)&& pass.equals(password)){  
             this.setVisible(false);
-        frmUniversoDelFomix.setVisible(true);
+        frmenuAmeStore.setVisible(true);
         }else{
            JOptionPane.showMessageDialog(this,"Usuario o contraseña incorrectos por favor intentelo de nuevo");
        }   

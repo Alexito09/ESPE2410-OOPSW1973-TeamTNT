@@ -385,7 +385,7 @@ public class FrmEditProduct extends javax.swing.JFrame {
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
-        jTable1.setBackground(new java.awt.Color(110, 80, 159));
+        jTable1.setBackground(new java.awt.Color(204, 153, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
