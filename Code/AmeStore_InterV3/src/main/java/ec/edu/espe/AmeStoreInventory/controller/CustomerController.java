@@ -5,6 +5,7 @@
 package ec.edu.espe.AmeStoreInventory.controller;
 
 import ec.edu.espe.AmeStoreInventory.model.Customer;
+import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import javax.swing.JOptionPane;
 
 /**
