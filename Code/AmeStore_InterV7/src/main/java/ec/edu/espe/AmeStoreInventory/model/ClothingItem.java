@@ -1,7 +1,10 @@
 package ec.edu.espe.AmeStoreInventory.model;
 
 /**
- * Autor Alexander Ullco
+ * Autor TEAM TNT
+ * 
+ * 
+ * 
  */
 public class ClothingItem {
     private String name;

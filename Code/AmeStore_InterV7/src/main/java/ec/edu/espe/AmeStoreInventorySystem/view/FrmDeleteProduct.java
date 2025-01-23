@@ -22,6 +22,8 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
         tableModel = (DefaultTableModel) ID.getModel();
         tableModel.setRowCount(0);
         loadProducts();
+        
+        
     }
     
     @SuppressWarnings("unchecked")

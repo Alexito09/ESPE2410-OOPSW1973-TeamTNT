@@ -14,7 +14,7 @@ import org.bson.Document;
 
 /**
  *
- * @author 
+ * @author TEAM TNT
  */
 public class FrmViewCustomer extends javax.swing.JFrame {
 

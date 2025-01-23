@@ -8,7 +8,9 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author 
+ * @author TEAM TNT
+ * 
+ * 
  */
 public class FrmViewInvoice extends javax.swing.JFrame {
 

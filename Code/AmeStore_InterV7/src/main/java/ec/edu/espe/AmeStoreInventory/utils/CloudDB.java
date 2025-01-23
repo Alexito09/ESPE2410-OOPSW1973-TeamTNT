@@ -1,7 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+
 package ec.edu.espe.AmeStoreInventory.utils;
 
 import com.mongodb.ConnectionString;
@@ -25,7 +23,7 @@ import org.bson.conversions.Bson;
 
 /**
  *
- * @author Lisbeth Tipan
+ * @author TEAM TNT
  */
 public class CloudDB {
     

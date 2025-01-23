@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package ec.edu.espe.AmeStoreInventorySystem.view;
 
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.awt.Color;
-import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -15,7 +11,12 @@ import org.bson.Document;
 
 /**
  *
- * @author 
+ * @author TEAM TNT
+ * 
+ * 
+ * 
+ * 
+ * 
  */
 public class FrmEditCustomer extends javax.swing.JFrame {
 

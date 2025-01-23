@@ -17,7 +17,7 @@ import org.bson.Document;
 
 /**
  *
- * @author 
+ * @author TEAM TNT
  */
 public class FrmNewInvoice extends javax.swing.JFrame {
 

@@ -11,7 +11,7 @@ import javax.swing.SwingConstants;
 
 /**
  *
- * @author 
+ * @author TEAM TNT
  */
 public class FrmHelp extends javax.swing.JFrame {
 int xMouse, yMouse;

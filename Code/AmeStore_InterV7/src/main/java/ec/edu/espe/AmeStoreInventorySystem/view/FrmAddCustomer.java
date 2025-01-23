@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Lisbeth Tipan
+ * @author TEAM TNT
  */
 public class FrmAddCustomer extends javax.swing.JFrame {
 

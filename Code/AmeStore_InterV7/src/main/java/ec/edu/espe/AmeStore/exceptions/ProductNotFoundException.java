@@ -2,11 +2,18 @@ package ec.edu.espe.AmeStore.exceptions;
 
 /**
  *
- * @author Alexander Ullco
+ * @author TEAM TNT
  */
+
+
+
 public class ProductNotFoundException extends Exception{
     public ProductNotFoundException(String message){
+        
         super(message);
+        
+        
+  
     }
 
 }

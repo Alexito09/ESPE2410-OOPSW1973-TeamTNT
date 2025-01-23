@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espe.AmeStoreInventory.controller;
 
 import ec.edu.espe.AmeStoreInventory.model.Customer;
@@ -10,7 +6,13 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Lisbeth Tipan
+ * 
+ * 
+ * @author TEAM TNT
+ * 
+ * 
+ * 
+ * 
  * 
  */
 public class CustomerController {

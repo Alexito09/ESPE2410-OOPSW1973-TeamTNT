@@ -4,9 +4,15 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.SwingWorker;
 
+
+
 /**
  *
- * @author A-Byte Wizards, DCCO - ESPE
+ * @author TEAM TNT 
+ * 
+ * 
+ * 
+ * 
  */
 public class FrmAmeStoreSplash extends javax.swing.JFrame {
 

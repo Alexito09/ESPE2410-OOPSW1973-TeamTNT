@@ -1,14 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espe.AmeStoreInventory.model;
 
 import java.util.List;
 
 /**
  *
- * @author USER
+ * @author TEAM TNT
+ * 
+ * 
+ * 
  */
 public class Invoice {
     private String id;

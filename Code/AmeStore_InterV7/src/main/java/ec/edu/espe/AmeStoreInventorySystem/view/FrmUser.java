@@ -7,7 +7,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 /**
  *
- * @author 
+ * @author TEAM TNT
  */
 public class FrmUser extends javax.swing.JFrame {
 int xMouse, yMouse;
