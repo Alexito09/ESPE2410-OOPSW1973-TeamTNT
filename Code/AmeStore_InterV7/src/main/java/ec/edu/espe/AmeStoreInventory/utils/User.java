@@ -36,9 +36,9 @@ public class User {
     }
 
     public void saveToDatabase() {
-        try (com.mongodb.client.MongoClient mongoClient = com.mongodb.client.MongoClients.create("mongodb+srv://<tu_usuario>:<tu_contraseña>@<tu_cluster>.mongodb.net")) {
-            com.mongodb.client.MongoDatabase database = mongoClient.getDatabase("tu_base_de_datos");
-            com.mongodb.client.MongoCollection<org.bson.Document> collection = database.getCollection("usuarios");
+        try (com.mongodb.client.MongoClient mongoClient = com.mongodb.client.MongoClients.create("")) {
+            com.mongodb.client.MongoDatabase database = mongoClient.getDatabase("");
+            com.mongodb.client.MongoCollection<org.bson.Document> collection = database.getCollection("");
 
             org.bson.Document userDocument = new org.bson.Document("username", username)
                                               .append("password", password);
