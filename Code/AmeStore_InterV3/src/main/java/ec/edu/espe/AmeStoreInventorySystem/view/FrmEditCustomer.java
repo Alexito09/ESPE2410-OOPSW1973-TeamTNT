@@ -452,9 +452,9 @@ public class FrmEditCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_returnBtnTextMouseExited
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-        int SelectRow = tblCustomers.getSelectedRow();
+        int selectRow = tblCustomers.getSelectedRow();
         
-        if(SelectRow>= 0){
+        if(selectRow>= 0){
             
             DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
             
@@ -469,11 +469,11 @@ public class FrmEditCustomer extends javax.swing.JFrame {
             CloudDB cloudDB = new CloudDB();
             cloudDB.updateCustomerData(customer);
         
-            model.setValueAt(id, SelectRow, 0);
-            model.setValueAt(name, SelectRow, 1);
-            model.setValueAt(address, SelectRow, 2);
-            model.setValueAt(email, SelectRow, 3);
-            model.setValueAt(phone, SelectRow, 4);
+            model.setValueAt(id, selectRow, 0);
+            model.setValueAt(name, selectRow, 1);
+            model.setValueAt(address, selectRow, 2);
+            model.setValueAt(email, selectRow, 3);
+            model.setValueAt(phone, selectRow, 4);
         
         JOptionPane.showMessageDialog(this, "Datos Actualizados");
         } else {
