@@ -1,6 +1,7 @@
 package ec.edu.espe.AmeStoreInventory.model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Invoice {
     private double iva;
     private double total;
 
+    
     public String getId() {
         return id;
     }
@@ -81,6 +83,48 @@ public class Invoice {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Invoice other = (Invoice) obj;
+        if (Double.doubleToLongBits(this.subtotal) != Double.doubleToLongBits(other.subtotal)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.iva) != Double.doubleToLongBits(other.iva)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.total) != Double.doubleToLongBits(other.total)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.customerName, other.customerName)) {
+            return false;
+        }
+        if (!Objects.equals(this.customerAddress, other.customerAddress)) {
+            return false;
+        }
+        if (!Objects.equals(this.customerPhone, other.customerPhone)) {
+            return false;
+        }
+        return Objects.equals(this.items, other.items);
     }
 
 
