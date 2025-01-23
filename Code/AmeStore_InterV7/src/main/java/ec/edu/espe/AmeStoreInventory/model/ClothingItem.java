@@ -1,6 +1,4 @@
-
-
-package ec.edu.espe.model;
+package ec.edu.espe.AmeStoreInventory.model;
 
 /**
  * Autor Alexander Ullco

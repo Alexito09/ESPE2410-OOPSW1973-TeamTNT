@@ -24,6 +24,7 @@ ec\edu\espe\AmeStoreInventorySystem\view\User.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteProduct.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmNewInvoice$2.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$21.class
+ec\edu\espe\AmeStore\exceptions\InvalidCategoryException.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$2.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteCustomer$1.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$1.class
@@ -41,6 +42,7 @@ ec\edu\espe\AmeStoreInventorySystem\view\FrmAmeStoreSplash$4.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmViewInventory$6.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteCustomer$2.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmViewCustomer$3.class
+ec\edu\espe\AmeStore\exceptions\InsufficientStockException.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmHelp$1.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAddProduct$4.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$7.class
@@ -52,6 +54,7 @@ ec\edu\espe\AmeStoreInventorySystem\view\FrmUser$4.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAmeStoreSplash$3.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAddCustomer$3.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmNewInvoice$4.class
+ec\edu\espe\AmeStore\exceptions\ProductNotFoundException.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteCustomer$3.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$14.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteProduct$5.class
@@ -60,6 +63,7 @@ ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$1.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmViewCustomer$4.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditProduct$9.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmNewInvoice.class
+ec\edu\espe\AmeStore\exceptions\InvalidProductIDException.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmViewInventory$5.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmViewInventory.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAddProduct$5.class
@@ -69,6 +73,7 @@ ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$6.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAmeStoreSplash$2.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteInvoice.class
+ec\edu\espe\AmeStoreInventory\model\ClothingItem.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteInvoice$1.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$2.class
 ec\edu\espe\AmeStoreInventory\model\InvoiceItem.class

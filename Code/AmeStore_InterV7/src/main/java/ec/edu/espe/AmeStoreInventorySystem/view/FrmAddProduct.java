@@ -345,9 +345,9 @@ public class FrmAddProduct extends javax.swing.JFrame {
     }//GEN-LAST:event_returnBtnTextMouseExited
 
     private void returnBtnTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnBtnTextMouseClicked
-        FrmMenuAmeStore frmUniversoDelFomix = new FrmMenuAmeStore();
+        FrmMenuAmeStore frmMenuAmeStore = new FrmMenuAmeStore();
         this.setVisible(false);
-        frmUniversoDelFomix.setVisible(true);
+        frmMenuAmeStore.setVisible(true);
     }//GEN-LAST:event_returnBtnTextMouseClicked
 
     private void idFldTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idFldTextMouseEntered
