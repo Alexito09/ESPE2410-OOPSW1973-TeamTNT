@@ -7,11 +7,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * 
- * 
  * @author TEAM TNT
- * 
- * 
- * 
  * 
  * 
  */
@@ -48,7 +44,7 @@ public class CustomerController {
     }
     public void addCustomerToDB(Customer customer){
         cloudDB.uploadCustomerData(customer);
-        JOptionPane.showMessageDialog(null, "Customer added successfully!");
+        JOptionPane.showMessageDialog(null, "Cliente Agregado Correctamente");
     }
 }
 

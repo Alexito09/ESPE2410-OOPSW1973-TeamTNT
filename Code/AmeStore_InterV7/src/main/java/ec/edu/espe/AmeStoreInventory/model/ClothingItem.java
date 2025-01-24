@@ -2,9 +2,6 @@ package ec.edu.espe.AmeStoreInventory.model;
 
 /**
  * Autor TEAM TNT
- * 
- * 
- * 
  */
 public class ClothingItem {
     private String name;

@@ -7,8 +7,6 @@ import java.util.Objects;
  *
  * @author TEAM TNT
  * 
- * 
- * 
  */
 public class Invoice {
     private String id;

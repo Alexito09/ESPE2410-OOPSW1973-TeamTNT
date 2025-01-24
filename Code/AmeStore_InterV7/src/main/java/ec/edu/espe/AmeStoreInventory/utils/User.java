@@ -1,5 +1,3 @@
-
-
 package ec.edu.espe.AmeStoreInventory.utils;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -7,7 +5,6 @@ import org.apache.commons.codec.digest.DigestUtils;
 /**
  *
  * @author TEAM TNT
- * 
  * 
  */
 public class User {
@@ -45,7 +42,7 @@ public class User {
             collection.insertOne(userDocument);
         } catch (Exception ex) {
             ex.printStackTrace();
-            throw new RuntimeException("Error al guardar el usuario.");
+            throw new RuntimeException("Error saving user.");
         }
     }
 }
