@@ -35,11 +35,11 @@ public class User {
             
 
             org.bson.Document userDocument = new org.bson.Document("username", username)
-                                              .append("password", password);  // Guardar la contraseña codificada
+                                              .append("password", password);  
             collection.insertOne(userDocument);
         } catch (Exception ex) {
             ex.printStackTrace();
-            throw new RuntimeException("Error al guardar el usuario.");
+            throw new RuntimeException("Error saving user.");
         }
     }
 }

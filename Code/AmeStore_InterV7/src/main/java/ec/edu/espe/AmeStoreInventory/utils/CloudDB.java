@@ -1,5 +1,3 @@
-
-
 package ec.edu.espe.AmeStoreInventory.utils;
 
 import com.mongodb.ConnectionString;
@@ -32,7 +30,7 @@ private MongoClient mongoClient;
 
     public CloudDB() {
         try {
-            // Crear cliente de MongoDB
+            // Create MongoDB client
             String connectionString = "mongodb+srv://daullcu:daullcu@cluster0.dxj9m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
             ConnectionString connString = new ConnectionString(connectionString);
 

@@ -120,6 +120,7 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         DeleteCustomerBtn = new javax.swing.JPanel();
         DeleteCustomerBtnTxt = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        JlWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -899,7 +900,12 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Roboto Black", 1, 48)); // NOI18N
         jLabel1.setText("SISTEMA DE ROPA ");
-        bgPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 530, 90));
+        bgPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 530, 90));
+
+        JlWallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/AmeStoreInventorySystem/resources/Logo Amestore.png"))); // NOI18N
+        JlWallpaper.setMaximumSize(new java.awt.Dimension(100, 100));
+        JlWallpaper.setMinimumSize(new java.awt.Dimension(100, 100));
+        bgPanel.add(JlWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 410, 390));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1383,6 +1389,7 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
     private javax.swing.JLabel InventoryBtnTxt;
     private javax.swing.JPanel InvoiceBtn;
     private javax.swing.JLabel InvoiceBtnTxt;
+    private javax.swing.JLabel JlWallpaper;
     private javax.swing.JPanel LogOutBtn;
     private javax.swing.JLabel LogOutBtnTxt;
     private javax.swing.JPanel StartBtn;

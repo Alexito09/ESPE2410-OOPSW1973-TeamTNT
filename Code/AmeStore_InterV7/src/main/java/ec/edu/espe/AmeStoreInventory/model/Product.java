@@ -26,9 +26,6 @@ public class Product {
         this.size = size;
     }
     
-    
-    
-
     /**
      * @return the id
      */

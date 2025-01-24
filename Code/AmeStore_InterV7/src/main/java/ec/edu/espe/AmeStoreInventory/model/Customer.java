@@ -3,13 +3,7 @@ package ec.edu.espe.AmeStoreInventory.model;
 /**
  *
  * 
- * 
- * 
- * 
  * @author TEAM TNT
- * 
- * 
- * 
  * 
  */
 public class Customer {

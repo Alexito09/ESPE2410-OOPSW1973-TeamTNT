@@ -30,7 +30,6 @@ ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteCustomer$1.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$1.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$12.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmNewInvoice$8.class
-ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteInvoice$2.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmLogin$8.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditProduct$8.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmHelp$2.class
@@ -49,7 +48,6 @@ ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$7.class
 ec\edu\espe\AmeStoreInventory\controller\CustomerController.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmLogin$7.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditProduct$2.class
-ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteInvoice$3.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmUser$4.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAmeStoreSplash$3.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAddCustomer$3.class
@@ -72,9 +70,7 @@ ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$7.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$6.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAmeStoreSplash$2.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore.class
-ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteInvoice.class
 ec\edu\espe\AmeStoreInventory\model\ClothingItem.class
-ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteInvoice$1.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$2.class
 ec\edu\espe\AmeStoreInventory\model\InvoiceItem.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$20.class
