@@ -91,6 +91,7 @@ private void searchCustomer() {
         txtid = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         btnNewInvoice = new javax.swing.JButton();
+        jb_print = new javax.swing.JButton();
         header = new javax.swing.JPanel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
@@ -210,6 +211,16 @@ private void searchCustomer() {
             }
         });
 
+        jb_print.setBackground(new java.awt.Color(110, 37, 159));
+        jb_print.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jb_print.setForeground(new java.awt.Color(255, 255, 255));
+        jb_print.setText("IMPRIMIR FACTURA");
+        jb_print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_printActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -231,7 +242,10 @@ private void searchCustomer() {
                                         .addComponent(btnDelete))
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnNewInvoice)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnNewInvoice)
+                                .addGap(65, 65, 65)
+                                .addComponent(jb_print))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -294,7 +308,9 @@ private void searchCustomer() {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(btnNewInvoice)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNewInvoice)
+                    .addComponent(jb_print))
                 .addGap(74, 74, 74))
         );
 
@@ -555,6 +571,10 @@ private void searchCustomer() {
     private void returnBtnTextMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnBtnTextMouseExited
         returnBtn.setBackground(new Color(110, 37, 159));
     }//GEN-LAST:event_returnBtnTextMouseExited
+
+    private void jb_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_printActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_printActionPerformed
     
    private void addProductToTable() {
   String selectedProduct = (String) cmbProductToAdd.getSelectedItem();
@@ -665,6 +685,7 @@ if (selectedProduct != null && !selectedProduct.equals("No encontrado")) {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jb_print;
     private javax.swing.JPanel returnBtn;
     private javax.swing.JLabel returnBtnText;
     private javax.swing.JSpinner spnQuantity;

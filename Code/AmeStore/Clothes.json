@@ -268,5 +268,14 @@
     "quantity": 10,
     "color": "Blue",
     "price": 15.0
+  },
+  {
+    "id": "1234",
+    "category": "woman",
+    "name": "skirt",
+    "size": "L",
+    "quantity": 1,
+    "color": "BLUE",
+    "price": 18.0
   }
 ]

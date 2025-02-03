@@ -77,7 +77,6 @@ ec\edu\espe\AmeStoreInventory\model\InvoiceItem.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$20.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAddCustomer$6.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmNewInvoice$1.class
-ec\edu\espe\AmeStoreInventory\utils\User.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$10.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmNewInvoice$9.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmUser.class
