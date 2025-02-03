@@ -5,12 +5,22 @@ package ec.edu.espe.AmeStoreInventorySystem.view;
 import ec.edu.espe.AmeStoreInventory.model.ViewInvoice;
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import static java.awt.print.Printable.PAGE_EXISTS;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.FileOutputStream;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 import org.bson.Document;
@@ -90,8 +100,6 @@ private void searchCustomer() {
         jLabel6 = new javax.swing.JLabel();
         txtid = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
-        btnNewInvoice = new javax.swing.JButton();
-        jb_print = new javax.swing.JButton();
         header = new javax.swing.JPanel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
@@ -104,6 +112,8 @@ private void searchCustomer() {
         txtTotal = new javax.swing.JTextField();
         returnBtn = new javax.swing.JPanel();
         returnBtnText = new javax.swing.JLabel();
+        jb_print = new javax.swing.JButton();
+        btnNewInvoice = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -126,7 +136,7 @@ private void searchCustomer() {
         });
 
         tblProductsAdded.setBackground(new java.awt.Color(204, 153, 255));
-        tblProductsAdded.setForeground(new java.awt.Color(204, 153, 255));
+        tblProductsAdded.setForeground(new java.awt.Color(255, 255, 255));
         tblProductsAdded.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -201,26 +211,6 @@ private void searchCustomer() {
             }
         });
 
-        btnNewInvoice.setBackground(new java.awt.Color(110, 37, 159));
-        btnNewInvoice.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
-        btnNewInvoice.setForeground(new java.awt.Color(255, 255, 255));
-        btnNewInvoice.setText("GENERAR FACTURA");
-        btnNewInvoice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewInvoiceActionPerformed(evt);
-            }
-        });
-
-        jb_print.setBackground(new java.awt.Color(110, 37, 159));
-        jb_print.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jb_print.setForeground(new java.awt.Color(255, 255, 255));
-        jb_print.setText("IMPRIMIR FACTURA");
-        jb_print.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_printActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -242,10 +232,6 @@ private void searchCustomer() {
                                         .addComponent(btnDelete))
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnNewInvoice)
-                                .addGap(65, 65, 65)
-                                .addComponent(jb_print))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -306,12 +292,8 @@ private void searchCustomer() {
                     .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNewInvoice)
-                    .addComponent(jb_print))
-                .addGap(74, 74, 74))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124))
         );
 
         header.setBackground(new java.awt.Color(110, 37, 159));
@@ -428,15 +410,43 @@ private void searchCustomer() {
                 .addContainerGap())
         );
 
+        jb_print.setBackground(new java.awt.Color(110, 37, 159));
+        jb_print.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jb_print.setForeground(new java.awt.Color(255, 255, 255));
+        jb_print.setText("IMPRIMIR FACTURA");
+        jb_print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_printActionPerformed(evt);
+            }
+        });
+
+        btnNewInvoice.setBackground(new java.awt.Color(110, 37, 159));
+        btnNewInvoice.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        btnNewInvoice.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewInvoice.setText("GENERAR FACTURA");
+        btnNewInvoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewInvoiceActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(btnNewInvoice)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb_print)
+                        .addGap(133, 133, 133)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,9 +465,9 @@ private void searchCustomer() {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtIVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13))
@@ -472,10 +482,13 @@ private void searchCustomer() {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(returnBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jb_print)
+                            .addComponent(btnNewInvoice))
+                        .addContainerGap(21, Short.MAX_VALUE))))
         );
 
         pack();
@@ -573,18 +586,30 @@ private void searchCustomer() {
     }//GEN-LAST:event_returnBtnTextMouseExited
 
     private void jb_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_printActionPerformed
-        // TODO add your handling code here:
+    try {
+        MessageFormat header = new MessageFormat("Factura de Compra");
+        MessageFormat footer = new MessageFormat("Página {0}");
+
+        boolean complete = tblProductsAdded.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+        if (complete) {
+            JOptionPane.showMessageDialog(null, "Impresión realizada con éxito.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al imprimir.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jb_printActionPerformed
-    
+
    private void addProductToTable() {
-  String selectedProduct = (String) cmbProductToAdd.getSelectedItem();
-if (selectedProduct != null && !selectedProduct.equals("No encontrado")) {
-    List<Document> products = cloudDB.getAllProducts();
-    for (Document doc : products) {
-        if (selectedProduct.equals(doc.getString("name"))) {
-            int quantity = (int) spnQuantity.getValue();
+        String selectedProduct = (String) cmbProductToAdd.getSelectedItem();
+            if (selectedProduct != null && !selectedProduct.equals("No encontrado")) {
+            List<Document> products = cloudDB.getAllProducts();
+            for (Document doc : products) {
+            if (selectedProduct.equals(doc.getString("name"))) {
+                int quantity = (int) spnQuantity.getValue();
             // Verificar y obtener el precio como double
-            Double price = doc.getDouble("price");
+                Double price = doc.getDouble("price");
             if (price == null) {
                 // Manejo de error si el precio es null
                 JOptionPane.showMessageDialog(null, "Error: Precio no encontrado para el producto.", "Error", JOptionPane.ERROR_MESSAGE);

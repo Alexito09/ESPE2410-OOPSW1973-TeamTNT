@@ -68,6 +68,7 @@ ec\edu\espe\AmeStoreInventorySystem\view\FrmViewInventory.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAddProduct$5.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditProduct$3.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$7.class
+ec\edu\espe\AmeStoreInventorySystem\view\FrmNewInvoice$15.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$6.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAmeStoreSplash$2.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore.class
