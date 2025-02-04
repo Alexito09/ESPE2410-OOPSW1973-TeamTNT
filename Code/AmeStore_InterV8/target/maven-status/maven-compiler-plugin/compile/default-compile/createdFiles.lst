@@ -43,6 +43,7 @@ ec\edu\espe\AmeStoreInventorySystem\view\FrmViewInventory$6.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteCustomer$2.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmViewCustomer$3.class
 ec\edu\espe\AmeStore\exceptions\InsufficientStockException.class
+ec\edu\espe\AmeStoreInventory\controller\InvoiceController$3.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmHelp$1.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAddProduct$4.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$7.class
@@ -68,11 +69,12 @@ ec\edu\espe\AmeStoreInventorySystem\view\FrmViewInventory.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAddProduct$5.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditProduct$3.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$7.class
-ec\edu\espe\AmeStoreInventorySystem\view\FrmNewInvoice$15.class
+ec\edu\espe\AmeStoreInventory\controller\InvoiceController$2.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$6.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAmeStoreSplash$2.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore.class
 ec\edu\espe\AmeStoreInventory\model\ClothingItem.class
+ec\edu\espe\AmeStoreInventory\controller\InvoiceController.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer$2.class
 ec\edu\espe\AmeStoreInventory\model\InvoiceItem.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$20.class
@@ -82,6 +84,7 @@ ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$10.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmNewInvoice$9.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmUser.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$13.class
+ec\edu\espe\AmeStoreInventory\controller\InvoiceController$1.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmHelp$3.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmEditProduct$7.class
 ec\edu\espe\AmeStoreInventory\model\Customer.class

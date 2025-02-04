@@ -2,6 +2,7 @@
 package ec.edu.espe.AmeStoreInventorySystem.view;
 
 
+import ec.edu.espe.AmeStoreInventory.controller.InvoiceController;
 import ec.edu.espe.AmeStoreInventory.model.ViewInvoice;
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.awt.Color;
@@ -112,7 +113,6 @@ private void searchCustomer() {
         txtTotal = new javax.swing.JTextField();
         returnBtn = new javax.swing.JPanel();
         returnBtnText = new javax.swing.JLabel();
-        jb_print = new javax.swing.JButton();
         btnNewInvoice = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -410,16 +410,6 @@ private void searchCustomer() {
                 .addContainerGap())
         );
 
-        jb_print.setBackground(new java.awt.Color(110, 37, 159));
-        jb_print.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jb_print.setForeground(new java.awt.Color(255, 255, 255));
-        jb_print.setText("IMPRIMIR FACTURA");
-        jb_print.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_printActionPerformed(evt);
-            }
-        });
-
         btnNewInvoice.setBackground(new java.awt.Color(110, 37, 159));
         btnNewInvoice.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
         btnNewInvoice.setForeground(new java.awt.Color(255, 255, 255));
@@ -436,16 +426,14 @@ private void searchCustomer() {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(btnNewInvoice)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jb_print)
                         .addGap(133, 133, 133)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -485,9 +473,7 @@ private void searchCustomer() {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jb_print)
-                            .addComponent(btnNewInvoice))
+                        .addComponent(btnNewInvoice)
                         .addContainerGap(21, Short.MAX_VALUE))))
         );
 
@@ -541,9 +527,9 @@ private void searchCustomer() {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnNewInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInvoiceActionPerformed
- saveInvoice();
-    JOptionPane.showMessageDialog(this, "Factura guardada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-    // Opcional: Limpiar la interfaz para una nueva factura
+
+        saveInvoice();
+    
     }//GEN-LAST:event_btnNewInvoiceActionPerformed
 
     private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
@@ -584,22 +570,6 @@ private void searchCustomer() {
     private void returnBtnTextMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnBtnTextMouseExited
         returnBtn.setBackground(new Color(110, 37, 159));
     }//GEN-LAST:event_returnBtnTextMouseExited
-
-    private void jb_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_printActionPerformed
-    try {
-        MessageFormat header = new MessageFormat("Factura de Compra");
-        MessageFormat footer = new MessageFormat("Página {0}");
-
-        boolean complete = tblProductsAdded.print(JTable.PrintMode.FIT_WIDTH, header, footer);
-        if (complete) {
-            JOptionPane.showMessageDialog(null, "Impresión realizada con éxito.");
-        } else {
-            JOptionPane.showMessageDialog(null, "Error al imprimir.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jb_printActionPerformed
 
    private void addProductToTable() {
         String selectedProduct = (String) cmbProductToAdd.getSelectedItem();
@@ -710,7 +680,6 @@ private void searchCustomer() {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jb_print;
     private javax.swing.JPanel returnBtn;
     private javax.swing.JLabel returnBtnText;
     private javax.swing.JSpinner spnQuantity;
@@ -782,12 +751,13 @@ private void calculateTotal() {
 
 
  private void saveInvoice() {
+
     // Recoger los datos de la interfaz
     String customerId = txtid.getText();
     String customerName = txtCustomer.getText();
     String customerAddress = txtDirection.getText();
     String customerPhone = txtNumber.getText();
-    
+
     List<Document> items = new ArrayList<>();
     for (int i = 0; i < tblProductsAdded.getRowCount(); i++) {
         int quantity = (int) tblProductsAdded.getValueAt(i, 0);
@@ -797,42 +767,35 @@ private void calculateTotal() {
         double total = (double) tblProductsAdded.getValueAt(i, 4);
 
         Document item = new Document("quantity", quantity)
-                            .append("productName", productName)
-                            .append("price", price)
-                            .append("subtotal", subtotal)
-                            .append("total", total);
+                .append("productName", productName)
+                .append("price", price)
+                .append("subtotal", subtotal)
+                .append("total", total);
         items.add(item);
     }
 
-    Document invoice;
-        invoice = new Document("customerId", customerId)
-                .append("customerName", customerName)
-                .append("customerAddress", customerAddress)
-                .append("customerPhone", customerPhone)
-                .append("items", items)
-                .append("subtotal", Double.valueOf(txtSubtotal.getText()))
-                .append("iva", Double.valueOf(txtIVA.getText()))
-                .append("total", Double.parseDouble(txtTotal.getText()));
+    Document invoice = new Document("customerId", customerId)
+            .append("customerName", customerName)
+            .append("customerAddress", customerAddress)
+            .append("customerPhone", customerPhone)
+            .append("items", items)
+            .append("subtotal", Double.valueOf(txtSubtotal.getText()))
+            .append("iva", Double.valueOf(txtIVA.getText()))
+            .append("total", Double.parseDouble(txtTotal.getText()));
 
-    System.out.println("Invoice to be saved: " + invoice.toJson()); // Verificar el contenido del objeto
+    System.out.println("Invoice to be saved: " + invoice.toJson());
 
-    // Guardar el documento en la base de datos
-    boolean success = cloudDB.saveInvoice(invoice);
+    boolean success = cloudDB.saveInvoice(invoice); // Simulación de guardado en base de datos
     if (success) {
         JOptionPane.showMessageDialog(this, "Factura guardada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        
+        // **Abrir la ventana InvoiceController**
+        InvoiceController detailsView = new InvoiceController(invoice);
+        detailsView.setVisible(true);
+        
     } else {
         JOptionPane.showMessageDialog(this, "Error al guardar la factura.", "Error", JOptionPane.ERROR_MESSAGE);
     }
-    
-    
-   
-    if (success) {
-        JOptionPane.showMessageDialog(this, "Factura guardada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        ViewInvoice viewInvoice = new ViewInvoice(invoice);
-        String mensajeFactura = viewInvoice.createMessage();
-        JOptionPane.showMessageDialog(this, mensajeFactura, "Detalle de Factura", JOptionPane.INFORMATION_MESSAGE);
-    } else {
-        JOptionPane.showMessageDialog(this, "Error al guardar la factura.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+}
+
 }
