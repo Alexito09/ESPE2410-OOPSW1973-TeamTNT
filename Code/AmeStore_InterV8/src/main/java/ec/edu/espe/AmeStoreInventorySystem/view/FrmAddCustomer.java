@@ -227,28 +227,14 @@ public class FrmAddCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        try {
-            String id = txtID.getText().trim();
-            String name = txtName.getText();
-            String address = txtAddress.getText();
-            String email = txtEmail.getText();
-            String phone = txtPhone.getText();
+    customerController.addCustomer(
+        txtID.getText().trim(),
+        txtName.getText(),
+        txtAddress.getText(),
+        txtEmail.getText(),
+        txtPhone.getText()
+    );
 
-            if (!customerController.IdentityCardValidation(id)) {
-                JOptionPane.showMessageDialog(this, "La cédula ingresada no es válida.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-            if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
-                JOptionPane.showMessageDialog(this, "El correo electrónico no es válido.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-            Customer customerr = new Customer(id, name, address, email, phone);
-            customerController.addCustomerToDB(customerr);
-        } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Error adding customer: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
     }//GEN-LAST:event_btnAddActionPerformed
     
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
@@ -340,7 +326,4 @@ public class FrmAddCustomer extends javax.swing.JFrame {
     private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 
-    private boolean validaciónCedula(JTextField txtID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

@@ -1,6 +1,7 @@
 
 package ec.edu.espe.AmeStoreInventorySystem.view;
 
+import ec.edu.espe.AmeStoreInventory.controller.ProductController;
 import ec.edu.espe.AmeStoreInventory.model.Product;
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.awt.Color;
@@ -9,9 +10,10 @@ import javax.swing.JOptionPane;
 public class FrmAddProduct extends javax.swing.JFrame {
 
     int xMouse, yMouse;
-    
+private ProductController productController;
     public FrmAddProduct() {
         initComponents();
+        productController = new ProductController();
     }
 
     /**
@@ -378,40 +380,9 @@ public class FrmAddProduct extends javax.swing.JFrame {
         String priceString = priceFldText.getText(); // Obtén el valor como String
         String size = sizeFldText.getText();
 
-        // Convertir los valores a los tipos apropiados
-        int quantity;
-        float price;
-
-        try {
-            quantity = Integer.parseInt(quantityString); // Convertir a int
-        } catch (NumberFormatException e) {
-            quantity = 0; // Manejar el error de conversión si el valor no es un entero válido
-            JOptionPane.showMessageDialog(this, "Cantidad no válida. Se usará 0.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        }
-
-        try {
-            price = Float.parseFloat(priceString); // Convertir a float
-        } catch (NumberFormatException e) {
-            price = 0.0f; // Manejar el error de conversión si el valor no es un float válido
-            JOptionPane.showMessageDialog(this, "Precio no válido. Se usará 0.0.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        }
-
-        // Crear el objeto Product
-        Product product = new Product(id, name, description, quantity, category, price, size);
-
-        // Guardar el producto en la base de datos
-        CloudDB cloudDB = new CloudDB();
-        try {
-            if (cloudDB.productExists(id)) {
-                cloudDB.updateProduct(product);
-                JOptionPane.showMessageDialog(this, "Producto actualizado exitosamente!");
-            } else {
-                cloudDB.uploadProductData(product);
-                JOptionPane.showMessageDialog(this, "Producto añadido exitosamente!");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al añadir producto: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        Product product = productController.createProduct(id, name, description, quantityString, category, priceString, size);
+        productController.saveOrUpdateProduct(product);
+    
     }//GEN-LAST:event_addBtnTextMouseClicked
 
     private void idFldTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFldTextActionPerformed

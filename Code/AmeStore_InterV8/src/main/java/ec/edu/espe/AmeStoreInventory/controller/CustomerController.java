@@ -11,8 +11,42 @@ import javax.swing.JOptionPane;
  * 
  * 
  */
-public class CustomerController {
+public class CustomerController  {
     CloudDB cloudDB = new CloudDB();
+    public CustomerController() {
+        this.cloudDB = new CloudDB();
+    }
+
+    public boolean validateIdentityCard(String id) {
+        return id.matches("\\d{10}"); // Ejemplo de validación simple de cédula
+    }
+
+    public boolean validateEmail(String email) {
+        return email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+    }
+
+    public boolean addCustomer(String id, String name, String address, String email, String phone) {
+        if (!validateIdentityCard(id)) {
+            JOptionPane.showMessageDialog(null, "La cédula ingresada no es válida.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        if (!validateEmail(email)) {
+            JOptionPane.showMessageDialog(null, "El correo electrónico no es válido.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        try {
+            Customer customer = new Customer(id, name, address, email, phone);
+            cloudDB.uploadCustomerData(customer);
+            JOptionPane.showMessageDialog(null, "Cliente agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            return true;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al agregar el cliente: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
     public boolean IdentityCardValidation(String IdentityCard) {
         if (IdentityCard.length() !=10){
             return false;
@@ -42,9 +76,6 @@ public class CustomerController {
 
         return digitoVerificador == ultimoDigito;
     }
-    public void addCustomerToDB(Customer customer){
-        cloudDB.uploadCustomerData(customer);
-        JOptionPane.showMessageDialog(null, "Cliente Agregado Correctamente");
-    }
+
 }
 

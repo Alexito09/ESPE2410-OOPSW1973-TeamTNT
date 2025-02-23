@@ -207,7 +207,7 @@ private MongoClient mongoClient;
     
     public boolean saveInvoice(Document invoice) {
     try {
-        MongoCollection<Document> collection = database.getCollection("invoices");
+        MongoCollection<Document> collection = database.getCollection("Invoices");
         collection.insertOne(invoice);
         return true;
     } catch (Exception e) {

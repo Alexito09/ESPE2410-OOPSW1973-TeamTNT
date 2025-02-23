@@ -278,7 +278,10 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
     }//GEN-LAST:event_searchBtnTextMouseExited
 
     private void searchBtnTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBtnTextMouseClicked
-        searchProduct(searchTextFld.getText()); 
+
+        String searchCriteria = searchTextFld.getText();
+     
+        searchProduct(searchCriteria);
     }//GEN-LAST:event_searchBtnTextMouseClicked
 
     private void deleteFldTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteFldTextMouseClicked
