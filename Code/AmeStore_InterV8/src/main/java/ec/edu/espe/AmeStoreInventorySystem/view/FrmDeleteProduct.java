@@ -1,6 +1,7 @@
 
 package ec.edu.espe.AmeStoreInventorySystem.view;
 
+import ec.edu.espe.AmeStoreInventory.controller.ProductController;
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.awt.Color;
 import java.util.List;
@@ -13,6 +14,7 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
     
     private CloudDB cloudDB;
     private DefaultTableModel tableModel;
+    private ProductController productController;
     int xMouse, yMouse;
     
     public FrmDeleteProduct() {
@@ -21,6 +23,7 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
         cloudDB = new CloudDB();
         tableModel = (DefaultTableModel) ID.getModel();
         tableModel.setRowCount(0);
+        productController = new ProductController();
         loadProducts();
         
         

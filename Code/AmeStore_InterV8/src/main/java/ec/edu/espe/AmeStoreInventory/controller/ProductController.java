@@ -17,6 +17,7 @@ public class ProductController {
     public ProductController() {
         this.cloudDB = new CloudDB();
         this.tableModel = tableModel;
+        
     }
 
     public boolean isValidProductId(String id) {
@@ -95,6 +96,7 @@ public class ProductController {
     }
 
     public void deleteProduct(int selectedRow) {
+  
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(null, "Por favor seleccione un producto para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
