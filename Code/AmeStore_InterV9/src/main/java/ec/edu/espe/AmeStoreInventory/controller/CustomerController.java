@@ -24,6 +24,11 @@ public class CustomerController {
     }
 
     public boolean addCustomer(String id, String name, String address, String email, String phone) {
+        
+        if (id.isEmpty() || name.isEmpty() || address.isEmpty() || email.isEmpty() || phone.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios. Por favor, complételos.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         if (!validateIdentityCard(id)) {
             JOptionPane.showMessageDialog(null, "La cédula ingresada no es válida.", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
