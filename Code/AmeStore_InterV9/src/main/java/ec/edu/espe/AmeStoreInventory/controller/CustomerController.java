@@ -1,6 +1,7 @@
 package ec.edu.espe.AmeStoreInventory.controller;
 
 import ec.edu.espe.AmeStoreInventory.model.Customer;
+import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import ec.edu.espe.AmeStoreInventory.utils.CustomerRepository;
 import javax.swing.JOptionPane;
 
@@ -9,10 +10,9 @@ import javax.swing.JOptionPane;
  * @author TEAM TNT
  */
 public class CustomerController {
-    private final CustomerRepository customerRepository;
-
-    public CustomerController(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
+    CloudDB cloudDB = new CloudDB();
+    public CustomerController() {
+        this.cloudDB = new CloudDB();
     }
 
     public boolean validateIdentityCard(String id) {
@@ -36,7 +36,7 @@ public class CustomerController {
 
         try {
             Customer customer = new Customer(id, name, address, email, phone);
-            customerRepository.save(customer); // Utiliza CustomerRepository
+           cloudDB.uploadCustomerData(customer); // Utiliza CustomerRepository
             JOptionPane.showMessageDialog(null, "Cliente agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             return true;
         } catch (Exception e) {

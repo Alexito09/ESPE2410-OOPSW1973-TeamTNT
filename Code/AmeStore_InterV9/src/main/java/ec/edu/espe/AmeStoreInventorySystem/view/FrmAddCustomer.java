@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import ec.edu.espe.AmeStoreInventory.utils.CustomerRepository;
 import ec.edu.espe.AmeStoreInventory.utils.MongoDBConnectionManager;
 import ec.edu.espe.AmeStoreInventory.model.Customer;
+import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 
 
 /**
@@ -21,15 +22,15 @@ public class FrmAddCustomer extends javax.swing.JFrame {
     /**
      * Creates new form FrmAddCustomer
      */
-    private MongoDBConnectionManager connectionManager;
-    private CustomerRepository customerRepository;
+     private CloudDB cloudDB;
     int xMouse, yMouse;
+    private CustomerController customerController;
 
     
-    public FrmAddCustomer() {
+   public FrmAddCustomer() {
         initComponents();
-        connectionManager = new MongoDBConnectionManager();
-        customerRepository = new CustomerRepository(connectionManager);
+        cloudDB = new CloudDB();
+        customerController = new CustomerController();
         setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage());
     }
 
@@ -231,7 +232,7 @@ public class FrmAddCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-    Customer customer = new Customer(
+        customerController.addCustomer(
         txtID.getText().trim(),
         txtName.getText().trim(),
         txtAddress.getText().trim(),
@@ -239,13 +240,9 @@ public class FrmAddCustomer extends javax.swing.JFrame {
         txtPhone.getText().trim()
     );
     
-    try{
-        customerRepository.save(customer);
-        JOptionPane.showMessageDialog(this, "Cliente agregado exitosamente","Éxito", JOptionPane.INFORMATION_MESSAGE);
-    }catch(Exception e){
-        JOptionPane.showMessageDialog(this, "Error al agregar el Cliente: " +  e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+   
     }//GEN-LAST:event_btnAddActionPerformed
-    }
+    
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         
     }//GEN-LAST:event_txtIDActionPerformed
