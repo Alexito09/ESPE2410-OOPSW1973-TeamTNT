@@ -3,6 +3,9 @@ package ec.edu.espe.AmeStoreInventorySystem.view;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import java.util.List;
+import java.lang.reflect.Type;
+import java.io.FileReader;
 
 /**
  *

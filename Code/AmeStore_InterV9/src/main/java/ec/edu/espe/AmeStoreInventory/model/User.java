@@ -1,4 +1,4 @@
-package ec.edu.espe.AmeStoreInventorySystem.view;
+package ec.edu.espe.AmeStoreInventory.model;
 
 import org.apache.commons.codec.digest.DigestUtils;
 

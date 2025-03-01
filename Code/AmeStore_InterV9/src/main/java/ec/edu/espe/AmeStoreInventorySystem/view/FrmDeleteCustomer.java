@@ -1,16 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ec.edu.espe.AmeStoreInventorySystem.view;
 
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.awt.Color;
 import java.util.List;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import org.bson.Document;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -337,9 +333,9 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void loadAllCustomers() {
-List<Document> results = cloudDB.getAllCustomers();
-        DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
-        model.setRowCount(0); // Clear existing rows
+    List<Document> results = cloudDB.getAllCustomers();
+    DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
+    model.setRowCount(0); // Clear existing rows
 
         for (Document doc : results) {
             model.addRow(new Object[]{

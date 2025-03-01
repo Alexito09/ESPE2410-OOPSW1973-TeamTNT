@@ -1,5 +1,6 @@
 package ec.edu.espe.AmeStoreInventorySystem.view;
 
+import ec.edu.espe.AmeStoreInventory.model.User;
 import javax.swing.JOptionPane;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
