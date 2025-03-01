@@ -2,7 +2,7 @@ package ec.edu.espe.AmeStoreInventorySystem.view;
 
 import ec.edu.espe.AmeStoreInventory.controller.CustomerController;
 import ec.edu.espe.AmeStoreInventory.model.Customer;
-import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
+//import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;

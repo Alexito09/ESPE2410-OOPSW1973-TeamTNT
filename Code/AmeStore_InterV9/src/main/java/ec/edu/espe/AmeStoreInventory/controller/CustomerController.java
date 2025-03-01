@@ -1,20 +1,18 @@
 package ec.edu.espe.AmeStoreInventory.controller;
 
 import ec.edu.espe.AmeStoreInventory.model.Customer;
-import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
+import ec.edu.espe.AmeStoreInventory.utils.CustomerRepository;
 import javax.swing.JOptionPane;
 
 /**
  *
- * 
  * @author TEAM TNT
- * 
- * 
  */
-public class CustomerController  {
-    CloudDB cloudDB = new CloudDB();
-    public CustomerController() {
-        this.cloudDB = new CloudDB();
+public class CustomerController {
+    private final CustomerRepository customerRepository;
+
+    public CustomerController(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
     }
 
     public boolean validateIdentityCard(String id) {
@@ -38,7 +36,7 @@ public class CustomerController  {
 
         try {
             Customer customer = new Customer(id, name, address, email, phone);
-            cloudDB.uploadCustomerData(customer);
+            customerRepository.save(customer); // Utiliza CustomerRepository
             JOptionPane.showMessageDialog(null, "Cliente agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             return true;
         } catch (Exception e) {
@@ -48,22 +46,22 @@ public class CustomerController  {
     }
 
     public boolean IdentityCardValidation(String IdentityCard) {
-        if (IdentityCard.length() !=10){
+        if (IdentityCard.length() != 10) {
             return false;
         }
 
-        int provincia = Integer.parseInt(IdentityCard.substring(0,2));
+        int provincia = Integer.parseInt(IdentityCard.substring(0, 2));
         if (provincia < 1 || provincia > 24) {
             return false;
         }
-        
+
         int tercerDigito = Integer.parseInt(IdentityCard.substring(2, 3));
         if (tercerDigito < 0 || tercerDigito > 6) {
             return false;
         }
 
         int suma = 0;
-        int[] coeficientes = {2, 1, 2, 1, 2, 1, 2, 1, 2};
+        int[] coeficientes = { 2, 1, 2, 1, 2, 1, 2, 1, 2 };
         for (int i = 0; i < 9; i++) {
             int digito = Integer.parseInt(IdentityCard.substring(i, i + 1));
             int producto = digito * coeficientes[i];
@@ -76,6 +74,4 @@ public class CustomerController  {
 
         return digitoVerificador == ultimoDigito;
     }
-
 }
-
