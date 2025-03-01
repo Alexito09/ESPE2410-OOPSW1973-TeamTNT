@@ -315,9 +315,9 @@ public class FrmViewInventory extends javax.swing.JFrame {
                     doc.getString("name"),
                     doc.getString("description"),
                     doc.getInteger("quantity"),
-                    doc.getString("size"),
+                    doc.getString("category"),
                     doc.getDouble("price"),
-                    doc.getString("category")
+                    doc.getString("size")
                 };
                 tableModel.addRow(rowData);
             }
@@ -385,9 +385,9 @@ public class FrmViewInventory extends javax.swing.JFrame {
                 doc.getString("name"),
                 doc.getString("description"),
                 doc.getInteger("quantity"),
-                doc.getString("size"),
+                doc.getString("category"),
                 doc.getDouble("price"),
-                doc.getString("category")
+                doc.getString("size")
             };
             tableModel.addRow(rowData);
         }
