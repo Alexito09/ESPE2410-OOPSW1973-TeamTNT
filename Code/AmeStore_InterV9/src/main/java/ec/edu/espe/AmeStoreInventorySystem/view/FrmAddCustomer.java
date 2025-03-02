@@ -30,7 +30,7 @@ public class FrmAddCustomer extends javax.swing.JFrame {
    public FrmAddCustomer() {
         initComponents();
         cloudDB = new CloudDB();
-        customerController = new CustomerController();
+        customerController = new CustomerController(cloudDB);
         setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage());
     }
 

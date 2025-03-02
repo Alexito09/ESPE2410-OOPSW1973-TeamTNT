@@ -1,5 +1,6 @@
 package ec.edu.espe.AmeStoreInventorySystem.view;
 
+import ec.edu.espe.AmeStoreInventory.controller.CustomerController;
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.awt.Color;
 import java.util.List;
@@ -22,12 +23,15 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
      * Creates new form FrmDelateCustomer
      */
     private CloudDB cloudDB;
+   private CustomerController customerController = new CustomerController(cloudDB);
+
     int xMouse, yMouse;
     
     public FrmDeleteCustomer() {
         initComponents();
         cloudDB = new CloudDB();
         loadAllCustomers();
+     
         setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage());
     }
 
@@ -225,26 +229,14 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-   
-    int selectedRow = tblCustomers.getSelectedRow();
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Please select a customer from the table.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+int selectedRow = tblCustomers.getSelectedRow();
+    DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
 
-        DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
-        String id = model.getValueAt(selectedRow, 0).toString();
-
-        int confirmation = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea eliminar este cliente??", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
-        if (confirmation == JOptionPane.YES_OPTION) {
-            boolean success = cloudDB.deleteCustomer(id);
-            if (success) {
-                loadAllCustomers();
-                JOptionPane.showMessageDialog(this, "Cliente eliminado correctamente", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, "Error deleting customer. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
+    boolean success = customerController.deleteCustomer(selectedRow, tblCustomers, model);
+    
+    if (success) {
+        loadAllCustomers();
+    }
         
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -332,18 +324,7 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
     private javax.swing.JTable tblCustomers;
     // End of variables declaration//GEN-END:variables
 
-    private void loadAllCustomers() {
-    List<Document> results = cloudDB.getAllCustomers();
-    DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
-    model.setRowCount(0); // Clear existing rows
-
-        for (Document doc : results) {
-            model.addRow(new Object[]{
-                doc.getString("id"),
-                doc.getString("name"),
-                doc.getString("address"),
-                doc.getString("email"),
-                doc.getString("phone")
-            });
-        }    }
+private void loadAllCustomers() { 
+    customerController.loadAllCustomers(tblCustomers);
+}
 }

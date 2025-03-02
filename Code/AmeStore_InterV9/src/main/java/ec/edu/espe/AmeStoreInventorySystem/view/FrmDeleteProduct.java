@@ -24,7 +24,7 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
         tableModel = (DefaultTableModel) ID.getModel();
         tableModel.setRowCount(0);
         productController = new ProductController();
-        loadProducts();
+        loadProducts( tableModel);
         
         
     }
@@ -294,27 +294,9 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
     }//GEN-LAST:event_searchBtnTextMouseClicked
 
     private void deleteFldTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteFldTextMouseClicked
-             int selectedRow = ID.getSelectedRow();
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Please select a product to delete.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+          int selectedRow = ID.getSelectedRow();
+    productController.deleteProduct(selectedRow, tableModel, ID);
 
-        int confirm = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea eliminar este producto?", "Confirmación", JOptionPane.YES_NO_OPTION);
-        if (confirm != JOptionPane.YES_OPTION) {
-            return;
-        }
-
-        String id = tableModel.getValueAt(selectedRow, 0).toString();
-
-        try {
-            cloudDB.deleteProduct(id);
-            tableModel.removeRow(selectedRow);
-            JOptionPane.showMessageDialog(this, "The product has been deleted.");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error deleting the product: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    
     }//GEN-LAST:event_deleteFldTextMouseClicked
 
     private void returnFldTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnFldTextMouseClicked
@@ -402,21 +384,8 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
     private javax.swing.JTextField searchTextFld;
     // End of variables declaration//GEN-END:variables
 
-public void loadProducts() {
-    tableModel.setRowCount(0);
-    List<Document> products = cloudDB.getAllProducts();
-    for (Document doc : products) {
-        Object[] rowData = {
-            doc.getString("id"),
-            doc.getString("name"),
-            doc.getString("description"),
-            doc.getString("category"),
-            doc.getString("size"),
-            doc.getInteger("quantity"),
-            doc.getDouble("price")
-        };
-        tableModel.addRow(rowData);
-    }
+public void loadProducts(DefaultTableModel tableModel) {
+ productController.loadProducts(tableModel);
 }
       private void searchProduct(String searchCriteria) {
     productController.searchProduct(searchCriteria);

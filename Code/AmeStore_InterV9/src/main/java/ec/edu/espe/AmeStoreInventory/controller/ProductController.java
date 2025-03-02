@@ -4,6 +4,7 @@ import ec.edu.espe.AmeStoreInventory.model.Product;
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import org.bson.Document;
@@ -122,21 +123,29 @@ public class ProductController {
         }
     }
 
-    public void deleteProduct(int selectedRow) {
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(null, "Por favor seleccione un producto para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        String id = tableModel.getValueAt(selectedRow, 0).toString();
-        try {
-            cloudDB.deleteProduct(id);
-            tableModel.removeRow(selectedRow);
-            JOptionPane.showMessageDialog(null, "El producto se ha eliminado.");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en la eliminación: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
+    public boolean deleteProduct(int selectedRow, DefaultTableModel tableModel, JTable table) {
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(null, "Seleccione un producto para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+        return false;
     }
+
+    int confirm = JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea eliminar este producto?", "Confirmación", JOptionPane.YES_NO_OPTION);
+    if (confirm != JOptionPane.YES_OPTION) {
+        return false;
+    }
+
+    String id = tableModel.getValueAt(selectedRow, 0).toString();
+
+    try {
+        cloudDB.deleteProduct(id);
+        tableModel.removeRow(selectedRow);
+        JOptionPane.showMessageDialog(null, "El producto ha sido eliminado.");
+        return true;
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al eliminar el producto: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+}
     public void saveProduct(JTextField idFldText, JTextField nameFldText, JTextField descriptionFldText,
                         JTextField categoryFldText, JTextField sizeFldText, JTextField quantityFldText,
                         JTextField priceFldText, DefaultTableModel tableModel) {

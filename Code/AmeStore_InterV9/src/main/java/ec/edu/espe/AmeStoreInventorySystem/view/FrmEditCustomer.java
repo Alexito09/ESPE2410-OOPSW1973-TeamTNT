@@ -1,6 +1,7 @@
 
 package ec.edu.espe.AmeStoreInventorySystem.view;
 
+import ec.edu.espe.AmeStoreInventory.controller.CustomerController;
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.awt.Color;
 import java.util.List;
@@ -15,6 +16,7 @@ import org.bson.Document;
  */
 public class FrmEditCustomer extends javax.swing.JFrame {
     private CloudDB cloudDB;
+    private CustomerController customerController = new CustomerController(cloudDB);
     int xMouse, yMouse;
     
     public FrmEditCustomer() {
@@ -345,20 +347,7 @@ public class FrmEditCustomer extends javax.swing.JFrame {
         String email = txtEmail.getText();
         String phone = txtPhone.getText();
 
-        if (id.isEmpty() || name.isEmpty() || address.isEmpty() || email.isEmpty() || phone.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        Document updatedData = new Document("name", name)
-                .append("address", address)
-                .append("email", email)
-                .append("phone", phone);
-
-        cloudDB.updateCustomer(id, updatedData);
-        loadAllCustomers();
-        JOptionPane.showMessageDialog(this, "Customer updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-        
+ customerController.updateCustomer(id, name, address, email, phone, tblCustomers);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void tblCustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCustomersMouseClicked
@@ -452,19 +441,7 @@ public class FrmEditCustomer extends javax.swing.JFrame {
     private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 
- private void loadAllCustomers() {
-        List<Document> results = cloudDB.getAllCustomers();
-        DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
-        model.setRowCount(0); // Clear existing rows
-
-        for (Document doc : results) {
-            model.addRow(new Object[]{
-                doc.getString("id"),
-                doc.getString("name"),
-                doc.getString("address"),
-                doc.getString("email"),
-                doc.getString("phone")
-            });
-        }
-    }
+private void loadAllCustomers() { 
+    customerController.loadAllCustomers(tblCustomers);
+}
 }

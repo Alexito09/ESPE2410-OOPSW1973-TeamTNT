@@ -3,7 +3,11 @@ package ec.edu.espe.AmeStoreInventory.controller;
 import ec.edu.espe.AmeStoreInventory.model.Customer;
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import ec.edu.espe.AmeStoreInventory.utils.CustomerRepository;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import org.bson.Document;
 
 /**
  *
@@ -11,12 +15,12 @@ import javax.swing.JOptionPane;
  */
 public class CustomerController {
     CloudDB cloudDB = new CloudDB();
-    public CustomerController() {
+    public CustomerController(CloudDB cloudDB) {
         this.cloudDB = new CloudDB();
     }
 
     public boolean validateIdentityCard(String id) {
-        return id.matches("\\d{10}"); // Ejemplo de validación simple de cédula
+        return id.matches("\\d{10}"); 
     }
 
     public boolean validateEmail(String email) {
@@ -24,11 +28,11 @@ public class CustomerController {
     }
 
     public boolean validateName(String name) {
-        return name.matches("^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$"); // Solo letras y espacios
+        return name.matches("^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$"); 
     }
     
     public boolean validatePhone(String phone) {
-        return phone.matches("\\d+"); // Solo números
+        return phone.matches("\\d+");
     }
 
     public boolean addCustomer(String id, String name, String address, String email, String phone) {
@@ -97,4 +101,58 @@ public class CustomerController {
 
         return digitoVerificador == ultimoDigito;
     }
+        public void updateCustomer(String id, String name, String address, String email, String phone, JTable tblCustomers) {
+        if (id.isEmpty() || name.isEmpty() || address.isEmpty() || email.isEmpty() || phone.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Document updatedData = new Document("name", name)
+                .append("address", address)
+                .append("email", email)
+                .append("phone", phone);
+
+        cloudDB.updateCustomer(id, updatedData);
+        loadAllCustomers(tblCustomers);
+        JOptionPane.showMessageDialog(null, "Cliente actualizado exitosamente.", "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
+    public boolean deleteCustomer(int selectedRow, JTable tblCustomers, DefaultTableModel model) {
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(null, "Por favor seleccione un cliente de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+
+    String id = model.getValueAt(selectedRow, 0).toString();
+
+    int confirmation = JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea eliminar este cliente?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+    if (confirmation != JOptionPane.YES_OPTION) {
+        return false;
+    }
+
+    boolean success = cloudDB.deleteCustomer(id);
+    if (success) {
+        JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente", "Success", JOptionPane.INFORMATION_MESSAGE);
+        return true;
+    } else {
+        JOptionPane.showMessageDialog(null, "Error deleting customer. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+}
+    public void loadAllCustomers(JTable tblCustomers) {
+        List<Document> results = cloudDB.getAllCustomers();
+        DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
+        model.setRowCount(0);
+
+        for (Document doc : results) {
+            model.addRow(new Object[]{
+                doc.getString("id"),
+                doc.getString("name"),
+                doc.getString("address"),
+                doc.getString("email"),
+                doc.getString("phone")
+            });
+        }
+    }
+
+
 }
