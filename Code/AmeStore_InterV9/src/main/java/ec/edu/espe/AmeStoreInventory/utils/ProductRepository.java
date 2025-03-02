@@ -26,7 +26,7 @@ public class ProductRepository implements Repository<Product> {
                 .append("name", product.getName())
                 .append("description", product.getDescription())
                 .append("quantity", product.getQuantity())
-                .append("size", product.getSize())
+                
                 .append("price", product.getPrice())
                 .append("category", product.getCategory());
         collection.insertOne(document);

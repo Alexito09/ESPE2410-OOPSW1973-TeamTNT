@@ -130,7 +130,7 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "NOMBRE", "DESCRIPCIÓN", "CANTIDAD", "TAMAÑO", "PRECIO", "CATEGORÍA"
+                "ID", "NOMBRE", "DESCRIPCIÓN", "CATEGORIA", "TAMAÑO", "CANTIDAD", "PRECIO"
             }
         ));
         productTable.setViewportView(ID);
@@ -343,13 +343,13 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
             if (doc.getString("name").toLowerCase().contains(searchCriteria.toLowerCase()) || 
                 doc.getString("id").toLowerCase().contains(searchCriteria.toLowerCase())) {
                 Object[] rowData = {
-                    doc.getString("id"),
-                    doc.getString("name"),
-                    doc.getString("description"),
-                    doc.getInteger("quantity"),
-                    doc.getString("size"),
-                    doc.getDouble("price"),
-                    doc.getString("category")
+                  doc.getString("id"),
+                doc.getString("name"),
+                doc.getString("description"),
+                doc.getString("category"), // La categoría es String, no Integer
+                doc.getString("size"),
+                doc.getInteger("quantity"), // La cantidad es Integer
+                doc.getDouble("price") 
                 };
                 tableModel.addRow(rowData);
             }
@@ -411,13 +411,13 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
         List<Document> products = cloudDB.getAllProducts();
         for (Document doc : products) {
         Object[] rowData = {
-            doc.getString("id"),
-            doc.getString("name"),
-            doc.getString("description"),
-            doc.getInteger("quantity"),
-            doc.getString("size"),
-            doc.getDouble("price"),
-            doc.getString("category")
+     doc.getString("id"),
+                doc.getString("name"),
+                doc.getString("description"),
+                doc.getString("category"), // La categoría es String, no Integer
+                doc.getString("size"),
+                doc.getInteger("quantity"), // La cantidad es Integer
+                doc.getDouble("price") 
           
         };
         tableModel.addRow(rowData);

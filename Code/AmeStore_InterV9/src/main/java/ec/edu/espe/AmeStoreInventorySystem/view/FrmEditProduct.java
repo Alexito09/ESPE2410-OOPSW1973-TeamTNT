@@ -1,9 +1,13 @@
 
 package ec.edu.espe.AmeStoreInventorySystem.view;
 
+
+import static com.mongodb.client.model.Filters.size;
+import ec.edu.espe.AmeStoreInventory.controller.ProductController;
 import ec.edu.espe.AmeStoreInventory.model.Product;
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.awt.Color;
+import static java.nio.file.Files.size;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
@@ -20,6 +24,7 @@ public class FrmEditProduct extends javax.swing.JFrame {
      */
     private CloudDB cloudDB;
     private DefaultTableModel tableModel;
+    private ProductController productController;
     int xMouse, yMouse;
     
     public FrmEditProduct() {
@@ -27,6 +32,7 @@ public class FrmEditProduct extends javax.swing.JFrame {
         cloudDB = new CloudDB();
         tableModel = (DefaultTableModel) jTable1.getModel();
         tableModel.setRowCount(0); 
+        productController = new ProductController();
         loadProducts();
 
         jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -38,61 +44,25 @@ public class FrmEditProduct extends javax.swing.JFrame {
                         idFldText.setText(tableModel.getValueAt(selectedRow, 0).toString());
                         nameFldText.setText(tableModel.getValueAt(selectedRow, 1).toString());
                         descriptionFldText.setText(tableModel.getValueAt(selectedRow, 2).toString());
-                        quantityFldText.setText(tableModel.getValueAt(selectedRow, 3).toString());
+                        categoryFldText.setText(tableModel.getValueAt(selectedRow, 3).toString());
                         sizeFldText.setText(tableModel.getValueAt(selectedRow, 4).toString());
-                        priceFldText.setText(tableModel.getValueAt(selectedRow, 5).toString());
-                        categoryFldText.setText(tableModel.getValueAt(selectedRow, 6).toString());
+                        quantityFldText.setText(tableModel.getValueAt(selectedRow, 5).toString());
+                        priceFldText.setText(tableModel.getValueAt(selectedRow, 6).toString());
                     }
                 }
             }
         });
-    }
+}
 
     private void saveProduct() {
-        try {
-            String id = idFldText.getText();
-            String name = nameFldText.getText();
-            String description = descriptionFldText.getText();
-            int quantity = Integer.parseInt(quantityFldText.getText());
-            String size = sizeFldText.getText();
-            double price = Double.parseDouble(priceFldText.getText());//falta try catch
-                     
-            String category = categoryFldText.getText();
+    productController.saveProduct(idFldText, nameFldText, descriptionFldText,
+                                  categoryFldText, sizeFldText, quantityFldText,
+                                  priceFldText, tableModel);
+}
+    private void loadProducts() {
+    productController.loadProducts(tableModel);
+}
 
-            Product product = new Product(id, name, description, quantity, size, (float) price, category);
-
-            if (cloudDB.productExists(id)) {
-                cloudDB.updateProduct(product);
-            } else {
-                cloudDB.uploadProductData(product);
-            }
-
-            tableModel.setRowCount(0);
-            loadProducts();
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "La cantidad y el precio deben ser números válidos.", "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrió un error al guardar el producto: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-        
-        
-        private void loadProducts() {
-            tableModel.setRowCount(0); 
-            List<Document> products = cloudDB.getAllProducts();
-            for (Document doc : products) {
-                Object[] rowData = {
-                    doc.getString("id"),
-                    doc.getString("name"),
-                    doc.getString("description"),
-                    doc.getInteger("quantity"),
-                    doc.getString("size"),
-                    doc.getDouble("price"),
-                    doc.getString("category")
-                };
-                tableModel.addRow(rowData);
-            }
-        }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -268,30 +238,30 @@ public class FrmEditProduct extends javax.swing.JFrame {
 
         priceText.setFont(new java.awt.Font("Roboto Medium", 3, 15)); // NOI18N
         priceText.setText("Precio:");
-        jPanel3.add(priceText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        jPanel3.add(priceText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
         priceFldText.setBorder(null);
-        jPanel3.add(priceFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 280, -1));
+        jPanel3.add(priceFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 280, -1));
 
         jSeparator6.setForeground(new java.awt.Color(69, 32, 130));
         jPanel3.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 280, 10));
 
         sizeText.setFont(new java.awt.Font("Roboto Medium", 3, 15)); // NOI18N
         sizeText.setText("Tamaño:");
-        jPanel3.add(sizeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        jPanel3.add(sizeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
         sizeFldText.setBorder(null);
-        jPanel3.add(sizeFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 280, -1));
+        jPanel3.add(sizeFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 280, -1));
 
         jSeparator7.setForeground(new java.awt.Color(69, 32, 130));
         jPanel3.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 280, 10));
 
         quantityText.setFont(new java.awt.Font("Roboto Medium", 3, 15)); // NOI18N
         quantityText.setText("Cantidad:");
-        jPanel3.add(quantityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        jPanel3.add(quantityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         quantityFldText.setBorder(null);
-        jPanel3.add(quantityFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 280, -1));
+        jPanel3.add(quantityFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 280, -1));
 
         jSeparator2.setForeground(new java.awt.Color(69, 32, 130));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 280, 10));
@@ -394,7 +364,7 @@ public class FrmEditProduct extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "NOMBRE", "DESCRIPCIÓN", "CANTIDAD", "TAMAÑO", "PRECIO", "CATEGORÍA"
+                "ID", "NOMBRE", "DESCRIPCIÓN", "CATEGORIA", "TAMAÑO", "CANTIDAD", "PRECIO"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

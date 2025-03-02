@@ -162,15 +162,15 @@ private ProductController productController;
 
         priceText.setFont(new java.awt.Font("Roboto Medium", 3, 15)); // NOI18N
         priceText.setText("Precio:");
-        backGround.add(priceText, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
+        backGround.add(priceText, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
 
         sizeText.setFont(new java.awt.Font("Roboto Medium", 3, 15)); // NOI18N
         sizeText.setText("Tamaño:");
-        backGround.add(sizeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, -1, -1));
+        backGround.add(sizeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
 
         quantityText.setFont(new java.awt.Font("Roboto Medium", 3, 15)); // NOI18N
         quantityText.setText("Cantidad:");
-        backGround.add(quantityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
+        backGround.add(quantityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
 
         idFldText.setBorder(null);
         idFldText.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -218,7 +218,7 @@ private ProductController productController;
         backGround.add(nameFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 280, -1));
 
         quantityFldText.setBorder(null);
-        backGround.add(quantityFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 280, -1));
+        backGround.add(quantityFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 280, -1));
 
         descriptionFldText.setBorder(null);
         backGround.add(descriptionFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 280, -1));
@@ -227,10 +227,10 @@ private ProductController productController;
         backGround.add(categoryFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 280, -1));
 
         priceFldText.setBorder(null);
-        backGround.add(priceFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 280, -1));
+        backGround.add(priceFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 280, -1));
 
         sizeFldText.setBorder(null);
-        backGround.add(sizeFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 280, -1));
+        backGround.add(sizeFldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 280, -1));
 
         jLabel2.setFont(new java.awt.Font("Roboto Thin", 2, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
@@ -374,12 +374,14 @@ private ProductController productController;
         String id = idFldText.getText();
         String name = nameFldText.getText();
         String description = descriptionFldText.getText();
-        String quantityString = quantityFldText.getText(); // Obtén el valor como String
+       
         String category = categoryFldText.getText();
+         String size = sizeFldText.getText();
+        String quantityString = quantityFldText.getText();
         String priceString = priceFldText.getText(); // Obtén el valor como String
-        String size = sizeFldText.getText();
+       
 
-        Product product = productController.createProduct(id, name, description, quantityString, category, priceString, size);
+        Product product = productController.createProduct(id, name, description,  category, size ,quantityString, priceString);
         productController.saveOrUpdateProduct(product);
     
     }//GEN-LAST:event_addBtnTextMouseClicked

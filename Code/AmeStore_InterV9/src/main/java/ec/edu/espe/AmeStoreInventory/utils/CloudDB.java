@@ -59,10 +59,11 @@ private MongoClient mongoClient;
         Document document = new Document("id", product.getId())
                 .append("name", product.getName())
                 .append("description", product.getDescription())
-                .append("quantity", product.getQuantity())
+                .append("category", product.getCategory())
                 .append("size", product.getSize())
-                .append("price", product.getPrice())
-                .append("category", product.getCategory());
+                .append("quantity", product.getQuantity())
+                .append("price", product.getPrice());
+                
 
         try {
             collection.insertOne(document);
@@ -86,10 +87,10 @@ private MongoClient mongoClient;
         Document updatedData = new Document("$set", new Document()
                 .append("name", product.getName())
                 .append("description", product.getDescription())
-                .append("quantity", product.getQuantity())
+                .append("category", product.getCategory())
                 .append("size", product.getSize())
-                .append("price", product.getPrice())
-                .append("category", product.getCategory()));
+                .append("quantity", product.getQuantity())
+                .append("price", product.getPrice()));
 
         try {
             collection.updateOne(query, updatedData);
