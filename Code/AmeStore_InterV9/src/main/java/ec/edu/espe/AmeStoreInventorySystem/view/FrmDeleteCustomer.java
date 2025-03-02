@@ -235,12 +235,12 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
         String id = model.getValueAt(selectedRow, 0).toString();
 
-        int confirmation = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this customer?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+        int confirmation = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea eliminar este cliente??", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
         if (confirmation == JOptionPane.YES_OPTION) {
             boolean success = cloudDB.deleteCustomer(id);
             if (success) {
                 loadAllCustomers();
-                JOptionPane.showMessageDialog(this, "Customer deleted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Cliente eliminado correctamente", "Success", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(this, "Error deleting customer. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
             }

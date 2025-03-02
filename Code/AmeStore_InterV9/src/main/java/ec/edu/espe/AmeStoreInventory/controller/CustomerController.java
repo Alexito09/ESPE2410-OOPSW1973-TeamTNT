@@ -23,12 +23,21 @@ public class CustomerController {
         return email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
     }
 
+    public boolean validateName(String name) {
+        return name.matches("^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$"); // Solo letras y espacios
+    }
+    
+    public boolean validatePhone(String phone) {
+        return phone.matches("\\d+"); // Solo números
+    }
+
     public boolean addCustomer(String id, String name, String address, String email, String phone) {
         
         if (id.isEmpty() || name.isEmpty() || address.isEmpty() || email.isEmpty() || phone.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios. Por favor, complételos.", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
+        
         if (!validateIdentityCard(id)) {
             JOptionPane.showMessageDialog(null, "La cédula ingresada no es válida.", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
@@ -38,10 +47,20 @@ public class CustomerController {
             JOptionPane.showMessageDialog(null, "El correo electrónico no es válido.", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
+        
+        if (!validateName(name)) {
+            JOptionPane.showMessageDialog(null, "El nombre solo debe contener letras y espacios.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        if (!validatePhone(phone)) {
+            JOptionPane.showMessageDialog(null, "El teléfono solo debe contener números.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
 
         try {
             Customer customer = new Customer(id, name, address, email, phone);
-           cloudDB.uploadCustomerData(customer); // Utiliza CustomerRepository
+            cloudDB.uploadCustomerData(customer); // Utiliza CustomerRepository
             JOptionPane.showMessageDialog(null, "Cliente agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             return true;
         } catch (Exception e) {
@@ -49,7 +68,6 @@ public class CustomerController {
             return false;
         }
     }
-
     public boolean IdentityCardValidation(String IdentityCard) {
         if (IdentityCard.length() != 10) {
             return false;

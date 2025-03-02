@@ -136,6 +136,12 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
         productTable.setViewportView(ID);
 
         bckgDelete.add(productTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 680, 160));
+
+        searchTextFld.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTextFldActionPerformed(evt);
+            }
+        });
         bckgDelete.add(searchTextFld, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 360, 30));
 
         searchBtn.setBackground(new java.awt.Color(110, 37, 159));
@@ -288,9 +294,14 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
     }//GEN-LAST:event_searchBtnTextMouseClicked
 
     private void deleteFldTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteFldTextMouseClicked
-            int selectedRow = ID.getSelectedRow();
+             int selectedRow = ID.getSelectedRow();
         if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Porfavor selecicione un producto para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please select a product to delete.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int confirm = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea eliminar este producto?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        if (confirm != JOptionPane.YES_OPTION) {
             return;
         }
 
@@ -299,10 +310,11 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
         try {
             cloudDB.deleteProduct(id);
             tableModel.removeRow(selectedRow);
-            JOptionPane.showMessageDialog(this, "El producto se ha eliminado.");
+            JOptionPane.showMessageDialog(this, "The product has been deleted.");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error en la eliminación: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error deleting the product: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
+    
     }//GEN-LAST:event_deleteFldTextMouseClicked
 
     private void returnFldTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnFldTextMouseClicked
@@ -336,26 +348,10 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_header4MousePressed
 
-        private void searchProduct(String searchCriteria) {
-        tableModel.setRowCount(0); // Limpiar tabla
-        List<Document> products = cloudDB.getAllProducts();
-        for (Document doc : products) {
-            if (doc.getString("name").toLowerCase().contains(searchCriteria.toLowerCase()) || 
-                doc.getString("id").toLowerCase().contains(searchCriteria.toLowerCase())) {
-                Object[] rowData = {
-                  doc.getString("id"),
-                doc.getString("name"),
-                doc.getString("description"),
-                doc.getString("category"), // La categoría es String, no Integer
-                doc.getString("size"),
-                doc.getInteger("quantity"), // La cantidad es Integer
-                doc.getDouble("price") 
-                };
-                tableModel.addRow(rowData);
-            }
-        }
-    }
-        
+    private void searchTextFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextFldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTextFldActionPerformed
+  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -406,24 +402,25 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
     private javax.swing.JTextField searchTextFld;
     // End of variables declaration//GEN-END:variables
 
-    private void loadProducts() {
-        tableModel.setRowCount(0);
-        List<Document> products = cloudDB.getAllProducts();
-        for (Document doc : products) {
+public void loadProducts() {
+    tableModel.setRowCount(0);
+    List<Document> products = cloudDB.getAllProducts();
+    for (Document doc : products) {
         Object[] rowData = {
-     doc.getString("id"),
-                doc.getString("name"),
-                doc.getString("description"),
-                doc.getString("category"), // La categoría es String, no Integer
-                doc.getString("size"),
-                doc.getInteger("quantity"), // La cantidad es Integer
-                doc.getDouble("price") 
-          
+            doc.getString("id"),
+            doc.getString("name"),
+            doc.getString("description"),
+            doc.getString("category"),
+            doc.getString("size"),
+            doc.getInteger("quantity"),
+            doc.getDouble("price")
         };
         tableModel.addRow(rowData);
-        }
     }
-
+}
+      private void searchProduct(String searchCriteria) {
+    productController.searchProduct(searchCriteria);
+}
 }
 
 
