@@ -16,7 +16,9 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.FileOutputStream;
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import javax.swing.ImageIcon;
@@ -527,7 +529,7 @@ private void searchCustomer() {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnNewInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInvoiceActionPerformed
-
+        String currentDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
         saveInvoice();
     
     }//GEN-LAST:event_btnNewInvoiceActionPerformed
