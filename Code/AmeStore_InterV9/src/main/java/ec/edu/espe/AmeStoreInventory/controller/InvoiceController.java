@@ -119,7 +119,7 @@ private JTextArea txtInvoiceDetails;
                 .append("------------------------------------------------\n")
                 .append("¡Gracias por tu compra en AME STORE!\n");
 
-       
+        
         txtInvoiceDetails.setText(invoiceDetails.toString());
     }
 
@@ -128,7 +128,8 @@ private JTextArea txtInvoiceDetails;
         try {
      
             com.itextpdf.text.Document pdfDoc = new com.itextpdf.text.Document();
-            PdfWriter.getInstance(pdfDoc, new FileOutputStream("Factura_AME_STORE.pdf"));
+            String fileName = "Factura_AME_STORE_" + System.currentTimeMillis() + ".pdf";
+            PdfWriter.getInstance(pdfDoc, new FileOutputStream(fileName));
             pdfDoc.open();
 
          
