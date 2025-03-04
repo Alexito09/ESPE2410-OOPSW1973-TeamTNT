@@ -85,6 +85,7 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         bgPanel = new javax.swing.JPanel();
         AddInvoiceBtn = new javax.swing.JPanel();
         AddInvoiceBtnTxt = new javax.swing.JLabel();
+        AddInvoiceBtnTxt1 = new javax.swing.JLabel();
         mnuPanel2 = new javax.swing.JPanel();
         AddProductBtn = new javax.swing.JPanel();
         AddProductBtnTxt = new javax.swing.JLabel();
@@ -151,6 +152,23 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
             }
         });
 
+        AddInvoiceBtnTxt1.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        AddInvoiceBtnTxt1.setForeground(new java.awt.Color(255, 255, 255));
+        AddInvoiceBtnTxt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AddInvoiceBtnTxt1.setText("Nueva Factura");
+        AddInvoiceBtnTxt1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        AddInvoiceBtnTxt1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddInvoiceBtnTxt1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddInvoiceBtnTxt1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddInvoiceBtnTxt1MouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout AddInvoiceBtnLayout = new javax.swing.GroupLayout(AddInvoiceBtn);
         AddInvoiceBtn.setLayout(AddInvoiceBtnLayout);
         AddInvoiceBtnLayout.setHorizontalGroup(
@@ -158,17 +176,21 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
             .addGap(0, 130, Short.MAX_VALUE)
             .addGroup(AddInvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(AddInvoiceBtnLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(AddInvoiceBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 1, Short.MAX_VALUE)
+                    .addGroup(AddInvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(AddInvoiceBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AddInvoiceBtnTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 1, Short.MAX_VALUE)))
         );
         AddInvoiceBtnLayout.setVerticalGroup(
             AddInvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
             .addGroup(AddInvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(AddInvoiceBtnLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(AddInvoiceBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(AddInvoiceBtnTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -1318,6 +1340,18 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         ViewInventoryBtnTxt.setVisible(true);
     }//GEN-LAST:event_mnuPanel2MouseEntered
 
+    private void AddInvoiceBtnTxt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddInvoiceBtnTxt1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddInvoiceBtnTxt1MouseClicked
+
+    private void AddInvoiceBtnTxt1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddInvoiceBtnTxt1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddInvoiceBtnTxt1MouseEntered
+
+    private void AddInvoiceBtnTxt1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddInvoiceBtnTxt1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddInvoiceBtnTxt1MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -1365,6 +1399,7 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
     private javax.swing.JLabel AddCustomerBtnTxt;
     private javax.swing.JPanel AddInvoiceBtn;
     private javax.swing.JLabel AddInvoiceBtnTxt;
+    private javax.swing.JLabel AddInvoiceBtnTxt1;
     private javax.swing.JPanel AddProductBtn;
     private javax.swing.JLabel AddProductBtnTxt;
     private javax.swing.JPanel CustomerBtn;
