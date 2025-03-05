@@ -1,5 +1,6 @@
 package ec.edu.espe.AmeStoreInventory.model;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,6 +18,19 @@ public class Invoice {
     private double subtotal;
     private double iva;
     private double total;
+    private Date fecha;
+
+    public Invoice(String id, String customerName, String customerAddress, String customerPhone, List<InvoiceItem> items, double subtotal, double iva, double total, Date fecha) {
+        this.id = id;
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+        this.customerPhone = customerPhone;
+        this.items = items;
+        this.subtotal = subtotal;
+        this.iva = iva;
+        this.total = total;
+        this.fecha = fecha;
+    }
 
     
     public String getId() {

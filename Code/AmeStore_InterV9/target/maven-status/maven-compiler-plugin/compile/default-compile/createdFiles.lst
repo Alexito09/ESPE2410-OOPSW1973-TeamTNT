@@ -139,6 +139,7 @@ ec\edu\espe\AmeStoreInventory\model\Product.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAddProduct$8.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$4.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAmeStoreSplash$1.class
+ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore$22.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmNewInvoice$6.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmAddCustomer$1.class
 ec\edu\espe\AmeStoreInventorySystem\view\FrmDeleteCustomer.class

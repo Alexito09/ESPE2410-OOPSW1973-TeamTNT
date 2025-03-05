@@ -30,6 +30,7 @@ public class FrmAddCustomer extends javax.swing.JFrame {
    public FrmAddCustomer() {
         initComponents();
         cloudDB = new CloudDB();
+
         customerController = new CustomerController(cloudDB);
         setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage());
     }
@@ -232,14 +233,21 @@ public class FrmAddCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        customerController.addCustomer(
+       boolean success = customerController.addCustomer(
         txtID.getText().trim(),
         txtName.getText().trim(),
         txtAddress.getText().trim(),
         txtEmail.getText().trim(),
         txtPhone.getText().trim()
     );
-    
+
+    if (success) {
+        txtID.setText("");
+        txtName.setText("");
+        txtAddress.setText("");
+        txtEmail.setText("");
+        txtPhone.setText("");
+    }
    
     }//GEN-LAST:event_btnAddActionPerformed
     

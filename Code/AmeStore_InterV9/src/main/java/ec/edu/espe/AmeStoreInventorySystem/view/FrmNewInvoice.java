@@ -40,6 +40,7 @@ public class FrmNewInvoice extends javax.swing.JFrame {
      */
     private CloudDB cloudDB;
     private DefaultTableModel tableModel;
+     private Date fecha; 
     int xMouse, yMouse;
 
     public FrmNewInvoice() {
@@ -580,18 +581,18 @@ private void searchCustomer() {
             for (Document doc : products) {
             if (selectedProduct.equals(doc.getString("name"))) {
                 int quantity = (int) spnQuantity.getValue();
-            // Verificar y obtener el precio como double
+           
                 Double price = doc.getDouble("price");
             if (price == null) {
-                // Manejo de error si el precio es null
+                
                 JOptionPane.showMessageDialog(null, "Error: Precio no encontrado para el producto.", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             }
 
             double subtotal = price * quantity;
-            double total = subtotal; // Total sin IVA
+            double total = subtotal; 
 
-            // Añadir fila a la tabla
+            
             Object[] rowData = {
                 quantity,
                 doc.getString("name"),
@@ -601,7 +602,7 @@ private void searchCustomer() {
             };
             tableModel.addRow(rowData);
 
-            // Llamar a la función de cálculo aquí
+            
             calculateTotal();
             break;
         }
@@ -720,32 +721,30 @@ private void calculateTotal() {
     double subtotal = 0.0;
     double iva = 0.0;
     double total = 0.0;
-    double ivaRate = 0.15; // Suponiendo que el IVA es del 15%
+    double ivaRate = 0.15; 
 
-    // Iterar sobre las filas de la tabla
+  
     for (int i = 0; i < tableModel.getRowCount(); i++) {
-        Object value = tableModel.getValueAt(i, 3); // Obtener el valor de la celda
+        Object value = tableModel.getValueAt(i, 3); 
         
-        // Verificar si el valor no es null y es de tipo Double
+      
         if (value instanceof Double) {
             subtotal += (Double) value;
         } else {
             try {
-                // Intentar convertir el valor a Double si es un String
+              
                 if (value instanceof String) {
                     subtotal += Double.parseDouble((String) value);
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Error al convertir el valor en la fila " + i + " a Double: " + e.getMessage());
-                // Manejar el caso en el que la conversión falla, si es necesario
+                
             }
         }
     }
 
     iva = subtotal * ivaRate;
     total = subtotal + iva;
-
-    // Mostrar los totales en los campos de texto con puntos como separadores decimales
     txtSubtotal.setText(String.format(Locale.US, "%.2f", subtotal));
     txtIVA.setText(String.format(Locale.US, "%.2f", iva));
     txtTotal.setText(String.format(Locale.US, "%.2f", total));
@@ -754,12 +753,15 @@ private void calculateTotal() {
 
  private void saveInvoice() {
 
-    // Recoger los datos de la interfaz
+    
     String customerId = txtid.getText();
     String customerName = txtCustomer.getText();
     String customerAddress = txtDirection.getText();
     String customerPhone = txtNumber.getText();
-
+    if (customerId.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Porfavor ingresa un numero de cédula.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
     List<Document> items = new ArrayList<>();
     for (int i = 0; i < tblProductsAdded.getRowCount(); i++) {
         int quantity = (int) tblProductsAdded.getValueAt(i, 0);
@@ -773,9 +775,10 @@ private void calculateTotal() {
                 .append("price", price)
                 .append("subtotal", subtotal)
                 .append("total", total);
+                
         items.add(item);
     }
-
+Date currentDate = new Date();
     Document invoice = new Document("customerId", customerId)
             .append("customerName", customerName)
             .append("customerAddress", customerAddress)
@@ -783,21 +786,34 @@ private void calculateTotal() {
             .append("items", items)
             .append("subtotal", Double.valueOf(txtSubtotal.getText()))
             .append("iva", Double.valueOf(txtIVA.getText()))
-            .append("total", Double.parseDouble(txtTotal.getText()));
-
+            .append("total", Double.parseDouble(txtTotal.getText()))
+                .append("date", currentDate); 
     System.out.println("Invoice to be saved: " + invoice.toJson());
 
-    boolean success = cloudDB.saveInvoice(invoice); // Simulación de guardado en base de datos
+    boolean success = cloudDB.saveInvoice(invoice); 
     if (success) {
         JOptionPane.showMessageDialog(this, "Factura guardada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         
-        // **Abrir la ventana InvoiceController**
+        
         InvoiceController detailsView = new InvoiceController(invoice);
         detailsView.setVisible(true);
+  
+        txtid.setText("");
+        txtCustomer.setText("");
+        txtDirection.setText("");
+        txtNumber.setText("");
+        txtSubtotal.setText("");
+        txtIVA.setText("");
+        txtTotal.setText("");
         
+       
+        for (int i = 0; i < tblProductsAdded.getRowCount(); i++) {
+            
+            ((DefaultTableModel) tblProductsAdded.getModel()).removeRow(0);
+        }
     } else {
         JOptionPane.showMessageDialog(this, "Error al guardar la factura.", "Error", JOptionPane.ERROR_MESSAGE);
     }
+ }
 }
 
-}

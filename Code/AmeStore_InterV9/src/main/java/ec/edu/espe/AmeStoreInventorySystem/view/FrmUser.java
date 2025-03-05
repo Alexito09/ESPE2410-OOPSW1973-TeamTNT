@@ -262,7 +262,7 @@ public void saveUser() {
         }
 
         try {
-            // Transforma la contraseña antes de guardarla
+            
             String transformedPassword = transformPassword(password);
 
             User user = new User(username, transformedPassword);

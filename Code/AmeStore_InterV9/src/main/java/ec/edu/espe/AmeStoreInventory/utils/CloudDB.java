@@ -15,6 +15,7 @@ import com.mongodb.client.result.DeleteResult;
 import ec.edu.espe.AmeStoreInventory.model.Customer;
 import ec.edu.espe.AmeStoreInventory.model.Product;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -27,8 +28,10 @@ public class CloudDB {
     
 private MongoClient mongoClient;
     private MongoDatabase database;
+    private Date fecha;
 
     public CloudDB() {
+        
         try {
             // Create MongoDB client
             String connectionString = "mongodb+srv://daullcu:daullcu@cluster0.dxj9m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -63,6 +66,7 @@ private MongoClient mongoClient;
                 .append("size", product.getSize())
                 .append("quantity", product.getQuantity())
                 .append("price", product.getPrice());
+                
                 
 
         try {
@@ -210,8 +214,10 @@ private MongoClient mongoClient;
     try {
         MongoCollection<Document> collection = database.getCollection("Invoices");
         collection.insertOne(invoice);
+        System.out.println("Factura guardada en MongoDB con éxito.");
         return true;
     } catch (Exception e) {
+        System.err.println("Error al guardar la factura: " + e.getMessage());
         e.printStackTrace();
         return false;
     }

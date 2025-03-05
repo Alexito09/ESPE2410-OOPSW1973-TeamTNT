@@ -37,7 +37,14 @@ import org.bson.Document;
 
 public class InvoiceController extends JFrame {
  private JTextArea txtInvoiceDetails;
-
+private JTextField txtid;
+    private JTextField txtCustomer;
+    private JTextField txtDirection;
+    private JTextField txtNumber;
+    private JTextField txtSubtotal;
+    private JTextField txtIVA;
+    private JTextField txtTotal;
+    private JTable tblProductsAdded;
     public InvoiceController(Document invoiceData) {
         setTitle("Factura - AME STORE");
         setSize(500, 600);
@@ -179,4 +186,5 @@ private void exportToPDF(Document invoiceData) {
             JOptionPane.showMessageDialog(this, "Error al imprimir la factura.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
 }

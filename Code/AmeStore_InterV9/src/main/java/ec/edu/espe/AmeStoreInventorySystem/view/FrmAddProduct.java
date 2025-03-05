@@ -378,11 +378,19 @@ private ProductController productController;
         String category = categoryFldText.getText();
          String size = sizeFldText.getText();
         String quantityString = quantityFldText.getText();
-        String priceString = priceFldText.getText(); // Obtén el valor como String
+        String priceString = priceFldText.getText(); 
        
 
         Product product = productController.createProduct(id, name, description,  category, size ,quantityString, priceString);
         productController.saveOrUpdateProduct(product);
+     idFldText.setText("");
+    nameFldText.setText("");
+    descriptionFldText.setText("");
+    categoryFldText.setText("");
+    sizeFldText.setText("");
+    quantityFldText.setText("");
+    priceFldText.setText("");
+
     
     }//GEN-LAST:event_addBtnTextMouseClicked
 

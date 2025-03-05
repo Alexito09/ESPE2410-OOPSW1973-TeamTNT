@@ -32,7 +32,7 @@ public class ProductController {
             return null; 
         }
 
-        // Validar ID de producto
+
         if (!isValidProductId(id)) {
             JOptionPane.showMessageDialog(null, "El ID del producto debe ser numérico y comenzar con '0'.", "Error", JOptionPane.ERROR_MESSAGE);
             return null;
