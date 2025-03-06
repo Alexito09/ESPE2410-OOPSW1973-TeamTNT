@@ -1,0 +1,81 @@
+-------------------------------------------------------------------------------
+Test set: ec.edu.espe.AmeStoreInventory.model.CustomerTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.153 s <<< FAILURE! -- in ec.edu.espe.AmeStoreInventory.model.CustomerTest
+ec.edu.espe.AmeStoreInventory.model.CustomerTest.testGetEmail -- Time elapsed: 0.049 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.getEmail()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.CustomerTest.testGetEmail(CustomerTest.java:108)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.CustomerTest.testGetPhone -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.getPhone()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.CustomerTest.testGetPhone(CustomerTest.java:135)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.CustomerTest.testGetId -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.getId()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.CustomerTest.testGetId(CustomerTest.java:27)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.CustomerTest.testSetId -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.setId(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.CustomerTest.testSetId(CustomerTest.java:41)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.CustomerTest.testToString -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.toString()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.CustomerTest.testToString(CustomerTest.java:162)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.CustomerTest.testGetAddress -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.getAddress()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.CustomerTest.testGetAddress(CustomerTest.java:81)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.CustomerTest.testGetName -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.getName()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.CustomerTest.testGetName(CustomerTest.java:54)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.CustomerTest.testSetAddress -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.setAddress(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.CustomerTest.testSetAddress(CustomerTest.java:95)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.CustomerTest.testSetName -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.setName(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.CustomerTest.testSetName(CustomerTest.java:68)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.CustomerTest.testSetEmail -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.setEmail(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.CustomerTest.testSetEmail(CustomerTest.java:122)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.CustomerTest.testSetPhone -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.setPhone(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.CustomerTest.testSetPhone(CustomerTest.java:149)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

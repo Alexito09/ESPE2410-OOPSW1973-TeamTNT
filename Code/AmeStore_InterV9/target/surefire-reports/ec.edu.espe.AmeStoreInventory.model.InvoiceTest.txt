@@ -1,0 +1,130 @@
+-------------------------------------------------------------------------------
+Test set: ec.edu.espe.AmeStoreInventory.model.InvoiceTest
+-------------------------------------------------------------------------------
+Tests run: 18, Failures: 0, Errors: 18, Skipped: 0, Time elapsed: 0.192 s <<< FAILURE! -- in ec.edu.espe.AmeStoreInventory.model.InvoiceTest
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetCustomerAddress -- Time elapsed: 0.047 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.getCustomerAddress()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetCustomerAddress(InvoiceTest.java:82)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetCustomerName -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.getCustomerName()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetCustomerName(InvoiceTest.java:55)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetCustomerPhone -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.setCustomerPhone(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetCustomerPhone(InvoiceTest.java:123)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetItems -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.getItems()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetItems(InvoiceTest.java:136)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetTotal -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.getTotal()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetTotal(InvoiceTest.java:217)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetId -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.getId()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetId(InvoiceTest.java:28)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetId -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.setId(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetId(InvoiceTest.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetCustomerName -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.setCustomerName(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetCustomerName(InvoiceTest.java:69)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetCustomerAddress -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.setCustomerAddress(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetCustomerAddress(InvoiceTest.java:96)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetSubtotal -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.setSubtotal(double)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetSubtotal(InvoiceTest.java:177)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetSubtotal -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.getSubtotal()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetSubtotal(InvoiceTest.java:163)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetCustomerPhone -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.getCustomerPhone()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetCustomerPhone(InvoiceTest.java:109)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testHashCode -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.hashCode()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testHashCode(InvoiceTest.java:244)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testEquals -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.equals(Object)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testEquals(InvoiceTest.java:259)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetIva -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.getIva()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testGetIva(InvoiceTest.java:190)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetIva -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.setIva(double)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetIva(InvoiceTest.java:204)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetItems -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.setItems(java.util.List)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetItems(InvoiceTest.java:150)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetTotal -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Invoice.setTotal(double)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.InvoiceTest.testSetTotal(InvoiceTest.java:231)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

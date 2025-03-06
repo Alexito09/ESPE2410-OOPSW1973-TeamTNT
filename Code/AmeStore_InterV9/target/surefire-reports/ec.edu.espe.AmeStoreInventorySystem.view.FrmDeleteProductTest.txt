@@ -1,0 +1,39 @@
+-------------------------------------------------------------------------------
+Test set: ec.edu.espe.AmeStoreInventorySystem.view.FrmDeleteProductTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.546 s <<< FAILURE! -- in ec.edu.espe.AmeStoreInventorySystem.view.FrmDeleteProductTest
+ec.edu.espe.AmeStoreInventorySystem.view.FrmDeleteProductTest.testMain -- Time elapsed: 0.342 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventorySystem.view.FrmDeleteProductTest.testMain(FrmDeleteProductTest.java:29)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventorySystem.view.FrmDeleteProductTest.testLoadProducts -- Time elapsed: 0.148 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.awt.Color (java.lang.Integer is in module java.base of loader 'bootstrap'; java.awt.Color is in module java.desktop of loader 'bootstrap')
+	at java.desktop/javax.swing.plaf.nimbus.NimbusStyle.getColorForState(NimbusStyle.java:565)
+	at java.desktop/javax.swing.plaf.synth.SynthStyle.installDefaults(SynthStyle.java:944)
+	at java.desktop/javax.swing.plaf.nimbus.NimbusStyle.installDefaults(NimbusStyle.java:236)
+	at java.desktop/javax.swing.plaf.synth.SynthStyle.installDefaults(SynthStyle.java:918)
+	at java.desktop/javax.swing.plaf.synth.SynthLookAndFeel.updateStyle(SynthLookAndFeel.java:297)
+	at java.desktop/javax.swing.plaf.synth.SynthScrollBarUI.updateStyle(SynthScrollBarUI.java:91)
+	at java.desktop/javax.swing.plaf.synth.SynthScrollBarUI.installDefaults(SynthScrollBarUI.java:78)
+	at java.desktop/javax.swing.plaf.basic.BasicScrollBarUI.installUI(BasicScrollBarUI.java:241)
+	at java.desktop/javax.swing.JComponent.setUI(JComponent.java:740)
+	at java.desktop/javax.swing.JScrollBar.setUI(JScrollBar.java:226)
+	at java.desktop/javax.swing.JScrollBar.updateUI(JScrollBar.java:247)
+	at java.desktop/javax.swing.JScrollBar.<init>(JScrollBar.java:181)
+	at java.desktop/javax.swing.JScrollBar.<init>(JScrollBar.java:198)
+	at java.desktop/javax.swing.JScrollPane$ScrollBar.<init>(JScrollPane.java:703)
+	at java.desktop/javax.swing.JScrollPane.createHorizontalScrollBar(JScrollPane.java:799)
+	at java.desktop/javax.swing.JScrollPane.<init>(JScrollPane.java:302)
+	at java.desktop/javax.swing.JScrollPane.<init>(JScrollPane.java:353)
+	at ec.edu.espe.AmeStoreInventorySystem.view.FrmDeleteProduct.initComponents(FrmDeleteProduct.java:41)
+	at ec.edu.espe.AmeStoreInventorySystem.view.FrmDeleteProduct.<init>(FrmDeleteProduct.java:21)
+	at ec.edu.espe.AmeStoreInventorySystem.view.FrmDeleteProductTest.testLoadProducts(FrmDeleteProductTest.java:39)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

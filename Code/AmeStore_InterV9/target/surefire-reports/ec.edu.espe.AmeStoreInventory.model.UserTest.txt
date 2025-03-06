@@ -1,0 +1,39 @@
+-------------------------------------------------------------------------------
+Test set: ec.edu.espe.AmeStoreInventory.model.UserTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.130 s <<< FAILURE! -- in ec.edu.espe.AmeStoreInventory.model.UserTest
+ec.edu.espe.AmeStoreInventory.model.UserTest.testSetPassword -- Time elapsed: 0.049 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.User.setPassword(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.UserTest.testSetPassword(UserTest.java:68)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.UserTest.testGetPassword -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.User.getPassword()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.UserTest.testGetPassword(UserTest.java:54)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.UserTest.testSaveToDatabase -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.User.saveToDatabase()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.UserTest.testSaveToDatabase(UserTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.UserTest.testSetUsername -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.User.setUsername(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.UserTest.testSetUsername(UserTest.java:41)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.UserTest.testGetUsername -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.User.getUsername()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.UserTest.testGetUsername(UserTest.java:27)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

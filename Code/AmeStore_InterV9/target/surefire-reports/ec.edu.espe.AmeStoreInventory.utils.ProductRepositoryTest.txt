@@ -1,0 +1,39 @@
+-------------------------------------------------------------------------------
+Test set: ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.131 s <<< FAILURE! -- in ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest
+ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest.testFindAll -- Time elapsed: 0.051 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.utils.ProductRepository.findAll()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest.testFindAll(ProductRepositoryTest.java:72)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest.testSave -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.utils.ProductRepository.save(ec.edu.espe.AmeStoreInventory.model.Product)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest.testSave(ProductRepositoryTest.java:30)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest.testFindById -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.utils.ProductRepository.findById(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest.testFindById(ProductRepositoryTest.java:87)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest.testDelete -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.utils.ProductRepository.delete(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest.testDelete(ProductRepositoryTest.java:58)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest.testUpdate -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.utils.ProductRepository.update(String, ec.edu.espe.AmeStoreInventory.model.Product)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.utils.ProductRepositoryTest.testUpdate(ProductRepositoryTest.java:44)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

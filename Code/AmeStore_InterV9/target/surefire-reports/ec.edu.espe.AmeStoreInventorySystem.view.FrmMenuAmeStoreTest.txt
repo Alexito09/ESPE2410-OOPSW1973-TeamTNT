@@ -1,0 +1,49 @@
+-------------------------------------------------------------------------------
+Test set: ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 5.820 s <<< FAILURE! -- in ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest
+ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest.testHideStartBtnsMenu -- Time elapsed: 5.572 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest.testHideStartBtnsMenu(FrmMenuAmeStoreTest.java:28)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest.testBgExited -- Time elapsed: 0.037 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest.testBgExited(FrmMenuAmeStoreTest.java:64)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest.testBgEntered -- Time elapsed: 0.030 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest.testBgEntered(FrmMenuAmeStoreTest.java:52)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest.testMain -- Time elapsed: 0.064 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest.testMain(FrmMenuAmeStoreTest.java:76)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest.testShowStartBtnsMenu -- Time elapsed: 0.059 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventorySystem.view.FrmMenuAmeStoreTest.testShowStartBtnsMenu(FrmMenuAmeStoreTest.java:40)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------
+Test set: ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.132 s <<< FAILURE! -- in ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest
+ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testUpdateSpinnerQuantity -- Time elapsed: 0.049 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.InvoiceController.updateSpinnerQuantity(javax.swing.JSpinner)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testUpdateSpinnerQuantity(InvoiceControllerTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testAddProductToTable -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.InvoiceController.addProductToTable(javax.swing.JSpinner)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testAddProductToTable(InvoiceControllerTest.java:30)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testUpdateProductComboBox -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.InvoiceController.updateProductComboBox(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testUpdateProductComboBox(InvoiceControllerTest.java:57)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testSearchCustomer -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.InvoiceController.searchCustomer(javax.swing.JTextField, javax.swing.JTextField, javax.swing.JTextField, javax.swing.JTextField, javax.swing.JFrame)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testSearchCustomer(InvoiceControllerTest.java:87)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testSaveInvoice -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.InvoiceController.saveInvoice()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testSaveInvoice(InvoiceControllerTest.java:99)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testCalculateTotal -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.InvoiceController.calculateTotal()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.InvoiceControllerTest.testCalculateTotal(InvoiceControllerTest.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

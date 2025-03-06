@@ -1,0 +1,39 @@
+-------------------------------------------------------------------------------
+Test set: ec.edu.espe.AmeStoreInventory.model.ClothingItemTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.130 s <<< FAILURE! -- in ec.edu.espe.AmeStoreInventory.model.ClothingItemTest
+ec.edu.espe.AmeStoreInventory.model.ClothingItemTest.testGetPrice -- Time elapsed: 0.047 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.ClothingItem.getPrice()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.ClothingItemTest.testGetPrice(ClothingItemTest.java:54)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.ClothingItemTest.testToString -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.ClothingItem.toString()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.ClothingItemTest.testToString(ClothingItemTest.java:81)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.ClothingItemTest.testGetName -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.ClothingItem.getName()" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.ClothingItemTest.testGetName(ClothingItemTest.java:27)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.ClothingItemTest.testSetName -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.ClothingItem.setName(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.ClothingItemTest.testSetName(ClothingItemTest.java:41)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.model.ClothingItemTest.testSetPrice -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.ClothingItem.setPrice(double)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.model.ClothingItemTest.testSetPrice(ClothingItemTest.java:68)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

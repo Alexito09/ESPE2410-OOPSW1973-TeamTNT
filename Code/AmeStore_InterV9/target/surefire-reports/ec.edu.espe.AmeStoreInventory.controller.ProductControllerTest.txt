@@ -1,0 +1,75 @@
+-------------------------------------------------------------------------------
+Test set: ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 7, Errors: 1, Skipped: 0, Time elapsed: 91.56 s <<< FAILURE! -- in ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest
+ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testSearchProduct -- Time elapsed: 3.483 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testSearchProduct(ProductControllerTest.java:94)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testLoadProducts_DefaultTableModel -- Time elapsed: 1.413 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "javax.swing.table.DefaultTableModel.setRowCount(int)" because "tableModel" is null
+	at ec.edu.espe.AmeStoreInventory.controller.ProductController.loadProducts(ProductController.java:210)
+	at ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testLoadProducts_DefaultTableModel(ProductControllerTest.java:142)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testSaveOrUpdateProduct -- Time elapsed: 9.570 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testSaveOrUpdateProduct(ProductControllerTest.java:69)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testLoadProducts_0args -- Time elapsed: 1.565 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testLoadProducts_0args(ProductControllerTest.java:81)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testIsValidProductId -- Time elapsed: 1.374 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testIsValidProductId(ProductControllerTest.java:35)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testCreateProduct -- Time elapsed: 3.201 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testCreateProduct(ProductControllerTest.java:56)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testSaveProduct -- Time elapsed: 66.73 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testSaveProduct(ProductControllerTest.java:131)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testDeleteProduct -- Time elapsed: 4.152 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.controller.ProductControllerTest.testDeleteProduct(ProductControllerTest.java:111)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

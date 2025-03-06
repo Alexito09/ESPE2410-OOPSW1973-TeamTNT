@@ -1,0 +1,156 @@
+-------------------------------------------------------------------------------
+Test set: ec.edu.espe.AmeStoreInventory.utils.CloudDBTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 9, Errors: 5, Skipped: 0, Time elapsed: 23.74 s <<< FAILURE! -- in ec.edu.espe.AmeStoreInventory.utils.CloudDBTest
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testProductExists -- Time elapsed: 3.412 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testProductExists(CloudDBTest.java:49)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testSearchCustomerById -- Time elapsed: 1.634 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <[]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testSearchCustomerById(CloudDBTest.java:115)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testGetDatabase -- Time elapsed: 1.710 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <com.mongodb.client.internal.MongoDatabaseImpl@3568f9d2>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testGetDatabase(CloudDBTest.java:202)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testUploadCustomerData -- Time elapsed: 1.471 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Customer.getId()" because "customer" is null
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDB.uploadCustomerData(CloudDB.java:147)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testUploadCustomerData(CloudDBTest.java:100)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testFindCustomerByID -- Time elapsed: 1.521 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testFindCustomerByID(CloudDBTest.java:175)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testGetAllCustomers -- Time elapsed: 1.577 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <[Document{{_id=6793063905b6e16edcb7aec8, id=1755100169, name=Mateo T, address=Chimbacalle, email=mateotopon09@gmail.com, phone=0999912970}}, Document{{_id=679307005ed9415258c8832c, id=1755100169, name=Mateo dos, address=Espe, email=mateo@espe.edu.ec, phone=0998877666}}, Document{{_id=679307445ed9415258c8832d, id=1751115633, name=Mateo dos, address=Espe, email=mateo@espe.edu.ec, phone=0998877666}}, Document{{_id=6793cb64d2888900b9ce165a, id=1756299226, name=Matias, address=Sangolqui, email=mati2006@gmail.com, phone=0961947346}}, Document{{_id=67c34f499a921e01ac7c23ea, id=1755579024, name=Andres Esteban Sandoval Vinueza, address=Tababela, email=aesandoval@espe.edu.ec, phone=0984182122}}, Document{{_id=67c61ccf2295d100b18d28b7, id=1725283939, name=Alexander, address=Argelia, email=denysullcu8@gmail.com, phone=0963205039}}, Document{{_id=67c784a85c4c221f0042d2b3, id=1727736900, name=Jenni, address=Miranda, email=jenni@gmail.com, phone=0984237068}}, Document{{_id=67c795708e5f0914df5947b6, id=1715891428, name=Oscar Tipan, address=Sangolqui, email=oscar@gmail.com, phone=0987718454}}, Document{{_id=67c8ddba478ed6445e65865c, id=1726531856, name=Dayana Tipan, address=Fajardo, email=daya@gmail.com, phone=0987456124}}, Document{{_id=67c8fa6ddca1db0007ae85cd, id=1726533019, name=Tania Tipan, address=Sangolqui, email=tania@gmail.com, phone=023805672}}, Document{{_id=67c9083c5fac5e4e072d4548, id=1718822800, name=Concha Vasco, address=Conocoto, email=concha@gmail.com, phone=091423659}}, Document{{_id=67c90955b69ab406ff4a1f47, id=1710337765, name=Mauricio Catagña, address=Santa Isabel, email=mauri8@hotmail.es, phone=0989324444}}]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testGetAllCustomers(CloudDBTest.java:129)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testUpdateProduct -- Time elapsed: 1.447 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Product.getId()" because "product" is null
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDB.updateProduct(CloudDB.java:95)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testUpdateProduct(CloudDBTest.java:60)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testUpdateCustomer -- Time elapsed: 1.664 s <<< ERROR!
+com.mongodb.MongoWriteException: Write operation error on server cluster0-shard-00-01.dxj9m.mongodb.net:27017. Write error: WriteError{code=9, message='Modifiers operate on fields but we found type null instead. For example: {$mod: {<field>: ...}} not {$set: null}', details={}}.
+	at com.mongodb.client.internal.MongoCollectionImpl.executeSingleWriteRequest(MongoCollectionImpl.java:1091)
+	at com.mongodb.client.internal.MongoCollectionImpl.executeUpdate(MongoCollectionImpl.java:1068)
+	at com.mongodb.client.internal.MongoCollectionImpl.updateOne(MongoCollectionImpl.java:585)
+	at com.mongodb.client.internal.MongoCollectionImpl.updateOne(MongoCollectionImpl.java:580)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDB.updateCustomer(CloudDB.java:207)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testUpdateCustomer(CloudDBTest.java:143)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testCreateUniqueIndex -- Time elapsed: 1.714 s <<< ERROR!
+com.mongodb.DuplicateKeyException: Write failed with error code 11000 and error message 'Index build failed: 7e5f3f41-7e0c-4095-a793-7588b375093b: Collection BaseAmeStore.customer ( 5c6145ab-8534-41c5-be22-5bb6484baf54 ) :: caused by :: E11000 duplicate key error collection: BaseAmeStore.customer index: id_1 dup key: { id: "1755100169" }'
+	at com.mongodb.internal.operation.CreateIndexesOperation.checkForDuplicateKeyError(CreateIndexesOperation.java:252)
+	at com.mongodb.internal.operation.CreateIndexesOperation.lambda$execute$0(CreateIndexesOperation.java:134)
+	at com.mongodb.internal.operation.SyncOperationHelper.withConnectionSource(SyncOperationHelper.java:160)
+	at com.mongodb.internal.operation.SyncOperationHelper.withConnection(SyncOperationHelper.java:105)
+	at com.mongodb.internal.operation.CreateIndexesOperation.execute(CreateIndexesOperation.java:129)
+	at com.mongodb.internal.operation.CreateIndexesOperation.execute(CreateIndexesOperation.java:68)
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.execute(MongoClientDelegate.java:173)
+	at com.mongodb.client.internal.MongoCollectionImpl.executeCreateIndexes(MongoCollectionImpl.java:912)
+	at com.mongodb.client.internal.MongoCollectionImpl.createIndexes(MongoCollectionImpl.java:895)
+	at com.mongodb.client.internal.MongoCollectionImpl.createIndexes(MongoCollectionImpl.java:890)
+	at com.mongodb.client.internal.MongoCollectionImpl.createIndex(MongoCollectionImpl.java:875)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDB.createUniqueIndex(CloudDB.java:253)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testCreateUniqueIndex(CloudDBTest.java:214)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testUploadProductData -- Time elapsed: 1.428 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.model.Product.getId()" because "product" is null
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDB.uploadProductData(CloudDB.java:67)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testUploadProductData(CloudDBTest.java:32)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testDeleteProduct -- Time elapsed: 1.520 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testDeleteProduct(CloudDBTest.java:89)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testGetAllProducts -- Time elapsed: 1.537 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <[Document{{_id=67c3394c97f1ff423eb51e8e, id=020, name=Jeans Cortos, description=Pantalon corto con tela jean, quantity=20, size=Man, price=10.0, category=L}}, Document{{_id=67c378e081c0100f165b5343, id=01456, name=Camiseta, description=de lana , quantity=15, size=grande , price=0.0, category=Women}}, Document{{_id=67c39102f31ed96690806754, id=014545, name=Short, description=sfasasf, quantity=5, size=Grande, price=15.0, category=Women}}, Document{{_id=67c39228a1c555359a0cb160, id=0121111, name=Blusa, description=de lana, quantity=10, size=grande, price=15.0, category=Women }}, Document{{_id=67c78c719b81fb5a71066bdb, id=044551, name=Short, description=fsdbfsdf, category=dgfdgf, size=dfgdf, quantity=1, price=15.0}}, Document{{_id=67c78feacc22e57dad9fbd6b, id=045511, name=Camiseta, description=lana, category=Mujer, size=X, quantity=5, price=12.0}}]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testGetAllProducts(CloudDBTest.java:74)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testDeleteCustomer -- Time elapsed: 1.586 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testDeleteCustomer(CloudDBTest.java:160)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testSaveInvoice -- Time elapsed: 1.437 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
+	at ec.edu.espe.AmeStoreInventory.utils.CloudDBTest.testSaveInvoice(CloudDBTest.java:190)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+

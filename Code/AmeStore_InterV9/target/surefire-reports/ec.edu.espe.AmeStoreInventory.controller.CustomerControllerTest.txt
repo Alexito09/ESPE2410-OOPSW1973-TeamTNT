@@ -1,0 +1,67 @@
+-------------------------------------------------------------------------------
+Test set: ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 0.141 s <<< FAILURE! -- in ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest
+ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testAddCustomer -- Time elapsed: 0.046 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.CustomerController.addCustomer(String, String, String, String, String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testAddCustomer(CustomerControllerTest.java:94)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testValidateIdentityCard -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.CustomerController.validateIdentityCard(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testValidateIdentityCard(CustomerControllerTest.java:30)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testUpdateCustomer -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.CustomerController.updateCustomer(String, String, String, String, String, javax.swing.JTable)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testUpdateCustomer(CustomerControllerTest.java:128)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testIdentityCardValidation -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.CustomerController.IdentityCardValidation(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testIdentityCardValidation(CustomerControllerTest.java:109)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testValidateEmail -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.CustomerController.validateEmail(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testValidateEmail(CustomerControllerTest.java:45)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testValidatePhone -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.CustomerController.validatePhone(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testValidatePhone(CustomerControllerTest.java:75)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testLoadAllCustomers -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.CustomerController.loadAllCustomers(javax.swing.JTable)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testLoadAllCustomers(CustomerControllerTest.java:158)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testDeleteCustomer -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.CustomerController.deleteCustomer(int, javax.swing.JTable, javax.swing.table.DefaultTableModel)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testDeleteCustomer(CustomerControllerTest.java:144)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testValidateName -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "ec.edu.espe.AmeStoreInventory.controller.CustomerController.validateName(String)" because "instance" is null
+	at ec.edu.espe.AmeStoreInventory.controller.CustomerControllerTest.testValidateName(CustomerControllerTest.java:60)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
