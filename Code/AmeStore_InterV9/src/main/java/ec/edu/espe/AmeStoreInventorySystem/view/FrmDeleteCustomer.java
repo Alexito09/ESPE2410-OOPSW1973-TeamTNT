@@ -231,13 +231,11 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
 int selectedRow = tblCustomers.getSelectedRow();
     DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
-
     boolean success = customerController.deleteCustomer(selectedRow, tblCustomers, model);
-    
     if (success) {
         loadAllCustomers();
     }
-        
+       
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

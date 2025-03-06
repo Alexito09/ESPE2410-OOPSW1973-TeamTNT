@@ -173,25 +173,19 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         AddInvoiceBtn.setLayout(AddInvoiceBtnLayout);
         AddInvoiceBtnLayout.setHorizontalGroup(
             AddInvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-            .addGroup(AddInvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(AddInvoiceBtnLayout.createSequentialGroup()
-                    .addGap(0, 1, Short.MAX_VALUE)
-                    .addGroup(AddInvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(AddInvoiceBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(AddInvoiceBtnTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 1, Short.MAX_VALUE)))
+            .addGroup(AddInvoiceBtnLayout.createSequentialGroup()
+                .addComponent(AddInvoiceBtnTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(AddInvoiceBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         AddInvoiceBtnLayout.setVerticalGroup(
             AddInvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-            .addGroup(AddInvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(AddInvoiceBtnLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddInvoiceBtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(AddInvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddInvoiceBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(AddInvoiceBtnTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(AddInvoiceBtnTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         bgPanel.add(AddInvoiceBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 130, 50));
@@ -543,15 +537,15 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         InvoiceBtn.setLayout(InvoiceBtnLayout);
         InvoiceBtnLayout.setHorizontalGroup(
             InvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(InvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(InvoiceBtnTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+            .addGroup(InvoiceBtnLayout.createSequentialGroup()
+                .addComponent(InvoiceBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         InvoiceBtnLayout.setVerticalGroup(
             InvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 45, Short.MAX_VALUE)
-            .addGroup(InvoiceBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(InvoiceBtnTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InvoiceBtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(InvoiceBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         CustomerBtn.setBackground(new java.awt.Color(110, 37, 159));
@@ -816,21 +810,15 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         AddCustomerBtn.setLayout(AddCustomerBtnLayout);
         AddCustomerBtnLayout.setHorizontalGroup(
             AddCustomerBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-            .addGroup(AddCustomerBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(AddCustomerBtnLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(AddCustomerBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddCustomerBtnLayout.createSequentialGroup()
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(AddCustomerBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         AddCustomerBtnLayout.setVerticalGroup(
             AddCustomerBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-            .addGroup(AddCustomerBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(AddCustomerBtnLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(AddCustomerBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddCustomerBtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(AddCustomerBtnTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         bgPanel.add(AddCustomerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 130, 40));
@@ -927,7 +915,7 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bgPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bgPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1028,6 +1016,8 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         bgEntered();
         AddInvoiceBtn.setVisible(true);
         AddInvoiceBtnTxt.setVisible(true);
+        
+
     }//GEN-LAST:event_InvoiceBtnTxtMouseEntered
 
     private void InvoiceBtnTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InvoiceBtnTxtMouseExited
@@ -1040,6 +1030,7 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         CustomerBtn.setBackground(new Color(110, 37, 159));
         AddInvoiceBtn.setVisible(false);
         AddInvoiceBtnTxt.setVisible(false);
+
     }//GEN-LAST:event_InvoiceBtnTxtMouseExited
 
     private void LogOutBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogOutBtnTxtMouseClicked
@@ -1088,6 +1079,7 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         
         AddInvoiceBtn.setVisible(true);
         AddInvoiceBtnTxt.setVisible(true);
+
         
     }//GEN-LAST:event_AddInvoiceBtnTxtMouseEntered
 
@@ -1096,6 +1088,8 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
         
         AddInvoiceBtn.setVisible(false);
         AddInvoiceBtnTxt.setVisible(false);
+       
+      
     }//GEN-LAST:event_AddInvoiceBtnTxtMouseExited
 
     private void AddCustomerBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddCustomerBtnTxtMouseClicked
@@ -1341,15 +1335,24 @@ public final class FrmMenuAmeStore extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuPanel2MouseEntered
 
     private void AddInvoiceBtnTxt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddInvoiceBtnTxt1MouseClicked
-        // TODO add your handling code here:
+        FrmNewInvoice frmNewInvoice = new FrmNewInvoice();
+        this.setVisible(false);
+        frmNewInvoice.setVisible(true);
     }//GEN-LAST:event_AddInvoiceBtnTxt1MouseClicked
 
     private void AddInvoiceBtnTxt1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddInvoiceBtnTxt1MouseEntered
-        // TODO add your handling code here:
+        bgEntered();
+
+        AddInvoiceBtn.setVisible(true);
+        AddInvoiceBtnTxt.setVisible(true);
+
     }//GEN-LAST:event_AddInvoiceBtnTxt1MouseEntered
 
     private void AddInvoiceBtnTxt1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddInvoiceBtnTxt1MouseExited
-        // TODO add your handling code here:
+        bgExited();
+
+        AddInvoiceBtn.setVisible(false);
+        AddInvoiceBtnTxt.setVisible(false);
     }//GEN-LAST:event_AddInvoiceBtnTxt1MouseExited
 
     /**

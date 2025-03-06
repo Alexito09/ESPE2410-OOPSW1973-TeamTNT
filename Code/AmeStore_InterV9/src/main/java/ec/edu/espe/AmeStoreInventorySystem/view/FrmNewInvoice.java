@@ -2,7 +2,9 @@
 package ec.edu.espe.AmeStoreInventorySystem.view;
 
 
+import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.AmeStoreInventory.controller.InvoiceController;
+import ec.edu.espe.AmeStoreInventory.controller.InvoiceExport;
 import ec.edu.espe.AmeStoreInventory.model.ViewInvoice;
 import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
 import java.awt.Color;
@@ -23,6 +25,7 @@ import java.util.List;
 import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
@@ -35,46 +38,39 @@ import org.bson.Document;
  */
 public class FrmNewInvoice extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmNewInvoice
-     */
     private CloudDB cloudDB;
     private DefaultTableModel tableModel;
      private Date fecha; 
+     private MongoDatabase database;
+     private InvoiceController invoiceController;
     int xMouse, yMouse;
 
     public FrmNewInvoice() {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage());
         cloudDB = new CloudDB();
-            tableModel = (DefaultTableModel) tblProductsAdded.getModel();
-            txtSubtotal.setEditable(true);
-            txtTotal.setEditable(true);
+        tableModel = (DefaultTableModel) tblProductsAdded.getModel();
+        txtSubtotal.setEditable(true);
+        txtTotal.setEditable(true);
+        invoiceController = new InvoiceController(
+        cloudDB, 
+        tableModel,
+        cmbProductToAdd,
+        txtSubtotal,
+        txtIVA,
+        txtTotal,
+        txtid,
+        txtCustomer,
+        txtDirection,
+        txtNumber,
+                txtSearchProduct,
+                tblProductsAdded,
+                this
+    );
         
     }
 
-private void searchCustomer() {
-    String id = txtid.getText();
-    Document customer = cloudDB.findCustomerByID(id);
 
-    if (customer != null) {
-        txtCustomer.setText(customer.getString("name"));
-        txtDirection.setText(customer.getString("address"));
-        txtNumber.setText(customer.getString("phone"));
-    } else {
-        int response = JOptionPane.showConfirmDialog(
-            this,
-            "Cliente no encontrado. ¿Desea agregar un nuevo cliente?",
-            "Cliente no encontrado",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE
-        );
-        if (response == JOptionPane.YES_OPTION) {
-            FrmAddCustomer frmAddCustomer = new FrmAddCustomer();
-            frmAddCustomer.setVisible(true);
-        }
-    }
-}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,7 +93,7 @@ private void searchCustomer() {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
-        txtSerachProduct = new javax.swing.JTextField();
+        txtSearchProduct = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
         spnQuantity = new javax.swing.JSpinner();
@@ -114,9 +110,9 @@ private void searchCustomer() {
         txtSubtotal = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
+        btnNewInvoice = new javax.swing.JButton();
         returnBtn = new javax.swing.JPanel();
         returnBtnText = new javax.swing.JLabel();
-        btnNewInvoice = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -176,17 +172,17 @@ private void searchCustomer() {
             }
         });
 
-        txtSerachProduct.addActionListener(new java.awt.event.ActionListener() {
+        txtSearchProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSerachProductActionPerformed(evt);
+                txtSearchProductActionPerformed(evt);
             }
         });
-        txtSerachProduct.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSearchProduct.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSerachProductKeyReleased(evt);
+                txtSearchProductKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtSerachProductKeyTyped(evt);
+                txtSearchProductKeyTyped(evt);
             }
         });
 
@@ -221,6 +217,22 @@ private void searchCustomer() {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4))
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCustomer)
+                            .addComponent(txtNumber)
+                            .addComponent(txtDirection, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                            .addComponent(txtid))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearch))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -241,24 +253,8 @@ private void searchCustomer() {
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSerachProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4))
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCustomer)
-                            .addComponent(txtNumber)
-                            .addComponent(txtDirection, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                            .addComponent(txtid))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSearch)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                                .addComponent(txtSearchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +279,7 @@ private void searchCustomer() {
                 .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(txtSerachProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSearchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -296,7 +292,7 @@ private void searchCustomer() {
                     .addComponent(btnDelete))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
+                .addGap(103, 103, 103))
         );
 
         header.setBackground(new java.awt.Color(110, 37, 159));
@@ -376,6 +372,16 @@ private void searchCustomer() {
         jLabel5.setFont(new java.awt.Font("Segoe UI Symbol", 1, 12)); // NOI18N
         jLabel5.setText("TOTAL:");
 
+        btnNewInvoice.setBackground(new java.awt.Color(110, 37, 159));
+        btnNewInvoice.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        btnNewInvoice.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewInvoice.setText("GENERAR FACTURA");
+        btnNewInvoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewInvoiceActionPerformed(evt);
+            }
+        });
+
         returnBtn.setBackground(new java.awt.Color(110, 37, 159));
         returnBtn.setPreferredSize(new java.awt.Dimension(160, 50));
 
@@ -400,10 +406,10 @@ private void searchCustomer() {
         returnBtn.setLayout(returnBtnLayout);
         returnBtnLayout.setHorizontalGroup(
             returnBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(returnBtnLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, returnBtnLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(returnBtnText, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         returnBtnLayout.setVerticalGroup(
             returnBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,31 +419,18 @@ private void searchCustomer() {
                 .addContainerGap())
         );
 
-        btnNewInvoice.setBackground(new java.awt.Color(110, 37, 159));
-        btnNewInvoice.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
-        btnNewInvoice.setForeground(new java.awt.Color(255, 255, 255));
-        btnNewInvoice.setText("GENERAR FACTURA");
-        btnNewInvoice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewInvoiceActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(btnNewInvoice)
-                        .addGap(133, 133, 133)))
+                        .addComponent(btnNewInvoice))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -457,7 +450,12 @@ private void searchCustomer() {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNewInvoice)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtIVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -470,14 +468,9 @@ private void searchCustomer() {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(returnBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnNewInvoice)
-                        .addContainerGap(21, Short.MAX_VALUE))))
+                        .addGap(405, 405, 405)
+                        .addComponent(returnBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -485,7 +478,13 @@ private void searchCustomer() {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        addProductToTable();
+        invoiceController.addProductToTable(spnQuantity);
+        double[] valores = invoiceController.calculateTotal();
+    
+ 
+    txtSubtotal.setText(String.format(Locale.US, "%.2f", valores[0]));
+    txtIVA.setText(String.format(Locale.US, "%.2f", valores[1]));
+    txtTotal.setText(String.format(Locale.US, "%.2f", valores[2]));
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtDirectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDirectionActionPerformed
@@ -494,7 +493,7 @@ private void searchCustomer() {
 
     private void cmbProductToAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProductToAddActionPerformed
         // TODO add your handling code here:
-        updateSpinnerQuantity();
+        invoiceController.updateSpinnerQuantity(spnQuantity);
         
         
     }//GEN-LAST:event_cmbProductToAddActionPerformed
@@ -504,34 +503,34 @@ private void searchCustomer() {
      int selectedRow = tblProductsAdded.getSelectedRow();
     if (selectedRow >= 0) {
         tableModel.removeRow(selectedRow);
-        calculateTotal(); // Llamar a la función de cálculo aquí
+        invoiceController.calculateTotal(); // Llamar a la función de cálculo aquí
     } else {
         javax.swing.JOptionPane.showMessageDialog(this, "Por favor seleccione una fila para eliminar.", "Eliminar Producto", javax.swing.JOptionPane.WARNING_MESSAGE);
     }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void txtSerachProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSerachProductActionPerformed
+    private void txtSearchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchProductActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_txtSerachProductActionPerformed
+    }//GEN-LAST:event_txtSearchProductActionPerformed
 
-    private void txtSerachProductKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSerachProductKeyTyped
+    private void txtSearchProductKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchProductKeyTyped
         // TODO add your handling code here:
-        updateProductComboBox(txtSerachProduct.getText());        
-    }//GEN-LAST:event_txtSerachProductKeyTyped
+        invoiceController.updateProductComboBox(txtSearchProduct.getText());        
+    }//GEN-LAST:event_txtSearchProductKeyTyped
 
-    private void txtSerachProductKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSerachProductKeyReleased
+    private void txtSearchProductKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchProductKeyReleased
         // TODO add your handling code here:
-        updateProductComboBox(txtSerachProduct.getText());
-    }//GEN-LAST:event_txtSerachProductKeyReleased
+        invoiceController.updateProductComboBox(txtSearchProduct.getText());
+    }//GEN-LAST:event_txtSearchProductKeyReleased
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-  searchCustomer();       
+  invoiceController.searchCustomer(txtid, txtCustomer, txtDirection, txtNumber, this);       
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnNewInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInvoiceActionPerformed
         String currentDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
-        saveInvoice();
+        invoiceController.saveInvoice();
     
     }//GEN-LAST:event_btnNewInvoiceActionPerformed
 
@@ -574,56 +573,11 @@ private void searchCustomer() {
         returnBtn.setBackground(new Color(110, 37, 159));
     }//GEN-LAST:event_returnBtnTextMouseExited
 
-   private void addProductToTable() {
-        String selectedProduct = (String) cmbProductToAdd.getSelectedItem();
-            if (selectedProduct != null && !selectedProduct.equals("No encontrado")) {
-            List<Document> products = cloudDB.getAllProducts();
-            for (Document doc : products) {
-            if (selectedProduct.equals(doc.getString("name"))) {
-                int quantity = (int) spnQuantity.getValue();
-           
-                Double price = doc.getDouble("price");
-            if (price == null) {
-                
-                JOptionPane.showMessageDialog(null, "Error: Precio no encontrado para el producto.", "Error", JOptionPane.ERROR_MESSAGE);
-                break;
-            }
+  
 
-            double subtotal = price * quantity;
-            double total = subtotal; 
-
-            
-            Object[] rowData = {
-                quantity,
-                doc.getString("name"),
-                price,
-                subtotal,
-                total
-            };
-            tableModel.addRow(rowData);
-
-            
-            calculateTotal();
-            break;
-        }
-    }
-}
-}
     
 
-    private void updateProductComboBox(String searchCriteria) {
-        cmbProductToAdd.removeAllItems();
-        List<Document> products = cloudDB.getAllProducts();
-        for (Document doc : products) {
-            if (doc.getString("name").toLowerCase().contains(searchCriteria.toLowerCase()) || 
-                doc.getString("id").toLowerCase().contains(searchCriteria.toLowerCase())) {
-                cmbProductToAdd.addItem(doc.getString("name"));
-            }
-        }
-        if (cmbProductToAdd.getItemCount() == 0) {
-            cmbProductToAdd.addItem("No encontrado");
-        }
-    }
+ 
     /**
      * @param args the command line arguments
      */
@@ -691,129 +645,16 @@ private void searchCustomer() {
     private javax.swing.JTextField txtDirection;
     private javax.swing.JTextField txtIVA;
     private javax.swing.JTextField txtNumber;
-    private javax.swing.JTextField txtSerachProduct;
+    private javax.swing.JTextField txtSearchProduct;
     private javax.swing.JTextField txtSubtotal;
     private javax.swing.JTextField txtTotal;
     private javax.swing.JTextField txtid;
     // End of variables declaration//GEN-END:variables
 
-    private void updateSpinnerQuantity() {
-    String selectedProduct = (String) cmbProductToAdd.getSelectedItem();
-    if (selectedProduct != null && !selectedProduct.equals("No encontrado")) {
-        List<Document> products = cloudDB.getAllProducts();
-        for (Document doc : products) {
-            if (selectedProduct.equals(doc.getString("name"))) {
-                int quantity = doc.getInteger("quantity");
-                SpinnerNumberModel model = new SpinnerNumberModel(1, 1, quantity, 1);
-                spnQuantity.setModel(model);
-                spnQuantity.setValue(1);
-                break;
-            }
-        }
-    } else {
-        SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 0, 1);
-        spnQuantity.setModel(model);
-        spnQuantity.setValue(0);
-    }
-}
-
-private void calculateTotal() {
-    double subtotal = 0.0;
-    double iva = 0.0;
-    double total = 0.0;
-    double ivaRate = 0.15; 
-
-  
-    for (int i = 0; i < tableModel.getRowCount(); i++) {
-        Object value = tableModel.getValueAt(i, 3); 
-        
-      
-        if (value instanceof Double) {
-            subtotal += (Double) value;
-        } else {
-            try {
-              
-                if (value instanceof String) {
-                    subtotal += Double.parseDouble((String) value);
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Error al convertir el valor en la fila " + i + " a Double: " + e.getMessage());
-                
-            }
-        }
-    }
-
-    iva = subtotal * ivaRate;
-    total = subtotal + iva;
-    txtSubtotal.setText(String.format(Locale.US, "%.2f", subtotal));
-    txtIVA.setText(String.format(Locale.US, "%.2f", iva));
-    txtTotal.setText(String.format(Locale.US, "%.2f", total));
-}
 
 
- private void saveInvoice() {
 
-    
-    String customerId = txtid.getText();
-    String customerName = txtCustomer.getText();
-    String customerAddress = txtDirection.getText();
-    String customerPhone = txtNumber.getText();
-    if (customerId.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Porfavor ingresa un numero de cédula.", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    List<Document> items = new ArrayList<>();
-    for (int i = 0; i < tblProductsAdded.getRowCount(); i++) {
-        int quantity = (int) tblProductsAdded.getValueAt(i, 0);
-        String productName = (String) tblProductsAdded.getValueAt(i, 1);
-        double price = (double) tblProductsAdded.getValueAt(i, 2);
-        double subtotal = (double) tblProductsAdded.getValueAt(i, 3);
-        double total = (double) tblProductsAdded.getValueAt(i, 4);
 
-        Document item = new Document("quantity", quantity)
-                .append("productName", productName)
-                .append("price", price)
-                .append("subtotal", subtotal)
-                .append("total", total);
-                
-        items.add(item);
-    }
-Date currentDate = new Date();
-    Document invoice = new Document("customerId", customerId)
-            .append("customerName", customerName)
-            .append("customerAddress", customerAddress)
-            .append("customerPhone", customerPhone)
-            .append("items", items)
-            .append("subtotal", Double.valueOf(txtSubtotal.getText()))
-            .append("iva", Double.valueOf(txtIVA.getText()))
-            .append("total", Double.parseDouble(txtTotal.getText()))
-                .append("date", currentDate); 
-    System.out.println("Invoice to be saved: " + invoice.toJson());
-
-    boolean success = cloudDB.saveInvoice(invoice); 
-    if (success) {
-        JOptionPane.showMessageDialog(this, "Factura guardada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        
-        
-        InvoiceController detailsView = new InvoiceController(invoice);
-        detailsView.setVisible(true);
-  
-        txtid.setText("");
-        txtCustomer.setText("");
-        txtDirection.setText("");
-        txtNumber.setText("");
-        txtSubtotal.setText("");
-        txtIVA.setText("");
-        txtTotal.setText("");
-        
-       
-        for (int i = 0; i < tblProductsAdded.getRowCount(); i++) {
-            
-            ((DefaultTableModel) tblProductsAdded.getModel()).removeRow(0);
-        }
-    } else {
-        JOptionPane.showMessageDialog(this, "Error al guardar la factura.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
- }
+ 
 }
 

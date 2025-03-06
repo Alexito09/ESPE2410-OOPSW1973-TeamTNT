@@ -1,190 +1,254 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.espe.AmeStoreInventory.controller;
 
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
-import ec.edu.espe.AmeStoreInventory.model.ViewInvoice;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
-import java.io.FileOutputStream;
-import java.text.SimpleDateFormat;
+import ec.edu.espe.AmeStoreInventory.utils.CloudDB;
+import ec.edu.espe.AmeStoreInventorySystem.view.FrmAddCustomer;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.swing.JButton;
+import java.util.Locale;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.table.DefaultTableModel;
 import org.bson.Document;
 
-
-
-
-public class InvoiceController extends JFrame {
- private JTextArea txtInvoiceDetails;
-private JTextField txtid;
-    private JTextField txtCustomer;
-    private JTextField txtDirection;
-    private JTextField txtNumber;
+public class InvoiceController{
+    private CloudDB cloudDB;
+    private DefaultTableModel tableModel;
+    private JComboBox<String> cmbProductToAdd;
     private JTextField txtSubtotal;
     private JTextField txtIVA;
     private JTextField txtTotal;
-    private JTable tblProductsAdded;
-    public InvoiceController(Document invoiceData) {
-        setTitle("Factura - AME STORE");
-        setSize(500, 600);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setResizable(false);
-        setLocationRelativeTo(null);
-        
-        txtInvoiceDetails = new JTextArea();
-        txtInvoiceDetails.setEditable(false);
-        txtInvoiceDetails.setFocusable(false);
-        txtInvoiceDetails.setFont(new Font("Monospaced", Font.PLAIN, 14));
-        JScrollPane scrollPane = new JScrollPane(txtInvoiceDetails);
-        add(scrollPane, BorderLayout.CENTER);
+    private JTextField txtid;
+private JTextField txtCustomer;
+private JTextField txtDirection;
+private JTextField txtNumber;
+private JTextField txtSearchProduct;
+private JTable tblProductsAdded;
+private JFrame parentFrame;
 
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout());
-        JButton btnExportPDF = new JButton("Exportar a PDF");
-        JButton btnPrint = new JButton("Imprimir");
-
-        btnExportPDF.addActionListener(e -> exportToPDF(invoiceData));
-        btnPrint.addActionListener(e -> printInvoice());
-        
-        buttonPanel.add(btnExportPDF);
-        buttonPanel.add(btnPrint);
-        add(buttonPanel, BorderLayout.SOUTH);
-        
-        String currentDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        StringBuilder invoiceDetails = new StringBuilder();
-        invoiceDetails.append("SISTEMA DE ROPA\n")
-                .append("AME STORE\n")
-                .append("@Team TNT\n")
-                .append("*************************************************\n")
-                .append("                      FACTURA                   \n")
-                .append("Fecha: ").append(currentDate).append("\n")
-                .append("*************************************************\n\n")
-                .append("Cédula:  ").append(invoiceData.getString("customerId")).append("\n")
-                .append("Nombre:  ").append(invoiceData.getString("customerName")).append("\n")
-                .append("Dirección:  ").append(invoiceData.getString("customerAddress")).append("\n")
-                .append("Teléfono:  ").append(invoiceData.getString("customerPhone")).append("\n\n")
-                .append("------------------------------------------------\n")
-                .append("           DETALLES DE LOS PRODUCTOS           \n")
-                .append("------------------------------------------------\n");
-
-        List<Document> items = (List<Document>) invoiceData.get("items");
-        for (Document item : items) {
-            invoiceDetails.append(String.format("%-5s %-20s %-10s %-10s %-10s\n", 
-                    item.getInteger("quantity"), 
-                    item.getString("productName"), 
-                    "$" + item.getDouble("price"), 
-                    "$" + item.getDouble("subtotal"), 
-                    "$" + item.getDouble("total")));
-        }
-
-        invoiceDetails.append("\n")
-                .append("------------------------------------------------\n")
-                .append(String.format("%-35s %-15s\n", "Subtotal:", "$" + invoiceData.getDouble("subtotal")))
-                .append(String.format("%-35s %-15s\n", "IVA:", "$" + invoiceData.getDouble("iva")))
-                .append(String.format("%-35s %-15s\n", "Total:", "$" + invoiceData.getDouble("total")))
-                .append("\n")
-                .append("------------------------------------------------\n")
-                .append("¡Gracias por tu compra en AME STORE!\n");
-        
-        txtInvoiceDetails.setText(invoiceDetails.toString());
+    public InvoiceController(CloudDB cloudDB, DefaultTableModel tableModel, JComboBox<String> cmbProductToAdd, JTextField txtSubtotal, JTextField txtIVA, JTextField txtTotal, JTextField txtid, JTextField txtCustomer, JTextField txtDirection, JTextField txtNumber, JTextField txtSearchProduct, JTable tblProductsAdded, JFrame parentFrame) {
+        this.cloudDB = cloudDB;
+        this.tableModel = tableModel;
+        this.cmbProductToAdd = cmbProductToAdd;
+        this.txtSubtotal = txtSubtotal;
+        this.txtIVA = txtIVA;
+        this.txtTotal = txtTotal;
+        this.txtid = txtid;
+        this.txtCustomer = txtCustomer;
+        this.txtDirection = txtDirection;
+        this.txtNumber = txtNumber;
+        this.txtSearchProduct = txtSearchProduct;
+        this.tblProductsAdded = tblProductsAdded;
+        this.parentFrame = parentFrame;
     }
 
-private void exportToPDF(Document invoiceData) {
-    try {
-        com.itextpdf.text.Document pdfDoc = new com.itextpdf.text.Document();
-        String fileName = "Factura_AME_STORE_" + System.currentTimeMillis() + ".pdf";
-        PdfWriter.getInstance(pdfDoc, new FileOutputStream(fileName));
-        pdfDoc.open();
 
-        // Formato de fecha
-        String currentDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
-        // Agregar título y encabezados
-        pdfDoc.add(new Paragraph("SISTEMA DE ROPA\n"));
-        pdfDoc.add(new Paragraph("AME STORE\n"));
-        pdfDoc.add(new Paragraph("@Team TNT\n"));
-        pdfDoc.add(new Paragraph("************************************************\n"));
-        pdfDoc.add(new Paragraph("                      FACTURA                   \n"));
-        pdfDoc.add(new Paragraph("************************************************\n"));
-        pdfDoc.add(new Paragraph("Fecha: " + currentDate + "\n"));
-        pdfDoc.add(new Paragraph("************************************************\n\n"));
-        
-        // Información del cliente
-        pdfDoc.add(new Paragraph("Cédula: " + invoiceData.getString("customerId")));
-        pdfDoc.add(new Paragraph("Nombre: " + invoiceData.getString("customerName")));
-        pdfDoc.add(new Paragraph("Dirección: " + invoiceData.getString("customerAddress")));
-        pdfDoc.add(new Paragraph("Teléfono: " + invoiceData.getString("customerPhone")));
-        
-        // Detalles de los productos
-        pdfDoc.add(new Paragraph("\n------------------------------------------------"));
-        pdfDoc.add(new Paragraph("           DETALLES DE LOS PRODUCTOS           "));
-        pdfDoc.add(new Paragraph("------------------------------------------------"));
-        
-        List<Document> items = (List<Document>) invoiceData.get("items");
-        for (Document item : items) {
-            pdfDoc.add(new Paragraph(String.format("%-5s %-20s %-10s %-10s %-10s", 
-                    item.getInteger("quantity"), 
-                    item.getString("productName"), 
-                    "$" + item.getDouble("price"), 
-                    "$" + item.getDouble("subtotal"), 
-                    "$" + item.getDouble("total"))));
+
+
+
+
+   
+
+
+
+
+    
+    public void addProductToTable(JSpinner spnQuantity) {
+        String selectedProduct = (String) cmbProductToAdd.getSelectedItem();
+            if (selectedProduct != null && !selectedProduct.equals("No encontrado")) {
+            List<Document> products = cloudDB.getAllProducts();
+            for (Document doc : products) {
+            if (selectedProduct.equals(doc.getString("name"))) {
+                int quantity = (int) spnQuantity.getValue();
+           
+                Double price = doc.getDouble("price");
+            if (price == null) {
+                
+                JOptionPane.showMessageDialog(null, "Error: Precio no encontrado para el producto.", "Error", JOptionPane.ERROR_MESSAGE);
+                break;
+            }
+
+            double subtotal = price * quantity;
+            double total = subtotal; 
+
+            
+            Object[] rowData = {
+                quantity,
+                doc.getString("name"),
+                price,
+                subtotal,
+                total
+            };
+            tableModel.addRow(rowData);
+
+            
+            calculateTotal();
+            break;
         }
-
-        // Subtotal, IVA, Total
-        pdfDoc.add(new Paragraph("\n------------------------------------------------"));
-        pdfDoc.add(new Paragraph(String.format("%-35s %-15s", "Subtotal:", "$" + invoiceData.getDouble("subtotal"))));
-        pdfDoc.add(new Paragraph(String.format("%-35s %-15s", "IVA:", "$" + invoiceData.getDouble("iva"))));
-        pdfDoc.add(new Paragraph(String.format("%-35s %-15s", "Total:", "$" + invoiceData.getDouble("total"))));
-        
-        // Mensaje de agradecimiento
-        pdfDoc.add(new Paragraph("\n------------------------------------------------"));
-        pdfDoc.add(new Paragraph("¡Gracias por tu compra en AME STORE!"));
-
-        // Cerrar el documento PDF
-        pdfDoc.close();
-
-        JOptionPane.showMessageDialog(this, "Factura exportada como PDF.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-    } catch (Exception e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Error al exportar a PDF.", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
-    
-    private void printInvoice() {
-        try {
-            PrinterJob job = PrinterJob.getPrinterJob();
-            job.setPrintable((g, pf, page) -> {
-                if (page >= 1) return Printable.NO_SUCH_PAGE;
-                g.translate((int) pf.getImageableX(), (int) pf.getImageableY());
-                txtInvoiceDetails.print(g);
-                return Printable.PAGE_EXISTS;
-            });
-            if (job.printDialog()) job.print();
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al imprimir la factura.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    public double[] calculateTotal() {
+    double subtotal = 0.0;
+    double ivaRate = 0.15;
+    double iva;
+    double total;
+
+    for (int i = 0; i < tableModel.getRowCount(); i++) {
+        Object value = tableModel.getValueAt(i, 3);
+        
+        if (value instanceof Double) {
+            subtotal += (Double) value;
+        } else {
+            try {
+                if (value instanceof String) {
+                    subtotal += Double.parseDouble((String) value);
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error al convertir el valor en la fila " + i + " a Double: " + e.getMessage());
+            }
         }
     }
+
+    iva = subtotal * ivaRate;
+    total = subtotal + iva;
     
+    return new double[]{subtotal, iva, total};
 }
+     public void updateProductComboBox(String searchCriteria) {
+        cmbProductToAdd.removeAllItems();
+        List<Document> products = cloudDB.getAllProducts();
+        for (Document doc : products) {
+            if (doc.getString("name").toLowerCase().contains(searchCriteria.toLowerCase()) || 
+                doc.getString("id").toLowerCase().contains(searchCriteria.toLowerCase())) {
+                cmbProductToAdd.addItem(doc.getString("name"));
+            }
+        }
+        if (cmbProductToAdd.getItemCount() == 0) {
+            cmbProductToAdd.addItem("No encontrado");
+        }
+    }
+    public void updateSpinnerQuantity(JSpinner spnQuantity) {
+    String selectedProduct = (String) cmbProductToAdd.getSelectedItem();
+    if (selectedProduct != null && !selectedProduct.equals("No encontrado")) {
+        List<Document> products = cloudDB.getAllProducts();
+        for (Document doc : products) {
+            if (selectedProduct.equals(doc.getString("name"))) {
+                int quantity = doc.getInteger("quantity");
+                SpinnerNumberModel model = new SpinnerNumberModel(1, 1, quantity, 1);
+                spnQuantity.setModel(model);
+                spnQuantity.setValue(1);
+                break;
+            }
+        }
+    } else {
+        SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 0, 1);
+        spnQuantity.setModel(model);
+        spnQuantity.setValue(0);
+    }
+}
+
+
+public void searchCustomer(JTextField txtid, JTextField txtCustomer, JTextField txtDirection, JTextField txtNumber, JFrame parentFrame) {
+    String id = txtid.getText();
+    Document customer = cloudDB.findCustomerByID(id);
+
+    if (customer != null) {
+        txtCustomer.setText(customer.getString("name"));
+        txtDirection.setText(customer.getString("address"));
+        txtNumber.setText(customer.getString("phone"));
+    } else {
+        int response = JOptionPane.showConfirmDialog(
+            parentFrame,
+            "Cliente no encontrado. ¿Desea agregar un nuevo cliente?",
+            "Cliente no encontrado",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+        if (response == JOptionPane.YES_OPTION) {
+            FrmAddCustomer frmAddCustomer = new FrmAddCustomer();
+            frmAddCustomer.setVisible(true);
+        }
+    }
+}
+public void saveInvoice() {
+
+    
+    String customerId = txtid.getText();
+    String customerName = txtCustomer.getText();
+    String customerAddress = txtDirection.getText();
+    String customerPhone = txtNumber.getText();
+    if (customerId.isEmpty()) {
+        JOptionPane.showMessageDialog(parentFrame, "Porfavor ingresa un numero de cédula.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    List<Document> items = new ArrayList<>();
+    for (int i = 0; i < tblProductsAdded.getRowCount(); i++) {
+        int quantity = (int) tblProductsAdded.getValueAt(i, 0);
+        String productName = (String) tblProductsAdded.getValueAt(i, 1);
+        double price = (double) tblProductsAdded.getValueAt(i, 2);
+        double subtotal = (double) tblProductsAdded.getValueAt(i, 3);
+        double total = (double) tblProductsAdded.getValueAt(i, 4);
+
+        Document item = new Document("quantity", quantity)
+                .append("productName", productName)
+                .append("price", price)
+                .append("subtotal", subtotal)
+                .append("total", total);
+                
+        items.add(item);
+    }
+Date currentDate = new Date();
+    Document invoice = new Document("customerId", customerId)
+            .append("customerName", customerName)
+            .append("customerAddress", customerAddress)
+            .append("customerPhone", customerPhone)
+            .append("items", items)
+            .append("subtotal", Double.valueOf(txtSubtotal.getText()))
+            .append("iva", Double.valueOf(txtIVA.getText()))
+            .append("total", Double.parseDouble(txtTotal.getText()))
+                .append("date", currentDate); 
+    System.out.println("Invoice to be saved: " + invoice.toJson());
+
+    boolean success = cloudDB.saveInvoice(invoice); 
+    if (success) {
+        JOptionPane.showMessageDialog(parentFrame, "Factura guardada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        
+        
+        InvoiceExport detailsView = new InvoiceExport(invoice);
+        detailsView.setVisible(true);
+  
+        txtid.setText("");
+        txtCustomer.setText("");
+        txtDirection.setText("");
+        txtNumber.setText("");
+        txtSubtotal.setText("");
+        txtIVA.setText("");
+        txtTotal.setText("");
+        txtSearchProduct.setText("");
+        
+        DefaultTableModel model = (DefaultTableModel) tblProductsAdded.getModel();
+        model.setRowCount(0);
+        
+        
+         cmbProductToAdd.setSelectedIndex(-1);
+       
+        for (int i = 0; i < tblProductsAdded.getRowCount(); i++) {
+            
+            ((DefaultTableModel) tblProductsAdded.getModel()).removeRow(0);
+        }
+    } else {
+        JOptionPane.showMessageDialog(parentFrame, "Error al guardar la factura.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+ }
+}
+
+
+

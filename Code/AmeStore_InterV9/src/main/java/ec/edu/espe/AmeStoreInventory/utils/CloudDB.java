@@ -5,18 +5,22 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoException;
 import com.mongodb.ServerApi;
 import com.mongodb.ServerApiVersion;
+import com.mongodb.client.ListIndexesIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
+import com.mongodb.client.model.IndexOptions;
+import com.mongodb.client.model.Indexes;
 import com.mongodb.client.result.DeleteResult;
 import ec.edu.espe.AmeStoreInventory.model.Customer;
 import ec.edu.espe.AmeStoreInventory.model.Product;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -44,6 +48,7 @@ private MongoClient mongoClient;
 
             mongoClient = MongoClients.create(settings);
             database = mongoClient.getDatabase("BaseAmeStore");
+            createUniqueIndex();
 
         } catch (MongoException e) {
             System.err.println("Error initializing MongoDB: " + e.getMessage());
@@ -137,7 +142,16 @@ private MongoClient mongoClient;
     // Customer operations
     public void uploadCustomerData(Customer customer) {
         MongoCollection<Document> collection = getCollection("customer");
-
+        
+         
+        Document existingCustomer = findCustomerByID(customer.getId());
+    if (existingCustomer != null) {
+       JOptionPane.showMessageDialog(null, 
+            "Customer with ID " + customer.getId() + " already exists.", 
+            "Duplicate ID Error", 
+            JOptionPane.ERROR_MESSAGE);
+        return;
+    }
         Document document = new Document("id", customer.getId())
                 .append("name", customer.getName())
                 .append("address", customer.getAddress())
@@ -145,17 +159,24 @@ private MongoClient mongoClient;
                 .append("phone", customer.getPhone());
 
 
-    try {
+  try {
+        
         collection.insertOne(document);
-        System.out.println("Customer data saved successfully!");
+
     } catch (MongoException e) {
-        System.err.println("Error inserting document: " + e.getMessage());
-    }    }
+        
+            JOptionPane.showMessageDialog(null, 
+                "Error inserting document: " + e.getMessage(), 
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
+        
+    }
+    }
    
 
     public List<Document> searchCustomerById(String id){
         MongoCollection<Document> collection = getCollection("customer");
-
+        
         Document query = new Document("id", id);
         List<Document> results = new ArrayList<>();
 
@@ -221,6 +242,15 @@ private MongoClient mongoClient;
         e.printStackTrace();
         return false;
     }
+}
+    public MongoDatabase getDatabase() {
+    return database;
+}
+    public void createUniqueIndex() {
+    MongoCollection<Document> collection = getCollection("customer");
+    
+    IndexOptions indexOptions = new IndexOptions().unique(true);
+    collection.createIndex(Indexes.ascending("id"), indexOptions);
 }
 }
 

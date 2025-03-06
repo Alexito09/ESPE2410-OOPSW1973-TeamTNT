@@ -233,8 +233,7 @@ public class FrmAmeStoreSplash extends javax.swing.JFrame {
     }//GEN-LAST:event_progressBarAncestorAdded
 
     private void startProgressBar() {
-        
-        // Crear un SwingWorker para actualizar la barra de progreso
+ 
         SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() throws Exception {

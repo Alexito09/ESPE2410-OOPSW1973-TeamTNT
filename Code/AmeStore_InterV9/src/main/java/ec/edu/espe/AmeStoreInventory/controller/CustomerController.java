@@ -61,6 +61,12 @@ public class CustomerController {
             JOptionPane.showMessageDialog(null, "El teléfono solo debe contener números.", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
+         Document existingCustomer = cloudDB.findCustomerByID(id); 
+    if (existingCustomer != null) {
+        JOptionPane.showMessageDialog(null, "La cédula ingresada ya está registrada.", "Error", JOptionPane.ERROR_MESSAGE);
+      
+        return false; 
+    }
 
         try {
             Customer customer = new Customer(id, name, address, email, phone);

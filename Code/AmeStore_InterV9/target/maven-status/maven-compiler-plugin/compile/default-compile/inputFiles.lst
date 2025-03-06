@@ -4,6 +4,7 @@ C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\sr
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStore\exceptions\ProductNotFoundException.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventory\controller\CustomerController.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventory\controller\InvoiceController.java
+C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventory\controller\InvoiceExport.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventory\controller\ProductController.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventory\model\ClothingItem.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventory\model\Customer.java
@@ -26,10 +27,10 @@ C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\sr
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventorySystem\view\FrmEditCustomer.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventorySystem\view\FrmEditProduct.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventorySystem\view\FrmHelp.java
+C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventorySystem\view\FrmInvoiceView.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventorySystem\view\FrmLogin.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventorySystem\view\FrmMenuAmeStore.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventorySystem\view\FrmNewInvoice.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventorySystem\view\FrmUser.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventorySystem\view\FrmViewCustomer.java
 C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventorySystem\view\FrmViewInventory.java
-C:\Users\USER\Desktop\G6_OOP\ESPE2410-OOPSW1973-TeamTNT\Code\AmeStore_InterV9\src\main\java\ec\edu\espe\AmeStoreInventorySystem\view\FrmViewInvoice.java
